@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.4" color="#fff">
+
+
+
+
+
+  <meta name="keywords" content="Java,基础,变量," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CuiJing's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
+<meta name="keywords" content="Java,基础,变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 变量">
+<meta property="og:url" content="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/index.html">
+<meta property="og:site_name" content="CuiJing&#39;s Blog">
+<meta property="og:description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-04T15:55:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 变量">
+<meta name="twitter:description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/"/>
+
+
+
+
+
+  <title>Java 变量 | CuiJing's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CuiJing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">victory over oneself</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            TopX
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CuiJing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CuiJing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 变量</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-06T08:30:00+08:00">
+                2015-02-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-04T23:55:54+08:00">
+                2018-03-04
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2015/02/06/1-Java-Base/2-Java variable/" class="leancloud_visitors" data-flag-title="Java 变量">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,967
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="变量的概述"><a href="#变量的概述" class="headerlink" title="变量的概述"></a>变量的概述</h1><p>通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。<br><a id="more"></a><br>按照用法 可分为 <strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>。</p>
+<p><em>基本数据类型不存在“引用”的概念，基本数据类型都是直接存储在内存中的内存栈上的，数据本身的值就是存储在栈空间里面，而Java语言里面八种数据类型是这种存储模型；</em></p>
+<p><em>引用类型继承于Object类（也是引用类型）都是按照Java里面存储对象的内存模型来进行数据存储的，使用Java内存堆和内存栈来进行这种类型的数据存储，简单地讲，“引用”是存储在有序的内存栈上的，而对象本身的值存储在内存堆上的；</em></p>
+<p>区别:基本数据类型和引用类型的区别主要在于基本数据类型是分配在栈上的，而引用类型是分配在堆上的（需要理解java中的栈、堆概念）。</p>
+<p>-</p>
+<h1 id="基本数据类型（8种）"><a href="#基本数据类型（8种）" class="headerlink" title="基本数据类型（8种）"></a>基本数据类型（8种）</h1><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用空间</th>
+<th>表值范围</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bolean</td>
+<td>1字节=8bit</td>
+<td>false；true</td>
+<td>不能取null</td>
+<td>false</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2字节</td>
+<td>0 ~ 2^16 - 1</td>
+<td>2^16 = 65536</td>
+<td>为空</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>1字节</td>
+<td>- 2^7~ 2^7 - 1</td>
+<td>两byte相加，变 int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2字节</td>
+<td>- 2^15 ~ 2^15 - 1</td>
+<td>2^15 = 32768</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4字节</td>
+<td>- 2^31 ~ 2^31 - 1</td>
+<td>约20亿,10位有效数字</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8字节</td>
+<td>- 2^63 ~ 2^63 - 1</td>
+<td>约900亿亿,20位有效数字</td>
+<td>0</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4字节</td>
+<td>9位有效数字</td>
+<td>小数算，正负号不算</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8字节</td>
+<td>18位有效数字</td>
+<td>同 float</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line"><span class="number">1</span>、java中所有的数据类所占据的字节数量与平台无关，java也没有任何无符号类型</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="keyword">float</span> 和 <span class="keyword">double</span> 的小数部分不可能精确，只能近似。比较小数时，用 </span><br><span class="line">   <span class="keyword">double</span> i=<span class="number">0.01</span>; </span><br><span class="line">   <span class="keyword">if</span> ( i - <span class="number">0.01</span> &lt; <span class="number">1E-6</span>) ...</span><br><span class="line">   <span class="comment">// 不能直接 if (i==0.01)...</span></span><br><span class="line">   </span><br><span class="line"><span class="number">3</span>、<span class="keyword">float</span> 与 <span class="keyword">double</span> 的区别在于<span class="keyword">float</span>类型有效小数点只有<span class="number">6</span>~<span class="number">7</span>位 ， </span><br><span class="line">   <span class="keyword">double</span> 有<span class="number">15</span>~<span class="number">16</span>位。</span><br></pre></td></tr></table></figure>
+<p>补充：按照在类中存在的位置的不同：成员变量 vs 局部变量</p>
+<p>-</p>
+<h1 id="引用数据类型（类、接口、数组）"><a href="#引用数据类型（类、接口、数组）" class="headerlink" title="引用数据类型（类、接口、数组）"></a>引用数据类型（类、接口、数组）</h1><p>Java 中除去基本数据类型以外的数据类型都是引用数据类型，包括我们自己创建的类。</p>
+<h2 id="Java中什么叫做引用数据类型？"><a href="#Java中什么叫做引用数据类型？" class="headerlink" title="Java中什么叫做引用数据类型？"></a>Java中什么叫做引用数据类型？</h2><p>引用：<strong>就是按内存地址查询</strong><br>比如：<code>Object o = new Object();</code> 这个其实是在栈内存里分配一块内存空间为o，在堆内存里 new 了一个Object 类型的空间，在运行时是栈内存里的 o 指向堆内存里的那一块存储空间。</p>
+<p>引用类型变量是以间接方式去获取数据。引用类型变量都属于对象类型，如：数组、类、字符串等都属于引用类型变量。所以，引用类型变量里面存放的是数据的地址。说白了基本数据类型变量就像是直接放在柜子里的东西，而引用数据类型变量就是这个柜子对应编码的钥匙。钥匙号和柜子对应。</p>
+<h1 id="进制（了解）"><a href="#进制（了解）" class="headerlink" title="进制（了解）"></a>进制（了解）</h1><table>
+<thead>
+<tr>
+<th>进制</th>
+<th>缩写</th>
+<th>英文</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十进制</td>
+<td>D</td>
+<td>Decimal</td>
+<td>0-9 ；满10进1</td>
+</tr>
+<tr>
+<td>二进制</td>
+<td>B</td>
+<td>binaries</td>
+<td>0,1 ；满2进1，以0b或0B开头</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>O</td>
+<td>octal</td>
+<td>0-7 ，满8进1， 以数字0开头</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>H</td>
+<td>Hexagon</td>
+<td>0-9及A-F(a-f)，满16进1,以0x或0X开头。</td>
+</tr>
+</tbody>
+</table>
+<p>二进制：计算机底层都是用二进制来存储、运算。</p>
+<blockquote>
+<p>二进制 与十进制之间的转换。<br>二进制在底层存储：正数、负数都是以补码的形式存储的。<br>四种进制间的转换 ？？？</p>
+</blockquote>
+<h1 id="变量的数据类型转换"><a href="#变量的数据类型转换" class="headerlink" title="变量的数据类型转换"></a>变量的数据类型转换</h1><h2 id="自动类型转换："><a href="#自动类型转换：" class="headerlink" title="自动类型转换："></a>自动类型转换：</h2><p>容量小的类型自动转换为容量大的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> s = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">int</span> i = s + <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：byte  short char之间做运算，结果为int型！</strong></p>
+<h2 id="强制类型转换："><a href="#强制类型转换：" class="headerlink" title="强制类型转换："></a>强制类型转换：</h2><p>是自动类型转换的逆过程，使用 “( )” 实现强转，会丢失精度或者出现异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">32767</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">32768</span>;</span><br><span class="line"><span class="keyword">short</span> s1 = (<span class="keyword">short</span>) a;  </span><br><span class="line"><span class="keyword">short</span> s2 = (<span class="keyword">short</span>) b;  </span><br><span class="line">System.out.println(s1); <span class="comment">// 32767</span></span><br><span class="line">System.out.println(s2); <span class="comment">// -32768</span></span><br></pre></td></tr></table></figure>
+<h2 id="实例测试类"><a href="#实例测试类" class="headerlink" title="实例测试类"></a>实例测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestVeriable</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">             <span class="comment">// 1.变量得先定义后使用</span></span><br><span class="line">            <span class="keyword">int</span> myInt1 = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">double</span> d = <span class="number">12.3</span>;</span><br><span class="line">            System.out.println(myInt1);</span><br><span class="line">            System.out.println(myInt1 + d);</span><br><span class="line">            <span class="comment">// i1 超出了其作用的范围，不可使用。</span></span><br><span class="line">            <span class="comment">// System.out.println(i1);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 2.整型：byte(-128~+127)  short  int（默认类型） long</span></span><br><span class="line">            <span class="keyword">byte</span> b1 = <span class="number">12</span>;           <span class="comment">//byte b2 = 128;</span></span><br><span class="line">            <span class="keyword">short</span> s1 = <span class="number">128</span>;</span><br><span class="line">            <span class="keyword">int</span> i1 = <span class="number">12</span>;</span><br><span class="line">            <span class="comment">// 定义long型变量，值的末尾加“L”或“l”</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">2134123351345325L</span>;</span><br><span class="line">            System.out.println(l1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 3.浮点型（带小数点的数值）：double 是默认类型  float  </span></span><br><span class="line">            <span class="keyword">double</span> d1 = <span class="number">12.3</span>;</span><br><span class="line">            <span class="comment">//声明float类型的浮点型数据，末尾要加“F”或者“f”</span></span><br><span class="line">            <span class="keyword">float</span> f1 = <span class="number">12.3F</span>;</span><br><span class="line">            System.out.println(f1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.字符型（两个字节）：</span></span><br><span class="line">            <span class="comment">// char 只能表示一个字符(英文、中文、标点符号、日文、。。。)</span></span><br><span class="line">            <span class="keyword">char</span> c1 = <span class="string">'a'</span>;          <span class="comment">//char c2 = ' ab'; </span></span><br><span class="line">            String str = <span class="string">"ab"</span>;</span><br><span class="line">            <span class="keyword">char</span> c3 = <span class="string">'中'</span>;</span><br><span class="line">            String str1 = <span class="string">"中国"</span>;</span><br><span class="line">            <span class="comment">// 可以表示转义字符</span></span><br><span class="line">            <span class="keyword">char</span> c4 = <span class="string">'\t'</span>;</span><br><span class="line">            <span class="keyword">char</span> c5 = <span class="string">'\n'</span> ;</span><br><span class="line">            System.out.println(<span class="string">"abc"</span> + c5 + <span class="string">"def"</span>);</span><br><span class="line">            <span class="comment">// 了解</span></span><br><span class="line">            <span class="keyword">char</span> c6 = <span class="string">'\u1234'</span> ;        <span class="comment">//unicode值 == ？</span></span><br><span class="line">            System.out.println(c6);    <span class="comment">//char 类型是可以运算的，因为它都对应有Unicode值</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 5.布尔类型：boolean  只能够取值为true 或 false 。不能取值null</span></span><br><span class="line">            <span class="keyword">boolean</span> bool1 = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(bool1)</span><br><span class="line">                System.out.println(<span class="string">"哈哈！周末不上班 );</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量间的运算"><a href="#变量间的运算" class="headerlink" title="变量间的运算"></a>变量间的运算</h2><p>两个数相运算时，默认是 int 类型<br>如果有更高级的，就按高级的那个类型<br>   if(其中一个是double型)double型；<br>   else if(其中一个是float型)float型；<br>   else if(其中一个是long型)long型；<br>   else int 型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">变量之间的运算：(不考虑boolean ：char byte short int long float double)</span></span><br><span class="line"><span class="comment">1.自动类型转换</span></span><br><span class="line"><span class="comment">2.强制类型转换</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestVeriable</span></span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 1.自动类型转换:当容量小的数据类型与容量大的数据类型做运算时，</span></span><br><span class="line">            <span class="comment">// 容量小的会自动转换为容量大的数据类型:</span></span><br><span class="line">            <span class="comment">// char,byte,short ===&gt; int ===&gt;long ===&gt;float===double</span></span><br><span class="line">            <span class="keyword">int</span> i1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">short</span> s1 = <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> i2 = i1 + s1;</span><br><span class="line">            <span class="keyword">float</span> f1 = <span class="number">12.3F</span>;</span><br><span class="line">            <span class="keyword">float</span> f2 = f1 + i2;</span><br><span class="line">            <span class="comment">//float d1 = f2 + 12.3;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">long</span> l = <span class="number">12L</span>;</span><br><span class="line">            <span class="keyword">float</span> f3 = l;</span><br><span class="line">            System.out.println(i2);</span><br><span class="line">            System.out.println(f2);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">char</span> c1 = <span class="string">'a'</span> ;<span class="comment">//97</span></span><br><span class="line">            c1 = <span class="string">'A'</span>;<span class="comment">//65</span></span><br><span class="line">            <span class="keyword">int</span> i3 = c1 + <span class="number">1</span>;</span><br><span class="line">            System.out.println(i3);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//需要注意的：当char\byte\short之间做运算时，默认的结果为 int类型</span></span><br><span class="line">            <span class="keyword">short</span> ss1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">byte</span> bb1 = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> cc1 = <span class="string">'a'</span> ;</span><br><span class="line">            <span class="comment">//short ss2 = ss1 + bb1;</span></span><br><span class="line">            <span class="keyword">int</span> ii1 = ss1 + bb1;</span><br><span class="line">            <span class="comment">//char cc2 = cc1 + bb1;</span></span><br><span class="line">            <span class="keyword">int</span> ii2 = cc1 + bb1;</span><br><span class="line">            <span class="keyword">short</span> ss2 = <span class="number">11</span>;</span><br><span class="line">            <span class="comment">//short ss3 = ss1 + ss2;</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//2.强制类型转换：容量大转换为容量小的.要使用强制类型转换符：()</span></span><br><span class="line">            <span class="comment">//强制类型转换的问题：导致精度的损失</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">12345L</span>;</span><br><span class="line">            <span class="keyword">int</span> m1 = (<span class="keyword">int</span>)l1;</span><br><span class="line">            System.out.println(m1);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">byte</span> by1 = (<span class="keyword">byte</span>)m1;</span><br><span class="line">            System.out.println(by1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//平时常用的字符串,也是一种数据类型：String</span></span><br><span class="line">            String nation = <span class="string">"我是一个中国人"</span> ;</span><br><span class="line">            System.out.println(nation);</span><br><span class="line">            <span class="comment">//字符串与基本数据类型之间的运算:只能是连接运算：+。得到的结果仍为一个字符串</span></span><br><span class="line">            String str = <span class="string">"abc"</span>;</span><br><span class="line">            String str1 = str + m1; <span class="comment">//abc12345</span></span><br><span class="line">            System.out.println(str1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//题目：</span></span><br><span class="line">            String st1 = <span class="string">"hello"</span>;</span><br><span class="line">            <span class="keyword">int</span> myInt1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">char</span> ch1 = <span class="string">'a'</span> ;<span class="comment">//97</span></span><br><span class="line">            System.out.println(str1 + myInt1 + ch1);  <span class="comment">// hello12a</span></span><br><span class="line">            System.out.println(myInt1 + ch1 + str1);  <span class="comment">// 109hello</span></span><br><span class="line">            System.out.println(ch1 + str1 + myInt1);  <span class="comment">// ahello12</span></span><br><span class="line"></span><br><span class="line">            String st2 = <span class="string">"12"</span>;</span><br><span class="line">            st2 = <span class="number">12</span> + <span class="string">""</span>; </span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    CuiJing
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/" title="Java 变量">http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+            <a href="/tags/变量/" rel="tag"># 变量</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/06/1-Java-Base/4-Java Flow control/" rel="next" title="Java 变量">
+                <i class="fa fa-chevron-left"></i> Java 变量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/06/3-Exception/2、异常注意事项/" rel="prev" title="Java 异常注意事项">
+                Java 异常注意事项 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/logo.jpg"
+                alt="CuiJing" />
+            
+              <p class="site-author-name" itemprop="name">CuiJing</p>
+              <p class="site-description motion-element" itemprop="description">战胜自我</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/admitted" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:cuijing137@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/cuijing137" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的概述"><span class="nav-number">1.</span> <span class="nav-text">变量的概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型（8种）"><span class="nav-number">2.</span> <span class="nav-text">基本数据类型（8种）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用数据类型（类、接口、数组）"><span class="nav-number">3.</span> <span class="nav-text">引用数据类型（类、接口、数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中什么叫做引用数据类型？"><span class="nav-number">3.1.</span> <span class="nav-text">Java中什么叫做引用数据类型？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进制（了解）"><span class="nav-number">4.</span> <span class="nav-text">进制（了解）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的数据类型转换"><span class="nav-number">5.</span> <span class="nav-text">变量的数据类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型转换："><span class="nav-number">5.1.</span> <span class="nav-text">自动类型转换：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换："><span class="nav-number">5.2.</span> <span class="nav-text">强制类型转换：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例测试类"><span class="nav-number">5.3.</span> <span class="nav-text">实例测试类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量间的运算"><span class="nav-number">5.4.</span> <span class="nav-text">变量间的运算</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CuiJing</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user-circle-o"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      <i class="fa fa-eye"></i>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("gx6CKEAe97Jxl3VJFqQ79lqt-gzGzoHsz", "Q6jC1HzMUjDnQ0VnpydNbc2o");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
