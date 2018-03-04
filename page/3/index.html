@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/8-Collection-Map/16-HashSet/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/8-Collection-Map/15-Set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -370,7 +370,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/09/15/8-Collection-Map/16-HashSet/" itemprop="url">集合框架之 HashSet</a></h1>
+                <a class="post-title-link" href="/2015/09/15/8-Collection-Map/15-Set/" itemprop="url">集合框架之 Set</a></h1>
         
 
         <div class="post-meta">
@@ -398,7 +398,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-05T00:02:43+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-05T00:02:47+08:00">
                 2018-03-05
               </time>
             
@@ -412,7 +412,7 @@
 
           
           
-             <span id="/2015/09/15/8-Collection-Map/16-HashSet/" class="leancloud_visitors" data-flag-title="集合框架之 HashSet">
+             <span id="/2015/09/15/8-Collection-Map/15-Set/" class="leancloud_visitors" data-flag-title="集合框架之 Set">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,343
+                  209
                 </span>
               
 
@@ -455,7 +455,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  1
                 </span>
               
             </div>
@@ -477,14 +477,14 @@
 
       
         
-          <h1 id="HashSet-简介"><a href="#HashSet-简介" class="headerlink" title="HashSet 简介"></a>HashSet 简介</h1><p>HashSet 是一个没有重复元素的集合。</p>
-<p>它是由HashMap实现的，不保证元素的顺序，而且HashSet允许使用 null 元素。<br>HashSet是非同步的。如果多个线程同时访问一个哈希 set，而其中至少一个线程修改了该 set，那么它必须 保持外部同步。这通常是通过对自然封装该 set 的对象执行同步操作来完成的。如果不存在这样的对象，则应该使用 Collections.synchronizedSet 方法来“包装” set。最好在创建时完成这一操作，以防止对该 set 进行意外的不同步访问：<br>
+          <h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><p>前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的，TreeSet是通过TreeMap实现的)。</p>
+<p>首先，我们看看Set架构。<br>
 
         
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/09/15/8-Collection-Map/16-HashSet/" rel="contents">
+            <a class="btn" href="/2015/09/15/8-Collection-Map/15-Set/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -719,7 +719,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/8-Collection-Map/15-Set/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/8-Collection-Map/16-HashSet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -738,7 +738,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/09/15/8-Collection-Map/15-Set/" itemprop="url">集合框架之 Set</a></h1>
+                <a class="post-title-link" href="/2015/09/15/8-Collection-Map/16-HashSet/" itemprop="url">集合框架之 HashSet</a></h1>
         
 
         <div class="post-meta">
@@ -766,7 +766,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-05T00:02:47+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-05T00:02:43+08:00">
                 2018-03-05
               </time>
             
@@ -780,7 +780,7 @@
 
           
           
-             <span id="/2015/09/15/8-Collection-Map/15-Set/" class="leancloud_visitors" data-flag-title="集合框架之 Set">
+             <span id="/2015/09/15/8-Collection-Map/16-HashSet/" class="leancloud_visitors" data-flag-title="集合框架之 HashSet">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -807,7 +807,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  209
+                  2,343
                 </span>
               
 
@@ -823,7 +823,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  12
                 </span>
               
             </div>
@@ -845,14 +845,14 @@
 
       
         
-          <h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><p>前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的，TreeSet是通过TreeMap实现的)。</p>
-<p>首先，我们看看Set架构。<br>
+          <h1 id="HashSet-简介"><a href="#HashSet-简介" class="headerlink" title="HashSet 简介"></a>HashSet 简介</h1><p>HashSet 是一个没有重复元素的集合。</p>
+<p>它是由HashMap实现的，不保证元素的顺序，而且HashSet允许使用 null 元素。<br>HashSet是非同步的。如果多个线程同时访问一个哈希 set，而其中至少一个线程修改了该 set，那么它必须 保持外部同步。这通常是通过对自然封装该 set 的对象执行同步操作来完成的。如果不存在这样的对象，则应该使用 Collections.synchronizedSet 方法来“包装” set。最好在创建时完成这一操作，以防止对该 set 进行意外的不同步访问：<br>
 
         
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/09/15/8-Collection-Map/15-Set/" rel="contents">
+            <a class="btn" href="/2015/09/15/8-Collection-Map/16-HashSet/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2331,6 +2331,9 @@
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
+
+<span class="post-meta-divider">|</span>
+<span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
 
 
 
