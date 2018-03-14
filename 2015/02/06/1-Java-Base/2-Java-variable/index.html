@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Java,JVM," />
+  <meta name="keywords" content="Java,基础,变量," />
 
 
 
@@ -126,27 +126,18 @@
 
 
 
-<meta name="description" content="什么是 Java 堆内存堆是在 JVM 启动时创建的，主要用来维护运行时数据，如运行过程中创建的对象和数组都是基于这块内存空间。Java 堆是非常重要的元素，如果我们动态创建的对象没有得到及时回收，持续堆积，最后会导致堆空间被占满，内存溢出。因此，Java 提供了一种垃圾回收机制，在后台创建一个守护进程。该进程会在内存紧张的时候自动跳出来，把堆空间的垃圾全部进行回收，从而保证程序的正常运行。">
-<meta name="keywords" content="Java,JVM">
+<meta name="description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
+<meta name="keywords" content="Java,基础,变量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java垃圾回收机制（一）">
-<meta property="og:url" content="http://cuijing.me/2017/06/15/9-JVM/Java GC-1/index.html">
+<meta property="og:title" content="Java 变量">
+<meta property="og:url" content="http://cuijing.me/2015/02/06/1-Java-Base/2-Java-variable/index.html">
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
-<meta property="og:description" content="什么是 Java 堆内存堆是在 JVM 启动时创建的，主要用来维护运行时数据，如运行过程中创建的对象和数组都是基于这块内存空间。Java 堆是非常重要的元素，如果我们动态创建的对象没有得到及时回收，持续堆积，最后会导致堆空间被占满，内存溢出。因此，Java 提供了一种垃圾回收机制，在后台创建一个守护进程。该进程会在内存紧张的时候自动跳出来，把堆空间的垃圾全部进行回收，从而保证程序的正常运行。">
+<meta property="og:description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518600738.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518742668.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518839508.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518953238.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519054146.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519316371.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519421137.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519603515.jpg">
-<meta property="og:updated_time" content="2018-03-04T16:03:48.000Z">
+<meta property="og:updated_time" content="2016-04-13T12:43:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java垃圾回收机制（一）">
-<meta name="twitter:description" content="什么是 Java 堆内存堆是在 JVM 启动时创建的，主要用来维护运行时数据，如运行过程中创建的对象和数组都是基于这块内存空间。Java 堆是非常重要的元素，如果我们动态创建的对象没有得到及时回收，持续堆积，最后会导致堆空间被占满，内存溢出。因此，Java 提供了一种垃圾回收机制，在后台创建一个守护进程。该进程会在内存紧张的时候自动跳出来，把堆空间的垃圾全部进行回收，从而保证程序的正常运行。">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518600738.jpg">
+<meta name="twitter:title" content="Java 变量">
+<meta name="twitter:description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
 
 
 
@@ -176,13 +167,13 @@
 
 
 
-  <link rel="canonical" href="http://cuijing.me/2017/06/15/9-JVM/Java GC-1/"/>
+  <link rel="canonical" href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java-variable/"/>
 
 
 
 
 
-  <title>Java垃圾回收机制（一） | CuiJing's Blog</title>
+  <title>Java 变量 | CuiJing's Blog</title>
   
 
 
@@ -353,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2017/06/15/9-JVM/Java GC-1/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java-variable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -370,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java垃圾回收机制（一）</h1>
+          <h1 class="post-title" itemprop="name headline">Java 变量</h1>
         
 
         <div class="post-meta">
@@ -382,8 +373,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T08:30:00+08:00">
-                2017-06-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-06T08:30:00+08:00">
+                2015-02-06
               </time>
             
 
@@ -398,8 +389,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-05T00:03:48+08:00">
-                2018-03-05
+              <time title="更新于" itemprop="dateModified" datetime="2016-04-13T20:43:00+08:00">
+                2016-04-13
               </time>
             
           </span>
@@ -412,7 +403,7 @@
 
           
           
-             <span id="/2017/06/15/9-JVM/Java GC-1/" class="leancloud_visitors" data-flag-title="Java垃圾回收机制（一）">
+             <span id="/2015/02/06/1-Java-Base/2-Java-variable/" class="leancloud_visitors" data-flag-title="Java 变量">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -439,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,798
+                  1,967
                 </span>
               
 
@@ -455,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  8
                 </span>
               
             </div>
@@ -476,57 +467,134 @@
       
 
       
-        <h1 id="什么是-Java-堆内存"><a href="#什么是-Java-堆内存" class="headerlink" title="什么是 Java 堆内存"></a>什么是 Java 堆内存</h1><p>堆是在 JVM 启动时创建的，主要用来维护运行时数据，如运行过程中创建的对象和数组都是基于这块内存空间。Java 堆是非常重要的元素，如果我们动态创建的对象没有得到及时回收，持续堆积，最后会导致堆空间被占满，内存溢出。<br>因此，Java 提供了一种垃圾回收机制，在后台创建一个守护进程。该进程会在内存紧张的时候自动跳出来，把堆空间的垃圾全部进行回收，从而保证程序的正常运行。<br><a id="more"></a></p>
-<h1 id="那什么是垃圾呢？"><a href="#那什么是垃圾呢？" class="headerlink" title="那什么是垃圾呢？"></a>那什么是垃圾呢？</h1><p>所谓“垃圾”，就是指所有不再存活的对象。常见的判断是否存活有两种方法：引用计数法和可达性分析。</p>
-<h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><p>为每一个创建的对象分配一个引用计数器，用来存储该对象被引用的个数。当该个数为零，意味着没有人再使用这个对象，可以认为“对象死亡”。但是，这种方案存在严重的问题，就是无法检测“循环引用”：当两个对象互相引用，即时它俩都不被外界任何东西引用，它俩的计数都不为零，因此永远不会被回收。而实际上对于开发者而言，这两个对象已经完全没有用处了。<br>因此，Java 里没有采用这样的方案来判定对象的“存活性”。</p>
-<h2 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h2><p>这种方案是目前主流语言里采用的对象存活性判断方案。基本思路是把所有引用的对象想象成一棵树，从树的根结点 GC Roots 出发，持续遍历找出所有连接的树枝对象，这些对象则被称为“可达”对象，或称“存活”对象。其余的对象则被视为“死亡”的“不可达”对象，或称“垃圾”。<br>参考下图，object5,object6和object7便是不可达对象，视为“死亡状态”，应该被垃圾回收器回收。<br><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518600738.jpg" alt=""></p>
-<h2 id="GC-Roots-究竟指谁呢？"><a href="#GC-Roots-究竟指谁呢？" class="headerlink" title="GC Roots 究竟指谁呢？"></a>GC Roots 究竟指谁呢？</h2><p>我们可以猜测，GC Roots 本身一定是可达的，这样从它们出发遍历到的对象才能保证一定可达。那么，Java 里有哪些对象是一定可达呢？主要有以下四种：</p>
-<ul>
-<li>虚拟机栈（帧栈中的本地变量表）中引用的对象。</li>
-<li>方法区中静态属性引用的对象。</li>
-<li>方法区中常量引用的对象。</li>
-<li>本地方法栈中JNI引用的对象。</li>
-</ul>
-<p>不少读者可能对这些 GC Roots 似懂非懂，这涉及到 JVM 本身的内存结构等等，未来的文章会再做深入讲解。这里只要知道有这么几种类型的 GC Roots，每次垃圾回收器会从这些根结点开始遍历寻找所有可达节点。</p>
-<h1 id="有哪些方式来回收这些垃圾呢？"><a href="#有哪些方式来回收这些垃圾呢？" class="headerlink" title="有哪些方式来回收这些垃圾呢？"></a>有哪些方式来回收这些垃圾呢？</h1><p>上面已经知道，所有GC Roots不可达的对象都称为垃圾，参考下图，黑色的表示垃圾，灰色表示存活对象，绿色表示空白空间。</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518742668.jpg" alt=""></p>
-<p>那么，我们如何来回收这些垃圾呢？</p>
-<h2 id="标记－清理"><a href="#标记－清理" class="headerlink" title="标记－清理"></a>标记－清理</h2><p>第一步，所谓“标记”就是利用可达性遍历堆内存，把“存活”对象和“垃圾”对象进行标记，得到的结果如上图；<br>第二步，既然“垃圾”已经标记好了，那我们再遍历一遍，把所有“垃圾”对象所占的空间直接清空即可。<br>结果如下：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518839508.jpg" alt=""></p>
-<p>这便是标记－清理方案，简单方便，但是容易产生内存碎片。</p>
-<h2 id="标记－整理"><a href="#标记－整理" class="headerlink" title="标记－整理"></a>标记－整理</h2><p>既然上面的方法会产生内存碎片，那好，我在清理的时候，把所有存活对象扎堆到同一个地方，让它们待在一起，这样就没有内存碎片了。<br>结果如下：<br><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974518953238.jpg" alt=""></p>
-<p>这两种方案适合存活对象多，垃圾少的情况，它只需要清理掉少量的垃圾，然后挪动下存活对象就可以了。<br>复制<br>这种方法比较粗暴，直接把堆内存分成两部分，一段时间内只允许在其中一块内存上进行分配，当这块内存被分配完后，则执行垃圾回收，把所有存活对象全部复制到另一块内存上，当前内存则直接全部清空。<br>参考下图：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519054146.jpg" alt=""></p>
-<p>起初时只使用上面部分的内存，直到内存使用完毕，才进行垃圾回收，把所有存活对象搬到下半部分，并把上半部分进行清空。<br>这种做法不容易产生碎片，也简单粗暴；但是，它意味着你在一段时间内只能使用一部分的内存，超过这部分内存的话就意味着堆内存里频繁的复制清空。<br>这种方案适合存活对象少，垃圾多的情况，这样在复制时就不需要复制多少对象过去，多数垃圾直接被清空处理。</p>
-<h2 id="Java-的分代回收机制"><a href="#Java-的分代回收机制" class="headerlink" title="Java 的分代回收机制"></a>Java 的分代回收机制</h2><p>上面我们看到有至少三种方法来回收内存，那么 Java 里是如何选择利用这三种回收算法呢？是只用一种还是三种都用呢？</p>
-<h2 id="Java-的堆结构"><a href="#Java-的堆结构" class="headerlink" title="Java 的堆结构"></a>Java 的堆结构</h2><p>在选择回收算法前，我们先来看一下 Java 堆的结构。<br>一块 Java 堆空间一般分成三部分，这三部分用来存储三类数据：</p>
-<ul>
-<li>刚刚创建的对象。在代码运行时会持续不断地创造新的对象，这些新创建的对象会被统一放在一起。因为有很多局部变量等在新创建后很快会变成不可达的对象，快速死去，因此这块区域的特点是存活对象少，垃圾多。形象点描述这块区域为：新生代；</li>
-<li>存活了一段时间的对象。这些对象早早就被创建了，而且一直活了下来。我们把这些存活时间较长的对象放在一起，它们的特点是存活对象多，垃圾少。形象点描述这块区域为：老年代；</li>
-<li>永久存在的对象。比如一些静态文件，这些对象的特点是不需要垃圾回收，永远存活。形象点描述这块区域为：永久代。（不过在 Java 8 里已经把永久代删除了，把这块内存空间给了元空间，后续文章再讲解。）<br>也就是说，常规的 Java 堆至少包括了 新生代 和 老年代 两块内存区域，而且这两块区域有很明显的特征：</li>
-<li>新生代：存活对象少、垃圾多</li>
-<li>老年代：存活对象多、垃圾少</li>
-</ul>
-<p>结合新生代／老年代的存活对象特点和之前提过的几种垃圾回收算法，可以得到如下的回收方案：</p>
-<h2 id="新生代－复制回收机制"><a href="#新生代－复制回收机制" class="headerlink" title="新生代－复制回收机制"></a>新生代－复制回收机制</h2><p>对于新生代区域，由于每次 GC 都会有大量新对象死去，只有少量存活。因此采用复制回收算法，GC 时把少量的存活对象复制过去即可。<br>那么如何设计这个复制算法比较好呢？有以下几种方式：</p>
-<h3 id="思路1-把内存均分成-1-1-两等份"><a href="#思路1-把内存均分成-1-1-两等份" class="headerlink" title="思路1. 把内存均分成 1:1 两等份"></a>思路1. 把内存均分成 1:1 两等份</h3><p>如下图拆分内存。</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519316371.jpg" alt=""></p>
-<p>每次只使用一半的内存，当这一半满了后，就进行垃圾回收，把存活的对象直接复制到另一半内存，并清空当前一半的内存。<br>这种分法的缺陷是相当于只有一半的可用内存，对于新生代而言，新对象持续不断地被创建，如果只有一半可用内存，那显然要持续不断地进行垃圾回收工作，反而影响到了正常程序的运行，得不偿失。</p>
-<h3 id="思路2-把内存按-9-1-分"><a href="#思路2-把内存按-9-1-分" class="headerlink" title="思路2. 把内存按 9:1 分"></a>思路2. 把内存按 9:1 分</h3><p>既然上面的分法导致可用内存只剩一半，那么我做些调整，把 1:1变成9:1，</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519421137.jpg" alt=""></p>
-<p>最开始在 9 的内存区使用，当 9 快要满时，执行复制回收，把 9 内仍然存活的对象复制到 1 区，并清空 9区。<br>这样看起来是比上面的方法好了，但是它存在比较严重的问题。<br>当我们把 9 区存活对象复制到 1 区时，由于内存空间比例相差比较大，所以很有可能 1 区放不满，此时就不得不把对象移到 老年区。而这就意味着，可能会有一部分 并不老 的 9 区对象由于 1 区放不下了而被放到了 老年区，可想而知，这破坏了 老年区 的规则。或者说，一定程度上的 老年区 并不一定全是 老年对象。<br>那应该如何才能把真正比较 老 的对象挪到 老年区 呢？</p>
-<h3 id="思路3-把内存按-8-1-1-分"><a href="#思路3-把内存按-8-1-1-分" class="headerlink" title="思路3. 把内存按 8:1:1 分"></a>思路3. 把内存按 8:1:1 分</h3><p>既然 9:1 有可能把年轻对象放到 老年区，那就换成 8:1:1，依次取名为 Eden、Survivor A、Survivor B区，其中Eden意为伊甸园，形容有很多新生对象在里面创建；Survivor区则为幸存者，即经历 GC 后仍然存活下来的对象。<br>工作原理如下：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974519603515.jpg" alt=""></p>
-<ol>
-<li>首先，Eden区最大，对外提供堆内存。当 Eden 区快要满了，则进行 Minor GC，把存活对象放入Survivor A区，清空 Eden 区；</li>
-<li>Eden区被清空后，继续对外提供堆内存；</li>
-<li>当Eden区再次被填满，此时对Eden区和Survivor A区同时进行 Minor GC，把存活对象放入Survivor B区，同时清空Eden 区和Survivor A区；</li>
-<li>Eden区继续对外提供堆内存，并重复上述过程，即在Eden区填满后，把Eden区和某个Survivor区的存活对象放到另一个Survivor区；</li>
-<li>当某个Survivor区被填满，且仍有对象未被复制完毕时，或者某些对象在反复Survive 15 次左右时，则把这部分剩余对象放到Old区；</li>
-<li>当 Old 区也被填满时，进行 Major GC，对 Old 区进行垃圾回收。</li>
-</ol>
-<p>[注意，在真实的 JVM 环境里，可以通过参数 SurvivorRatio 手动配置Eden区和单个Survivor区的比例，默认为8。]<br>那么，所谓的 Old 区垃圾回收，或称Major GC，应该如何执行呢？</p>
-<h2 id="老年代－标记整理回收机制"><a href="#老年代－标记整理回收机制" class="headerlink" title="老年代－标记整理回收机制"></a>老年代－标记整理回收机制</h2><p>根据上面我们知道，老年代一般存放的是存活时间较久的对象，所以每一次 GC 时，存活对象比较较大，也就是说每次只有少部分对象被回收。<br>因此，根据不同回收机制的特点，这里选择存活对象多，垃圾少的标记整理回收机制，仅仅通过少量地移动对象就能清理垃圾，而且不存在内存碎片化。<br>至此，我们已经了解了 Java 堆内存的分代原理，并了解了不同代根据各自特点采用了不同的回收机制，即新生代采用回收机制，老年代采用标记整理机制。</p>
+        <h1 id="变量的概述"><a href="#变量的概述" class="headerlink" title="变量的概述"></a>变量的概述</h1><p>通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。<br><a id="more"></a><br>按照用法 可分为 <strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>。</p>
+<p><em>基本数据类型不存在“引用”的概念，基本数据类型都是直接存储在内存中的内存栈上的，数据本身的值就是存储在栈空间里面，而Java语言里面八种数据类型是这种存储模型；</em></p>
+<p><em>引用类型继承于Object类（也是引用类型）都是按照Java里面存储对象的内存模型来进行数据存储的，使用Java内存堆和内存栈来进行这种类型的数据存储，简单地讲，“引用”是存储在有序的内存栈上的，而对象本身的值存储在内存堆上的；</em></p>
+<p>区别:基本数据类型和引用类型的区别主要在于基本数据类型是分配在栈上的，而引用类型是分配在堆上的（需要理解java中的栈、堆概念）。</p>
+<p>-</p>
+<h1 id="基本数据类型（8种）"><a href="#基本数据类型（8种）" class="headerlink" title="基本数据类型（8种）"></a>基本数据类型（8种）</h1><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用空间</th>
+<th>表值范围</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bolean</td>
+<td>1字节=8bit</td>
+<td>false；true</td>
+<td>不能取null</td>
+<td>false</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2字节</td>
+<td>0 ~ 2^16 - 1</td>
+<td>2^16 = 65536</td>
+<td>为空</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>1字节</td>
+<td>- 2^7~ 2^7 - 1</td>
+<td>两byte相加，变 int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2字节</td>
+<td>- 2^15 ~ 2^15 - 1</td>
+<td>2^15 = 32768</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4字节</td>
+<td>- 2^31 ~ 2^31 - 1</td>
+<td>约20亿,10位有效数字</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8字节</td>
+<td>- 2^63 ~ 2^63 - 1</td>
+<td>约900亿亿,20位有效数字</td>
+<td>0</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4字节</td>
+<td>9位有效数字</td>
+<td>小数算，正负号不算</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8字节</td>
+<td>18位有效数字</td>
+<td>同 float</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line"><span class="number">1</span>、java中所有的数据类所占据的字节数量与平台无关，java也没有任何无符号类型</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="keyword">float</span> 和 <span class="keyword">double</span> 的小数部分不可能精确，只能近似。比较小数时，用 </span><br><span class="line">   <span class="keyword">double</span> i=<span class="number">0.01</span>; </span><br><span class="line">   <span class="keyword">if</span> ( i - <span class="number">0.01</span> &lt; <span class="number">1E-6</span>) ...</span><br><span class="line">   <span class="comment">// 不能直接 if (i==0.01)...</span></span><br><span class="line">   </span><br><span class="line"><span class="number">3</span>、<span class="keyword">float</span> 与 <span class="keyword">double</span> 的区别在于<span class="keyword">float</span>类型有效小数点只有<span class="number">6</span>~<span class="number">7</span>位 ， </span><br><span class="line">   <span class="keyword">double</span> 有<span class="number">15</span>~<span class="number">16</span>位。</span><br></pre></td></tr></table></figure>
+<p>补充：按照在类中存在的位置的不同：成员变量 vs 局部变量</p>
+<p>-</p>
+<h1 id="引用数据类型（类、接口、数组）"><a href="#引用数据类型（类、接口、数组）" class="headerlink" title="引用数据类型（类、接口、数组）"></a>引用数据类型（类、接口、数组）</h1><p>Java 中除去基本数据类型以外的数据类型都是引用数据类型，包括我们自己创建的类。</p>
+<h2 id="Java中什么叫做引用数据类型？"><a href="#Java中什么叫做引用数据类型？" class="headerlink" title="Java中什么叫做引用数据类型？"></a>Java中什么叫做引用数据类型？</h2><p>引用：<strong>就是按内存地址查询</strong><br>比如：<code>Object o = new Object();</code> 这个其实是在栈内存里分配一块内存空间为o，在堆内存里 new 了一个Object 类型的空间，在运行时是栈内存里的 o 指向堆内存里的那一块存储空间。</p>
+<p>引用类型变量是以间接方式去获取数据。引用类型变量都属于对象类型，如：数组、类、字符串等都属于引用类型变量。所以，引用类型变量里面存放的是数据的地址。说白了基本数据类型变量就像是直接放在柜子里的东西，而引用数据类型变量就是这个柜子对应编码的钥匙。钥匙号和柜子对应。</p>
+<h1 id="进制（了解）"><a href="#进制（了解）" class="headerlink" title="进制（了解）"></a>进制（了解）</h1><table>
+<thead>
+<tr>
+<th>进制</th>
+<th>缩写</th>
+<th>英文</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十进制</td>
+<td>D</td>
+<td>Decimal</td>
+<td>0-9 ；满10进1</td>
+</tr>
+<tr>
+<td>二进制</td>
+<td>B</td>
+<td>binaries</td>
+<td>0,1 ；满2进1，以0b或0B开头</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>O</td>
+<td>octal</td>
+<td>0-7 ，满8进1， 以数字0开头</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>H</td>
+<td>Hexagon</td>
+<td>0-9及A-F(a-f)，满16进1,以0x或0X开头。</td>
+</tr>
+</tbody>
+</table>
+<p>二进制：计算机底层都是用二进制来存储、运算。</p>
+<blockquote>
+<p>二进制 与十进制之间的转换。<br>二进制在底层存储：正数、负数都是以补码的形式存储的。<br>四种进制间的转换 ？？？</p>
+</blockquote>
+<h1 id="变量的数据类型转换"><a href="#变量的数据类型转换" class="headerlink" title="变量的数据类型转换"></a>变量的数据类型转换</h1><h2 id="自动类型转换："><a href="#自动类型转换：" class="headerlink" title="自动类型转换："></a>自动类型转换：</h2><p>容量小的类型自动转换为容量大的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> s = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">int</span> i = s + <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：byte  short char之间做运算，结果为int型！</strong></p>
+<h2 id="强制类型转换："><a href="#强制类型转换：" class="headerlink" title="强制类型转换："></a>强制类型转换：</h2><p>是自动类型转换的逆过程，使用 “( )” 实现强转，会丢失精度或者出现异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">32767</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">32768</span>;</span><br><span class="line"><span class="keyword">short</span> s1 = (<span class="keyword">short</span>) a;  </span><br><span class="line"><span class="keyword">short</span> s2 = (<span class="keyword">short</span>) b;  </span><br><span class="line">System.out.println(s1); <span class="comment">// 32767</span></span><br><span class="line">System.out.println(s2); <span class="comment">// -32768</span></span><br></pre></td></tr></table></figure>
+<h2 id="实例测试类"><a href="#实例测试类" class="headerlink" title="实例测试类"></a>实例测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestVeriable</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">             <span class="comment">// 1.变量得先定义后使用</span></span><br><span class="line">            <span class="keyword">int</span> myInt1 = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">double</span> d = <span class="number">12.3</span>;</span><br><span class="line">            System.out.println(myInt1);</span><br><span class="line">            System.out.println(myInt1 + d);</span><br><span class="line">            <span class="comment">// i1 超出了其作用的范围，不可使用。</span></span><br><span class="line">            <span class="comment">// System.out.println(i1);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 2.整型：byte(-128~+127)  short  int（默认类型） long</span></span><br><span class="line">            <span class="keyword">byte</span> b1 = <span class="number">12</span>;           <span class="comment">//byte b2 = 128;</span></span><br><span class="line">            <span class="keyword">short</span> s1 = <span class="number">128</span>;</span><br><span class="line">            <span class="keyword">int</span> i1 = <span class="number">12</span>;</span><br><span class="line">            <span class="comment">// 定义long型变量，值的末尾加“L”或“l”</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">2134123351345325L</span>;</span><br><span class="line">            System.out.println(l1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 3.浮点型（带小数点的数值）：double 是默认类型  float  </span></span><br><span class="line">            <span class="keyword">double</span> d1 = <span class="number">12.3</span>;</span><br><span class="line">            <span class="comment">//声明float类型的浮点型数据，末尾要加“F”或者“f”</span></span><br><span class="line">            <span class="keyword">float</span> f1 = <span class="number">12.3F</span>;</span><br><span class="line">            System.out.println(f1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.字符型（两个字节）：</span></span><br><span class="line">            <span class="comment">// char 只能表示一个字符(英文、中文、标点符号、日文、。。。)</span></span><br><span class="line">            <span class="keyword">char</span> c1 = <span class="string">'a'</span>;          <span class="comment">//char c2 = ' ab'; </span></span><br><span class="line">            String str = <span class="string">"ab"</span>;</span><br><span class="line">            <span class="keyword">char</span> c3 = <span class="string">'中'</span>;</span><br><span class="line">            String str1 = <span class="string">"中国"</span>;</span><br><span class="line">            <span class="comment">// 可以表示转义字符</span></span><br><span class="line">            <span class="keyword">char</span> c4 = <span class="string">'\t'</span>;</span><br><span class="line">            <span class="keyword">char</span> c5 = <span class="string">'\n'</span> ;</span><br><span class="line">            System.out.println(<span class="string">"abc"</span> + c5 + <span class="string">"def"</span>);</span><br><span class="line">            <span class="comment">// 了解</span></span><br><span class="line">            <span class="keyword">char</span> c6 = <span class="string">'\u1234'</span> ;        <span class="comment">//unicode值 == ？</span></span><br><span class="line">            System.out.println(c6);    <span class="comment">//char 类型是可以运算的，因为它都对应有Unicode值</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 5.布尔类型：boolean  只能够取值为true 或 false 。不能取值null</span></span><br><span class="line">            <span class="keyword">boolean</span> bool1 = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(bool1)</span><br><span class="line">                System.out.println(<span class="string">"哈哈！周末不上班 );</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量间的运算"><a href="#变量间的运算" class="headerlink" title="变量间的运算"></a>变量间的运算</h2><p>两个数相运算时，默认是 int 类型<br>如果有更高级的，就按高级的那个类型<br>   if(其中一个是double型)double型；<br>   else if(其中一个是float型)float型；<br>   else if(其中一个是long型)long型；<br>   else int 型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">变量之间的运算：(不考虑boolean ：char byte short int long float double)</span></span><br><span class="line"><span class="comment">1.自动类型转换</span></span><br><span class="line"><span class="comment">2.强制类型转换</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestVeriable</span></span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 1.自动类型转换:当容量小的数据类型与容量大的数据类型做运算时，</span></span><br><span class="line">            <span class="comment">// 容量小的会自动转换为容量大的数据类型:</span></span><br><span class="line">            <span class="comment">// char,byte,short ===&gt; int ===&gt;long ===&gt;float===double</span></span><br><span class="line">            <span class="keyword">int</span> i1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">short</span> s1 = <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> i2 = i1 + s1;</span><br><span class="line">            <span class="keyword">float</span> f1 = <span class="number">12.3F</span>;</span><br><span class="line">            <span class="keyword">float</span> f2 = f1 + i2;</span><br><span class="line">            <span class="comment">//float d1 = f2 + 12.3;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">long</span> l = <span class="number">12L</span>;</span><br><span class="line">            <span class="keyword">float</span> f3 = l;</span><br><span class="line">            System.out.println(i2);</span><br><span class="line">            System.out.println(f2);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">char</span> c1 = <span class="string">'a'</span> ;<span class="comment">//97</span></span><br><span class="line">            c1 = <span class="string">'A'</span>;<span class="comment">//65</span></span><br><span class="line">            <span class="keyword">int</span> i3 = c1 + <span class="number">1</span>;</span><br><span class="line">            System.out.println(i3);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//需要注意的：当char\byte\short之间做运算时，默认的结果为 int类型</span></span><br><span class="line">            <span class="keyword">short</span> ss1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">byte</span> bb1 = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> cc1 = <span class="string">'a'</span> ;</span><br><span class="line">            <span class="comment">//short ss2 = ss1 + bb1;</span></span><br><span class="line">            <span class="keyword">int</span> ii1 = ss1 + bb1;</span><br><span class="line">            <span class="comment">//char cc2 = cc1 + bb1;</span></span><br><span class="line">            <span class="keyword">int</span> ii2 = cc1 + bb1;</span><br><span class="line">            <span class="keyword">short</span> ss2 = <span class="number">11</span>;</span><br><span class="line">            <span class="comment">//short ss3 = ss1 + ss2;</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//2.强制类型转换：容量大转换为容量小的.要使用强制类型转换符：()</span></span><br><span class="line">            <span class="comment">//强制类型转换的问题：导致精度的损失</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">12345L</span>;</span><br><span class="line">            <span class="keyword">int</span> m1 = (<span class="keyword">int</span>)l1;</span><br><span class="line">            System.out.println(m1);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">byte</span> by1 = (<span class="keyword">byte</span>)m1;</span><br><span class="line">            System.out.println(by1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//平时常用的字符串,也是一种数据类型：String</span></span><br><span class="line">            String nation = <span class="string">"我是一个中国人"</span> ;</span><br><span class="line">            System.out.println(nation);</span><br><span class="line">            <span class="comment">//字符串与基本数据类型之间的运算:只能是连接运算：+。得到的结果仍为一个字符串</span></span><br><span class="line">            String str = <span class="string">"abc"</span>;</span><br><span class="line">            String str1 = str + m1; <span class="comment">//abc12345</span></span><br><span class="line">            System.out.println(str1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//题目：</span></span><br><span class="line">            String st1 = <span class="string">"hello"</span>;</span><br><span class="line">            <span class="keyword">int</span> myInt1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">char</span> ch1 = <span class="string">'a'</span> ;<span class="comment">//97</span></span><br><span class="line">            System.out.println(str1 + myInt1 + ch1);  <span class="comment">// hello12a</span></span><br><span class="line">            System.out.println(myInt1 + ch1 + str1);  <span class="comment">// 109hello</span></span><br><span class="line">            System.out.println(ch1 + str1 + myInt1);  <span class="comment">// ahello12</span></span><br><span class="line"></span><br><span class="line">            String st2 = <span class="string">"12"</span>;</span><br><span class="line">            st2 = <span class="number">12</span> + <span class="string">""</span>; </span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -547,7 +615,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://cuijing.me/2017/06/15/9-JVM/Java GC-1/" title="Java垃圾回收机制（一）">http://cuijing.me/2017/06/15/9-JVM/Java GC-1/</a>
+    <a href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java-variable/" title="Java 变量">http://cuijing.me/2015/02/06/1-Java-Base/2-Java-variable/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -564,7 +632,9 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/JVM/" rel="tag"># JVM</a>
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+            <a href="/tags/变量/" rel="tag"># 变量</a>
           
         </div>
       
@@ -577,8 +647,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/14/linux/Supervisor linux 进程管理利器/" rel="next" title="Supervisor linux 进程管理利器">
-                <i class="fa fa-chevron-left"></i> Supervisor linux 进程管理利器
+              <a href="/2015/02/06/3-Exception/2-异常注意事项/" rel="next" title="Java 异常注意事项">
+                <i class="fa fa-chevron-left"></i> Java 异常注意事项
               </a>
             
           </div>
@@ -586,6 +656,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/06/1-Java-Base/5-Java-Array/" rel="prev" title="Java 变量">
+                Java 变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -737,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-Java-堆内存"><span class="nav-number">1.</span> <span class="nav-text">什么是 Java 堆内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#那什么是垃圾呢？"><span class="nav-number">2.</span> <span class="nav-text">那什么是垃圾呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用计数法"><span class="nav-number">2.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可达性分析"><span class="nav-number">2.2.</span> <span class="nav-text">可达性分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC-Roots-究竟指谁呢？"><span class="nav-number">2.3.</span> <span class="nav-text">GC Roots 究竟指谁呢？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有哪些方式来回收这些垃圾呢？"><span class="nav-number">3.</span> <span class="nav-text">有哪些方式来回收这些垃圾呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标记－清理"><span class="nav-number">3.1.</span> <span class="nav-text">标记－清理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记－整理"><span class="nav-number">3.2.</span> <span class="nav-text">标记－整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-的分代回收机制"><span class="nav-number">3.3.</span> <span class="nav-text">Java 的分代回收机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-的堆结构"><span class="nav-number">3.4.</span> <span class="nav-text">Java 的堆结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新生代－复制回收机制"><span class="nav-number">3.5.</span> <span class="nav-text">新生代－复制回收机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路1-把内存均分成-1-1-两等份"><span class="nav-number">3.5.1.</span> <span class="nav-text">思路1. 把内存均分成 1:1 两等份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路2-把内存按-9-1-分"><span class="nav-number">3.5.2.</span> <span class="nav-text">思路2. 把内存按 9:1 分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路3-把内存按-8-1-1-分"><span class="nav-number">3.5.3.</span> <span class="nav-text">思路3. 把内存按 8:1:1 分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#老年代－标记整理回收机制"><span class="nav-number">3.6.</span> <span class="nav-text">老年代－标记整理回收机制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的概述"><span class="nav-number">1.</span> <span class="nav-text">变量的概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型（8种）"><span class="nav-number">2.</span> <span class="nav-text">基本数据类型（8种）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用数据类型（类、接口、数组）"><span class="nav-number">3.</span> <span class="nav-text">引用数据类型（类、接口、数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中什么叫做引用数据类型？"><span class="nav-number">3.1.</span> <span class="nav-text">Java中什么叫做引用数据类型？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进制（了解）"><span class="nav-number">4.</span> <span class="nav-text">进制（了解）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的数据类型转换"><span class="nav-number">5.</span> <span class="nav-text">变量的数据类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型转换："><span class="nav-number">5.1.</span> <span class="nav-text">自动类型转换：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换："><span class="nav-number">5.2.</span> <span class="nav-text">强制类型转换：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例测试类"><span class="nav-number">5.3.</span> <span class="nav-text">实例测试类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量间的运算"><span class="nav-number">5.4.</span> <span class="nav-text">变量间的运算</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Java,基础,变量," />
+  <meta name="keywords" content="Linux,Supervisor,进程管理," />
 
 
 
@@ -126,18 +126,22 @@
 
 
 
-<meta name="description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
-<meta name="keywords" content="Java,基础,变量">
+<meta name="description" content="为何使用 Supervisor 2017年年初，公司阿里云服务器版本是阿里云定制版本：   由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。">
+<meta name="keywords" content="Linux,Supervisor,进程管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 变量">
-<meta property="og:url" content="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/index.html">
+<meta property="og:title" content="Supervisor linux 进程管理利器">
+<meta property="og:url" content="http://cuijing.me/2017/06/14/linux/Supervisor-linux-进程管理利器/index.html">
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
-<meta property="og:description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
+<meta property="og:description" content="为何使用 Supervisor 2017年年初，公司阿里云服务器版本是阿里云定制版本：   由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-04T15:55:54.000Z">
+<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974479232748.jpg">
+<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974493022433.jpg">
+<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-21-14980199749706.jpg">
+<meta property="og:updated_time" content="2017-08-22T12:30:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 变量">
-<meta name="twitter:description" content="变量的概述通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。">
+<meta name="twitter:title" content="Supervisor linux 进程管理利器">
+<meta name="twitter:description" content="为何使用 Supervisor 2017年年初，公司阿里云服务器版本是阿里云定制版本：   由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。">
+<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974479232748.jpg">
 
 
 
@@ -167,13 +171,13 @@
 
 
 
-  <link rel="canonical" href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/"/>
+  <link rel="canonical" href="http://cuijing.me/2017/06/14/linux/Supervisor-linux-进程管理利器/"/>
 
 
 
 
 
-  <title>Java 变量 | CuiJing's Blog</title>
+  <title>Supervisor linux 进程管理利器 | CuiJing's Blog</title>
   
 
 
@@ -344,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2017/06/14/linux/Supervisor-linux-进程管理利器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -361,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 变量</h1>
+          <h1 class="post-title" itemprop="name headline">Supervisor linux 进程管理利器</h1>
         
 
         <div class="post-meta">
@@ -373,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-06T08:30:00+08:00">
-                2015-02-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T21:42:48+08:00">
+                2017-06-14
               </time>
             
 
@@ -389,8 +393,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-04T23:55:54+08:00">
-                2018-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2017-08-22T20:30:00+08:00">
+                2017-08-22
               </time>
             
           </span>
@@ -403,7 +407,7 @@
 
           
           
-             <span id="/2015/02/06/1-Java-Base/2-Java variable/" class="leancloud_visitors" data-flag-title="Java 变量">
+             <span id="/2017/06/14/linux/Supervisor-linux-进程管理利器/" class="leancloud_visitors" data-flag-title="Supervisor linux 进程管理利器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,967
+                  1,199
                 </span>
               
 
@@ -446,7 +450,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  6
                 </span>
               
             </div>
@@ -467,134 +471,33 @@
       
 
       
-        <h1 id="变量的概述"><a href="#变量的概述" class="headerlink" title="变量的概述"></a>变量的概述</h1><p>通常，根据内存地址可以找到这块内存空间的位置，也就找到了存储的数据。但是内存地址非常不好记，因此，我们给这块空间起一个别名，通过使用别名找到对应空间存储的数据。变量是一个数据存储空间的表示。通过变量名可以简单快速地找到它存储的数据。变量是存储数据的一个基本单元，不同的变量相互独立。<br><a id="more"></a><br>按照用法 可分为 <strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>。</p>
-<p><em>基本数据类型不存在“引用”的概念，基本数据类型都是直接存储在内存中的内存栈上的，数据本身的值就是存储在栈空间里面，而Java语言里面八种数据类型是这种存储模型；</em></p>
-<p><em>引用类型继承于Object类（也是引用类型）都是按照Java里面存储对象的内存模型来进行数据存储的，使用Java内存堆和内存栈来进行这种类型的数据存储，简单地讲，“引用”是存储在有序的内存栈上的，而对象本身的值存储在内存堆上的；</em></p>
-<p>区别:基本数据类型和引用类型的区别主要在于基本数据类型是分配在栈上的，而引用类型是分配在堆上的（需要理解java中的栈、堆概念）。</p>
-<p>-</p>
-<h1 id="基本数据类型（8种）"><a href="#基本数据类型（8种）" class="headerlink" title="基本数据类型（8种）"></a>基本数据类型（8种）</h1><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>占用空间</th>
-<th>表值范围</th>
-<th>说明</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bolean</td>
-<td>1字节=8bit</td>
-<td>false；true</td>
-<td>不能取null</td>
-<td>false</td>
-</tr>
-<tr>
-<td>char</td>
-<td>2字节</td>
-<td>0 ~ 2^16 - 1</td>
-<td>2^16 = 65536</td>
-<td>为空</td>
-</tr>
-<tr>
-<td>byte</td>
-<td>1字节</td>
-<td>- 2^7~ 2^7 - 1</td>
-<td>两byte相加，变 int</td>
-<td>0</td>
-</tr>
-<tr>
-<td>short</td>
-<td>2字节</td>
-<td>- 2^15 ~ 2^15 - 1</td>
-<td>2^15 = 32768</td>
-<td>0</td>
-</tr>
-<tr>
-<td>int</td>
-<td>4字节</td>
-<td>- 2^31 ~ 2^31 - 1</td>
-<td>约20亿,10位有效数字</td>
-<td>0</td>
-</tr>
-<tr>
-<td>long</td>
-<td>8字节</td>
-<td>- 2^63 ~ 2^63 - 1</td>
-<td>约900亿亿,20位有效数字</td>
-<td>0</td>
-</tr>
-<tr>
-<td>float</td>
-<td>4字节</td>
-<td>9位有效数字</td>
-<td>小数算，正负号不算</td>
-<td>0.0</td>
-</tr>
-<tr>
-<td>double</td>
-<td>8字节</td>
-<td>18位有效数字</td>
-<td>同 float</td>
-<td>0.0</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line"><span class="number">1</span>、java中所有的数据类所占据的字节数量与平台无关，java也没有任何无符号类型</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="keyword">float</span> 和 <span class="keyword">double</span> 的小数部分不可能精确，只能近似。比较小数时，用 </span><br><span class="line">   <span class="keyword">double</span> i=<span class="number">0.01</span>; </span><br><span class="line">   <span class="keyword">if</span> ( i - <span class="number">0.01</span> &lt; <span class="number">1E-6</span>) ...</span><br><span class="line">   <span class="comment">// 不能直接 if (i==0.01)...</span></span><br><span class="line">   </span><br><span class="line"><span class="number">3</span>、<span class="keyword">float</span> 与 <span class="keyword">double</span> 的区别在于<span class="keyword">float</span>类型有效小数点只有<span class="number">6</span>~<span class="number">7</span>位 ， </span><br><span class="line">   <span class="keyword">double</span> 有<span class="number">15</span>~<span class="number">16</span>位。</span><br></pre></td></tr></table></figure>
-<p>补充：按照在类中存在的位置的不同：成员变量 vs 局部变量</p>
-<p>-</p>
-<h1 id="引用数据类型（类、接口、数组）"><a href="#引用数据类型（类、接口、数组）" class="headerlink" title="引用数据类型（类、接口、数组）"></a>引用数据类型（类、接口、数组）</h1><p>Java 中除去基本数据类型以外的数据类型都是引用数据类型，包括我们自己创建的类。</p>
-<h2 id="Java中什么叫做引用数据类型？"><a href="#Java中什么叫做引用数据类型？" class="headerlink" title="Java中什么叫做引用数据类型？"></a>Java中什么叫做引用数据类型？</h2><p>引用：<strong>就是按内存地址查询</strong><br>比如：<code>Object o = new Object();</code> 这个其实是在栈内存里分配一块内存空间为o，在堆内存里 new 了一个Object 类型的空间，在运行时是栈内存里的 o 指向堆内存里的那一块存储空间。</p>
-<p>引用类型变量是以间接方式去获取数据。引用类型变量都属于对象类型，如：数组、类、字符串等都属于引用类型变量。所以，引用类型变量里面存放的是数据的地址。说白了基本数据类型变量就像是直接放在柜子里的东西，而引用数据类型变量就是这个柜子对应编码的钥匙。钥匙号和柜子对应。</p>
-<h1 id="进制（了解）"><a href="#进制（了解）" class="headerlink" title="进制（了解）"></a>进制（了解）</h1><table>
-<thead>
-<tr>
-<th>进制</th>
-<th>缩写</th>
-<th>英文</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>十进制</td>
-<td>D</td>
-<td>Decimal</td>
-<td>0-9 ；满10进1</td>
-</tr>
-<tr>
-<td>二进制</td>
-<td>B</td>
-<td>binaries</td>
-<td>0,1 ；满2进1，以0b或0B开头</td>
-</tr>
-<tr>
-<td>八进制</td>
-<td>O</td>
-<td>octal</td>
-<td>0-7 ，满8进1， 以数字0开头</td>
-</tr>
-<tr>
-<td>十六进制</td>
-<td>H</td>
-<td>Hexagon</td>
-<td>0-9及A-F(a-f)，满16进1,以0x或0X开头。</td>
-</tr>
-</tbody>
-</table>
-<p>二进制：计算机底层都是用二进制来存储、运算。</p>
-<blockquote>
-<p>二进制 与十进制之间的转换。<br>二进制在底层存储：正数、负数都是以补码的形式存储的。<br>四种进制间的转换 ？？？</p>
-</blockquote>
-<h1 id="变量的数据类型转换"><a href="#变量的数据类型转换" class="headerlink" title="变量的数据类型转换"></a>变量的数据类型转换</h1><h2 id="自动类型转换："><a href="#自动类型转换：" class="headerlink" title="自动类型转换："></a>自动类型转换：</h2><p>容量小的类型自动转换为容量大的类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> s = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">int</span> i = s + <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：byte  short char之间做运算，结果为int型！</strong></p>
-<h2 id="强制类型转换："><a href="#强制类型转换：" class="headerlink" title="强制类型转换："></a>强制类型转换：</h2><p>是自动类型转换的逆过程，使用 “( )” 实现强转，会丢失精度或者出现异常。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">32767</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">32768</span>;</span><br><span class="line"><span class="keyword">short</span> s1 = (<span class="keyword">short</span>) a;  </span><br><span class="line"><span class="keyword">short</span> s2 = (<span class="keyword">short</span>) b;  </span><br><span class="line">System.out.println(s1); <span class="comment">// 32767</span></span><br><span class="line">System.out.println(s2); <span class="comment">// -32768</span></span><br></pre></td></tr></table></figure>
-<h2 id="实例测试类"><a href="#实例测试类" class="headerlink" title="实例测试类"></a>实例测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestVeriable</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">             <span class="comment">// 1.变量得先定义后使用</span></span><br><span class="line">            <span class="keyword">int</span> myInt1 = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">double</span> d = <span class="number">12.3</span>;</span><br><span class="line">            System.out.println(myInt1);</span><br><span class="line">            System.out.println(myInt1 + d);</span><br><span class="line">            <span class="comment">// i1 超出了其作用的范围，不可使用。</span></span><br><span class="line">            <span class="comment">// System.out.println(i1);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 2.整型：byte(-128~+127)  short  int（默认类型） long</span></span><br><span class="line">            <span class="keyword">byte</span> b1 = <span class="number">12</span>;           <span class="comment">//byte b2 = 128;</span></span><br><span class="line">            <span class="keyword">short</span> s1 = <span class="number">128</span>;</span><br><span class="line">            <span class="keyword">int</span> i1 = <span class="number">12</span>;</span><br><span class="line">            <span class="comment">// 定义long型变量，值的末尾加“L”或“l”</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">2134123351345325L</span>;</span><br><span class="line">            System.out.println(l1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 3.浮点型（带小数点的数值）：double 是默认类型  float  </span></span><br><span class="line">            <span class="keyword">double</span> d1 = <span class="number">12.3</span>;</span><br><span class="line">            <span class="comment">//声明float类型的浮点型数据，末尾要加“F”或者“f”</span></span><br><span class="line">            <span class="keyword">float</span> f1 = <span class="number">12.3F</span>;</span><br><span class="line">            System.out.println(f1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.字符型（两个字节）：</span></span><br><span class="line">            <span class="comment">// char 只能表示一个字符(英文、中文、标点符号、日文、。。。)</span></span><br><span class="line">            <span class="keyword">char</span> c1 = <span class="string">'a'</span>;          <span class="comment">//char c2 = ' ab'; </span></span><br><span class="line">            String str = <span class="string">"ab"</span>;</span><br><span class="line">            <span class="keyword">char</span> c3 = <span class="string">'中'</span>;</span><br><span class="line">            String str1 = <span class="string">"中国"</span>;</span><br><span class="line">            <span class="comment">// 可以表示转义字符</span></span><br><span class="line">            <span class="keyword">char</span> c4 = <span class="string">'\t'</span>;</span><br><span class="line">            <span class="keyword">char</span> c5 = <span class="string">'\n'</span> ;</span><br><span class="line">            System.out.println(<span class="string">"abc"</span> + c5 + <span class="string">"def"</span>);</span><br><span class="line">            <span class="comment">// 了解</span></span><br><span class="line">            <span class="keyword">char</span> c6 = <span class="string">'\u1234'</span> ;        <span class="comment">//unicode值 == ？</span></span><br><span class="line">            System.out.println(c6);    <span class="comment">//char 类型是可以运算的，因为它都对应有Unicode值</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 5.布尔类型：boolean  只能够取值为true 或 false 。不能取值null</span></span><br><span class="line">            <span class="keyword">boolean</span> bool1 = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(bool1)</span><br><span class="line">                System.out.println(<span class="string">"哈哈！周末不上班 );</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="变量间的运算"><a href="#变量间的运算" class="headerlink" title="变量间的运算"></a>变量间的运算</h2><p>两个数相运算时，默认是 int 类型<br>如果有更高级的，就按高级的那个类型<br>   if(其中一个是double型)double型；<br>   else if(其中一个是float型)float型；<br>   else if(其中一个是long型)long型；<br>   else int 型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">变量之间的运算：(不考虑boolean ：char byte short int long float double)</span></span><br><span class="line"><span class="comment">1.自动类型转换</span></span><br><span class="line"><span class="comment">2.强制类型转换</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestVeriable</span></span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 1.自动类型转换:当容量小的数据类型与容量大的数据类型做运算时，</span></span><br><span class="line">            <span class="comment">// 容量小的会自动转换为容量大的数据类型:</span></span><br><span class="line">            <span class="comment">// char,byte,short ===&gt; int ===&gt;long ===&gt;float===double</span></span><br><span class="line">            <span class="keyword">int</span> i1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">short</span> s1 = <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> i2 = i1 + s1;</span><br><span class="line">            <span class="keyword">float</span> f1 = <span class="number">12.3F</span>;</span><br><span class="line">            <span class="keyword">float</span> f2 = f1 + i2;</span><br><span class="line">            <span class="comment">//float d1 = f2 + 12.3;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">long</span> l = <span class="number">12L</span>;</span><br><span class="line">            <span class="keyword">float</span> f3 = l;</span><br><span class="line">            System.out.println(i2);</span><br><span class="line">            System.out.println(f2);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">char</span> c1 = <span class="string">'a'</span> ;<span class="comment">//97</span></span><br><span class="line">            c1 = <span class="string">'A'</span>;<span class="comment">//65</span></span><br><span class="line">            <span class="keyword">int</span> i3 = c1 + <span class="number">1</span>;</span><br><span class="line">            System.out.println(i3);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//需要注意的：当char\byte\short之间做运算时，默认的结果为 int类型</span></span><br><span class="line">            <span class="keyword">short</span> ss1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">byte</span> bb1 = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> cc1 = <span class="string">'a'</span> ;</span><br><span class="line">            <span class="comment">//short ss2 = ss1 + bb1;</span></span><br><span class="line">            <span class="keyword">int</span> ii1 = ss1 + bb1;</span><br><span class="line">            <span class="comment">//char cc2 = cc1 + bb1;</span></span><br><span class="line">            <span class="keyword">int</span> ii2 = cc1 + bb1;</span><br><span class="line">            <span class="keyword">short</span> ss2 = <span class="number">11</span>;</span><br><span class="line">            <span class="comment">//short ss3 = ss1 + ss2;</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//2.强制类型转换：容量大转换为容量小的.要使用强制类型转换符：()</span></span><br><span class="line">            <span class="comment">//强制类型转换的问题：导致精度的损失</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">12345L</span>;</span><br><span class="line">            <span class="keyword">int</span> m1 = (<span class="keyword">int</span>)l1;</span><br><span class="line">            System.out.println(m1);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">byte</span> by1 = (<span class="keyword">byte</span>)m1;</span><br><span class="line">            System.out.println(by1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//平时常用的字符串,也是一种数据类型：String</span></span><br><span class="line">            String nation = <span class="string">"我是一个中国人"</span> ;</span><br><span class="line">            System.out.println(nation);</span><br><span class="line">            <span class="comment">//字符串与基本数据类型之间的运算:只能是连接运算：+。得到的结果仍为一个字符串</span></span><br><span class="line">            String str = <span class="string">"abc"</span>;</span><br><span class="line">            String str1 = str + m1; <span class="comment">//abc12345</span></span><br><span class="line">            System.out.println(str1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//题目：</span></span><br><span class="line">            String st1 = <span class="string">"hello"</span>;</span><br><span class="line">            <span class="keyword">int</span> myInt1 = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">char</span> ch1 = <span class="string">'a'</span> ;<span class="comment">//97</span></span><br><span class="line">            System.out.println(str1 + myInt1 + ch1);  <span class="comment">// hello12a</span></span><br><span class="line">            System.out.println(myInt1 + ch1 + str1);  <span class="comment">// 109hello</span></span><br><span class="line">            System.out.println(ch1 + str1 + myInt1);  <span class="comment">// ahello12</span></span><br><span class="line"></span><br><span class="line">            String st2 = <span class="string">"12"</span>;</span><br><span class="line">            st2 = <span class="number">12</span> + <span class="string">""</span>; </span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="为何使用-Supervisor"><a href="#为何使用-Supervisor" class="headerlink" title="为何使用 Supervisor"></a>为何使用 Supervisor</h1><p> 2017年年初，公司阿里云服务器版本是阿里云定制版本：</p>
+<p> <img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974479232748.jpg" alt=""></p>
+<p>由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。<br><a id="more"></a><br><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974493022433.jpg" alt=""></p>
+<p>安装完毕，查看内核（方法有三）如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">oot@iZ23u31elifZ:~# uname -a</span><br><span class="line">Linux iZ23u31elifZ 4.4.0-79-generic #100-Ubuntu SMP Wed May 17 19:58:14 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">root@iZ23u31elifZ:~# cat /proc/version</span><br><span class="line">Linux version 4.4.0-79-generic (buildd@lcy01-30) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #100-Ubuntu SMP Wed May 17 19:58:14 UTC 2017</span><br><span class="line"></span><br><span class="line">root@iZ23u31elifZ:~# uname -r</span><br><span class="line">4.4.0-79-generic</span><br><span class="line">root@iZ23u31elifZ:~#</span><br></pre></td></tr></table></figure>
+<p>满足内核要求。</p>
+<p>但是满足内核要求后，之前写好且运行正常的进程监控 shell 脚本在 Ubuntu 下不再正常工作了。</p>
+<p>经过一天的研究，决定放弃 shell 脚本，采用廖雪峰老师推荐的 Supervisor 进程监控软件。<a href="http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000" target="_blank" rel="noopener">文章链接地址</a></p>
+<h1 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Debian / Ubuntu可以直接通过apt安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> apt-get install supervisor</span><br></pre></td></tr></table></figure>
+<h2 id="脚本编写"><a href="#脚本编写" class="headerlink" title="脚本编写"></a>脚本编写</h2><p>然后，给我们自己开发的应用程序编写一个配置文件，让supervisor来管理它。每个进程的配置文件都可以单独分拆，放在/etc/supervisor/conf.d/目录下，可以.ini作为扩展名（或者以.conf），例如，tomcat.ini 定义了一个gunicorn的进程：</p>
+<h3 id="Tomcat-自启动脚本"><a href="#Tomcat-自启动脚本" class="headerlink" title="Tomcat 自启动脚本"></a>Tomcat 自启动脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@iZ23u31elifZ:/etc/supervisor/conf.d# more tomcat_auto.ini</span><br><span class="line">[program:tomcat]</span><br><span class="line">command=/usr/local/tomcat/bin/catalina.sh run</span><br><span class="line">stdout_logfile=/usr/local/tomcat/logs/catalina.out</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=5</span><br><span class="line">priority=1</span><br><span class="line">stopasgroup=true</span><br><span class="line">killasgroup=true</span><br></pre></td></tr></table></figure>
+<p>其中，进程tomcat定义在[program:tomcat]中，command是命令，stdout_logfile是进程日志输出路径。<br>重启supervisor，让配置文件生效，然后运行命令supervisorctl启动进程：</p>
+<h3 id="Java-项目项目自启动"><a href="#Java-项目项目自启动" class="headerlink" title="Java 项目项目自启动"></a>Java 项目项目自启动</h3><h4 id="Java-启动脚本"><a href="#Java-启动脚本" class="headerlink" title="Java 启动脚本"></a>Java 启动脚本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@iZ23u31elifZ:/home/DPP-LOCAL/DPP-LOCAL-AlertCenter# more StartDPPLOCALAlertCenter</span><br><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/local/jdk_64</span><br><span class="line">export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:./lib/classes12.jar:./lib/dom4j-1.6.1.jar:./lib/log4j-1[1].2.15.jar:./lib/mysql-connector-java-5.1.15-bin.</span><br><span class="line">jar:./lib/sqljdbc4.jar</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/native_threads:$JAVA_HOME/jre/lib/amd64/client:$JAVA_HOME/jre/lib/amd64/server:./</span><br><span class="line"></span><br><span class="line">cd /home/DPP-LOCAL/DPP-LOCAL-AlertCenter</span><br><span class="line"></span><br><span class="line">$JAVA_HOME/bin/java DPPLOCALAlertCenter.Main</span><br></pre></td></tr></table></figure>
+<h4 id="supervisor-自启脚本"><a href="#supervisor-自启脚本" class="headerlink" title="supervisor 自启脚本"></a>supervisor 自启脚本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:DPPAlertCenter]</span><br><span class="line">command=sh /home/DPP-LOCAL/DPP-LOCAL-AlertCenter/StartDPPLOCALAlertCenter</span><br><span class="line">stdout_logfile=/home/DPP-LOCAL/DPP-LOCAL-AlertCenter/logs/DPPLOCAL_AlertCenter_</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=5</span><br><span class="line">priority=2</span><br><span class="line">stopasgroup=true</span><br><span class="line">killasgroup=true</span><br></pre></td></tr></table></figure>
+<h2 id="启动-Supervisor"><a href="#启动-Supervisor" class="headerlink" title="启动 Supervisor"></a>启动 Supervisor</h2><h3 id="手动启动，暴力关闭"><a href="#手动启动，暴力关闭" class="headerlink" title="手动启动，暴力关闭"></a>手动启动，暴力关闭</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ps -ef |grep super</span><br><span class="line"><span class="meta">#</span> root      6059     1  0 11:45 ?        00:00:00 /usr/bin/python /usr/bin/supervisord -c /etc/supervisor/supervisord.conf</span><br><span class="line">root      6238  3465  0 11:53 pts/3    00:00:00 grep --color=auto super</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> kill 6059</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> supervisord -c /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
+<h3 id="进程名-启动脚本"><a href="#进程名-启动脚本" class="headerlink" title="进程名-启动脚本"></a>进程名-启动脚本</h3><p>进程名配置：即每个配置文件的 program 对应的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[program:DPPAlertCenter]</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">启动进程：</span><br><span class="line"><span class="meta">#</span> supervisorctl start  [进程名]</span><br><span class="line"></span><br><span class="line">停止进程：</span><br><span class="line"><span class="meta">#</span> supervisorctl stop  [进程名]</span><br></pre></td></tr></table></figure>
+<h2 id="Supervisor-图形界面设置"><a href="#Supervisor-图形界面设置" class="headerlink" title="Supervisor 图形界面设置"></a>Supervisor 图形界面设置</h2><p><strong>核心配置：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">root@iZ23u31elifZ:/etc/supervisor# ls</span><br><span class="line">conf.d  supervisord.conf</span><br><span class="line">root@iZ23u31elifZ:/etc/supervisor# more supervisord.conf</span><br><span class="line">; supervisor config file</span><br><span class="line">[unix_http_server]</span><br><span class="line">file=/var/run/supervisor.sock   ; (the path to the socket file)</span><br><span class="line">chmod=0700                       ; sockef file mode (default 0700)</span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)</span><br><span class="line">pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">childlogdir=/var/log/supervisor            ; (&apos;AUTO&apos; child log dir, default $TEMP)</span><br><span class="line">; the below section must remain in the config file for RPC</span><br><span class="line">; (supervisorctl/web interface) to work, additional interfaces may be</span><br><span class="line">; added by defining them in separate rpcinterface: sections</span><br><span class="line">[rpcinterface:supervisor]</span><br><span class="line">supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface</span><br><span class="line">[supervisorctl]</span><br><span class="line">serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket</span><br><span class="line">; The [include] section can just contain the &quot;files&quot; setting.  This</span><br><span class="line">; setting can list multiple files (separated by whitespace or</span><br><span class="line">; newlines).  It can also contain wildcards.  The filenames are</span><br><span class="line">; interpreted as relative to this file.  Included files *cannot*</span><br><span class="line">; include files themselves.</span><br><span class="line">[inet_http_server]          ; 采用HTPP连接supervisord server，默认关闭</span><br><span class="line">port=0.0.0.0:9008           ; 指定可以连接supervisord server的ip地址及其所使用的端口号，*:port针对任何ip开放连接权限</span><br><span class="line">username=best               ; 指定supervisorctl连接时需要使用的用户名，默认不需用户名</span><br><span class="line">password=best8***</span><br><span class="line">[include]</span><br><span class="line">files = /etc/supervisor/conf.d/*.ini  ; *.ini 代表所有某目录下所有的 ini配置文件，后缀名可以为`.conf或者.ini`</span><br></pre></td></tr></table></figure>
+<p>注意看最后有中文注释的地方，配置端口，用户名和密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">port=0.0.0.0:9008           ; 指定可以连接supervisord server的ip地址及其所使用的端口号，*:port针对任何ip开放连接权限</span><br><span class="line">username=best               ; 指定supervisorctl连接时需要使用的用户名，默认不需用户名</span><br><span class="line">password=best8***</span><br></pre></td></tr></table></figure>
+<p>然后浏览器打开相应地址就能看到监控界面啦！跟 ActiveMQ 监控界面类似，不过 Supervisor 要简单许多！<br>如下图</p>
+<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-21-14980199749706.jpg" alt=""></p>
+<h2 id="其他选项"><a href="#其他选项" class="headerlink" title="其他选项"></a>其他选项</h2><p>具体请参考 <a href="http://supervisord.org/" target="_blank" rel="noopener">supervisor文档</a></p>
+<p>Enjoy！！！</p>
 
       
     </div>
@@ -615,7 +518,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/" title="Java 变量">http://cuijing.me/2015/02/06/1-Java-Base/2-Java variable/</a>
+    <a href="http://cuijing.me/2017/06/14/linux/Supervisor-linux-进程管理利器/" title="Supervisor linux 进程管理利器">http://cuijing.me/2017/06/14/linux/Supervisor-linux-进程管理利器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -630,11 +533,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/基础/" rel="tag"># 基础</a>
+            <a href="/tags/Supervisor/" rel="tag"># Supervisor</a>
           
-            <a href="/tags/变量/" rel="tag"># 变量</a>
+            <a href="/tags/进程管理/" rel="tag"># 进程管理</a>
           
         </div>
       
@@ -647,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/06/3-Exception/2、异常注意事项/" rel="next" title="Java 异常注意事项">
-                <i class="fa fa-chevron-left"></i> Java 异常注意事项
+              <a href="/2017/06/12/多说评论关闭/" rel="next" title="多说评论关闭">
+                <i class="fa fa-chevron-left"></i> 多说评论关闭
               </a>
             
           </div>
@@ -657,8 +560,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/06/1-Java-Base/5-Java Array/" rel="prev" title="Java 变量">
-                Java 变量 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/15/9-JVM/JavaGC-1/" rel="prev" title="Java垃圾回收机制（一）">
+                Java垃圾回收机制（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -811,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的概述"><span class="nav-number">1.</span> <span class="nav-text">变量的概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型（8种）"><span class="nav-number">2.</span> <span class="nav-text">基本数据类型（8种）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用数据类型（类、接口、数组）"><span class="nav-number">3.</span> <span class="nav-text">引用数据类型（类、接口、数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中什么叫做引用数据类型？"><span class="nav-number">3.1.</span> <span class="nav-text">Java中什么叫做引用数据类型？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进制（了解）"><span class="nav-number">4.</span> <span class="nav-text">进制（了解）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的数据类型转换"><span class="nav-number">5.</span> <span class="nav-text">变量的数据类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型转换："><span class="nav-number">5.1.</span> <span class="nav-text">自动类型转换：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换："><span class="nav-number">5.2.</span> <span class="nav-text">强制类型转换：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例测试类"><span class="nav-number">5.3.</span> <span class="nav-text">实例测试类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量间的运算"><span class="nav-number">5.4.</span> <span class="nav-text">变量间的运算</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为何使用-Supervisor"><span class="nav-number">1.</span> <span class="nav-text">为何使用 Supervisor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#supervisor"><span class="nav-number">2.</span> <span class="nav-text">supervisor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本编写"><span class="nav-number">2.2.</span> <span class="nav-text">脚本编写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat-自启动脚本"><span class="nav-number">2.2.1.</span> <span class="nav-text">Tomcat 自启动脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-项目项目自启动"><span class="nav-number">2.2.2.</span> <span class="nav-text">Java 项目项目自启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-启动脚本"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Java 启动脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#supervisor-自启脚本"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">supervisor 自启脚本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-Supervisor"><span class="nav-number">2.3.</span> <span class="nav-text">启动 Supervisor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动启动，暴力关闭"><span class="nav-number">2.3.1.</span> <span class="nav-text">手动启动，暴力关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程名-启动脚本"><span class="nav-number">2.3.2.</span> <span class="nav-text">进程名-启动脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-图形界面设置"><span class="nav-number">2.4.</span> <span class="nav-text">Supervisor 图形界面设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他选项"><span class="nav-number">2.5.</span> <span class="nav-text">其他选项</span></a></li></ol></li></ol></div>
             
 
           </div>

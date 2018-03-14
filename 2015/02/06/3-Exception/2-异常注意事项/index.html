@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Java,基础,关键字,标识符," />
+  <meta name="keywords" content="Java,面向对象,异常,Exception," />
 
 
 
@@ -126,18 +126,18 @@
 
 
 
-<meta name="description" content="关键字关键字：被Java语言赋予了特殊含义，用做专门用途的字符串（单词）">
-<meta name="keywords" content="Java,基础,关键字,标识符">
+<meta name="description" content="Java中如何处理异常在Java中进行异常处理的话，对于可能会发生异常的代码，可以选择三种方法来进行异常处理：">
+<meta name="keywords" content="Java,面向对象,异常,Exception">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 关键字与标识符">
-<meta property="og:url" content="http://cuijing.me/2015/02/06/1-Java-Base/1-Java keyword and identifier/index.html">
+<meta property="og:title" content="Java 异常注意事项">
+<meta property="og:url" content="http://cuijing.me/2015/02/06/3-Exception/2-异常注意事项/index.html">
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
-<meta property="og:description" content="关键字关键字：被Java语言赋予了特殊含义，用做专门用途的字符串（单词）">
+<meta property="og:description" content="Java中如何处理异常在Java中进行异常处理的话，对于可能会发生异常的代码，可以选择三种方法来进行异常处理：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-04T15:56:00.000Z">
+<meta property="og:updated_time" content="2016-05-04T12:15:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 关键字与标识符">
-<meta name="twitter:description" content="关键字关键字：被Java语言赋予了特殊含义，用做专门用途的字符串（单词）">
+<meta name="twitter:title" content="Java 异常注意事项">
+<meta name="twitter:description" content="Java中如何处理异常在Java中进行异常处理的话，对于可能会发生异常的代码，可以选择三种方法来进行异常处理：">
 
 
 
@@ -167,13 +167,13 @@
 
 
 
-  <link rel="canonical" href="http://cuijing.me/2015/02/06/1-Java-Base/1-Java keyword and identifier/"/>
+  <link rel="canonical" href="http://cuijing.me/2015/02/06/3-Exception/2-异常注意事项/"/>
 
 
 
 
 
-  <title>Java 关键字与标识符 | CuiJing's Blog</title>
+  <title>Java 异常注意事项 | CuiJing's Blog</title>
   
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/02/06/1-Java-Base/1-Java keyword and identifier/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/02/06/3-Exception/2-异常注意事项/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -361,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 关键字与标识符</h1>
+          <h1 class="post-title" itemprop="name headline">Java 异常注意事项</h1>
         
 
         <div class="post-meta">
@@ -389,8 +389,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-04T23:56:00+08:00">
-                2018-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2016-05-04T20:15:00+08:00">
+                2016-05-04
               </time>
             
           </span>
@@ -403,7 +403,7 @@
 
           
           
-             <span id="/2015/02/06/1-Java-Base/1-Java keyword and identifier/" class="leancloud_visitors" data-flag-title="Java 关键字与标识符">
+             <span id="/2015/02/06/3-Exception/2-异常注意事项/" class="leancloud_visitors" data-flag-title="Java 异常注意事项">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  489
+                  2,114
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  8
                 </span>
               
             </div>
@@ -467,26 +467,49 @@
       
 
       
-        <h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><p><strong>关键字</strong>：被Java语言赋予了特殊含义，用做专门用途的字符串（单词）<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">关键字列表</span><br><span class="line"><span class="keyword">abstract</span>    <span class="keyword">boolean</span>     <span class="keyword">break</span>       <span class="keyword">byte</span>        <span class="keyword">case</span> </span><br><span class="line"><span class="keyword">catch</span>       <span class="keyword">char</span>        <span class="class"><span class="keyword">class</span>       <span class="title">continue</span>    <span class="title">default</span> </span></span><br><span class="line"><span class="class"><span class="title">do</span>          <span class="title">double</span>      <span class="title">else</span>        <span class="keyword">extends</span>     <span class="title">enum</span>    </span></span><br><span class="line"><span class="class"><span class="title">false</span>       <span class="title">final</span>       <span class="title">finally</span>     <span class="title">float</span>       <span class="title">for</span></span></span><br><span class="line"><span class="class"><span class="title">if</span>          <span class="keyword">implements</span>  <span class="title">import</span>      <span class="title">instanceof</span>  <span class="title">int</span></span></span><br><span class="line"><span class="class"><span class="title">interface</span>   <span class="title">long</span>        <span class="title">native</span>      <span class="title">new</span>         <span class="title">null</span></span></span><br><span class="line"><span class="class"><span class="title">package</span>     <span class="title">private</span>     <span class="title">protected</span>   <span class="title">public</span>      <span class="title">return</span></span></span><br><span class="line"><span class="class"><span class="title">short</span>       <span class="title">static</span>      <span class="title">super</span>       <span class="title">switch</span>      <span class="title">synchronized</span></span></span><br><span class="line"><span class="class"><span class="title">this</span>        <span class="title">throw</span>       <span class="title">throws</span>      <span class="title">transient</span>   <span class="title">true</span></span></span><br><span class="line"><span class="class"><span class="title">try</span>         <span class="title">void</span>        <span class="title">volatile</span>    <span class="title">while</span></span></span><br></pre></td></tr></table></figure></p>
-<p>Java 中 <code>true false</code>不是关键字，而是 boolean 类型的字面量。但也不能当作变量用。<br>所有的关键字都是小写，<code>friendly sizeof</code> 不是 java 的关键字 。</p>
-<h1 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h1><p><strong>保留字</strong>：指在高级语言中已经定义过的字，使用者不能再将这些字作为变量名或过程名使用。<br>保留字：<code>const goto</code>  这两个已经削去意义，但同样不能用作变量名。</p>
-<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><p><strong>标识符</strong>：用来给一个类、变量或方法命名的符号（凡是自己可以起名字的地方都叫标识符）</p>
-<p><strong>标识符的命名规则</strong>：（一定要遵守，不遵守就会报编译的错误）</p>
+        <h1 id="Java中如何处理异常"><a href="#Java中如何处理异常" class="headerlink" title="Java中如何处理异常"></a>Java中如何处理异常</h1><p>在Java中进行异常处理的话，对于可能会发生异常的代码，可以选择三种方法来进行异常处理：<br><a id="more"></a></p>
+<ol>
+<li><p>对代码块用<code>try..catch</code>进行异常捕获处理；</p>
+</li>
+<li><p>在该代码的方法体外用<code>throws</code>进行抛出声明，告知此方法的调用者这段代码可能会出现这些异常，你需要谨慎处理。此时有两种情况：如果声明抛出的异常是非运行时异常，此方法的调用者必须显示地用<code>try..catch</code>块进行捕获或者继续向上层抛出异常。如果声明抛出的异常是运行时异常，此方法的调用者可以选择地进行异常捕获处理。 </p>
+</li>
+<li><p>在代码块用<code>throw</code>手动抛出一个异常对象，此时也有两种情况，跟 2 中的类似：如果抛出的异常对象是非运行时异常，此方法的调用者必须显示地用<code>try..catch</code>块进行捕获或者继续向上层抛出异常。如果抛出的异常对象是运行时异常，此方法的调用者可以选择地进行异常捕获处理。 如果最终将异常抛给<code>main</code>方法，则相当于交给JVM自动处理，此时JVM会简单地打印异常信息</p>
+</li>
+</ol>
+<h1 id="深刻理解try-catch-finally"><a href="#深刻理解try-catch-finally" class="headerlink" title="深刻理解try,catch,finally"></a>深刻理解try,catch,finally</h1><p>try关键字用来包围可能会出现异常的逻辑代码，它单独无法使用，必须配合catch或者finally使用。Java编译器允许的组合使用形式只有以下三种形式：</p>
 <ul>
-<li>由26个英文字母大小写，0-9 , 或者下划线”_“和”$”开头，数字不可以开头。</li>
-<li>Java中严格区分大小写，</li>
-<li>不可以使用关键字和保留字，但能包含关键字和保留字。</li>
-<li>Java中长度无限制。</li>
-<li>标识符不能包含空格。</li>
+<li>try…catch…;       </li>
+<li>try….finally……;    </li>
+<li>try….catch…finally…</li>
 </ul>
-<p><strong>Java中的名称命名规范</strong>：（不遵守，也不会出现编译的错误）</p>
-<ul>
-<li>包名：                    多单词组成时所有字母都小写：<code>xxxyyyzzz</code></li>
-<li>类名、接口名：       多单词组成时，所有单词的首字母大写：<code>XxxYyyZzz</code></li>
-<li>变量名、方法名：   多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：<code>xxxYyyZzz</code></li>
-<li>常量名：                 所有字母都大写。多单词时下划线连接：<code>XXX_YYY_ZZZ</code></li>
-<li>建议使用JavaBeans规则命名，并根据方法的目的，以 <code>set</code>、<code>get</code>、<code>is</code>、<code>add</code> 或 <code>remove</code> 开头。</li>
-</ul>
+<p>当然catch块可以有多个，注意try块只能有一个,finally块是可选的（但是最多只能有一个finally块）。</p>
+<p>三个块执行的顺序为try—&gt;catch—&gt;finally。</p>
+<p>当然如果没有发生异常，则catch块不会执行。但是finally块无论在什么情况下都是会执行的（这点要非常注意，因此部分情况下，都会将释放资源的操作放在finally块中进行）。在有多个catch块的时候，是按照catch块的先后顺序进行匹配的，一旦异常类型被一个catch块匹配，则不会与后面的catch块进行匹配。</p>
+<p>在使用try..catch..finally块的时候，注意千万不要在finally块中使用return，因为finally中的return会覆盖已有的返回值。下面看一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">public class TestFinally1 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String str = new TestFinally1().openFile();</span><br><span class="line">        System. out.println(str);</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    public String openFile() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            FileInputStream inputStream = new FileInputStream(&quot;d:/a.txt&quot; );</span><br><span class="line">            int ch = inputStream.read();</span><br><span class="line">            System.out.println( &quot;aaa&quot;);</span><br><span class="line">            return &quot;step1&quot;;</span><br><span class="line">        &#125;catch (FileNotFoundException e) &#123;</span><br><span class="line">            System.out.println( &quot;file not found&quot;);</span><br><span class="line">            return &quot;step2&quot;;</span><br><span class="line">        &#125;catch (IOException e) &#123;</span><br><span class="line">            System.out.println( &quot;io exception&quot;);</span><br><span class="line">            return &quot;step3&quot;;</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            System.out.println(&quot;finally block&quot; );</span><br><span class="line">            //return &quot;finally&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段程序的输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file not found</span><br><span class="line">finally block</span><br><span class="line">step2</span><br></pre></td></tr></table></figure>
+<p>  可以看出，在try块中发生FileNotFoundException之后，就跳到第一个catch块，打印”file not found”信息，并将”step2”赋值给返回值，然后执行finally块，最后将返回值返回。从这个例子说明，无论try块或者catch块中是否包含return语句，都会执行finally块。<br>如果将这个程序稍微修改一下，将finally块中的return语句注释去掉，运行结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file not found</span><br><span class="line">finally block</span><br><span class="line">finally</span><br></pre></td></tr></table></figure>
+<p>最后打印出的是”finally”，返回值被重新覆盖了。<br>因此如果方法有返回值，切忌不要再finally中使用return，这样会使得程序结构变得混乱。</p>
+<h1 id="异常处理和设计的几个建议"><a href="#异常处理和设计的几个建议" class="headerlink" title="异常处理和设计的几个建议"></a>异常处理和设计的几个建议</h1><p>以下是根据前人总结的一些异常处理的建议</p>
+<h2 id="1、只在必要使用异常的地方才使用异常"><a href="#1、只在必要使用异常的地方才使用异常" class="headerlink" title="1、只在必要使用异常的地方才使用异常"></a>1、只在必要使用异常的地方才使用异常</h2><p>只在必要使用异常的地方才使用异常，不要用异常去控制程序的流程。<br>谨慎地使用异常，异常捕获的代价非常高昂，异常使用过多会严重影响程序的性能。如果在程序中能够用<code>if语句</code>和<code>Boolean变量</code>来进行逻辑判断，那么尽量减少异常的使用，从而避免不必要的异常捕获和处理。</p>
+<p>比如下面这段经典的程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public void useExceptionsForFlowControl() &#123;  </span><br><span class="line">    try &#123; </span><br><span class="line">        while (true) &#123;  </span><br><span class="line">            increaseCount(); </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; catch (MaximumCountReachedException ex) &#123; </span><br><span class="line">    </span><br><span class="line">    &#125;  </span><br><span class="line">    //Continue execution </span><br><span class="line">&#125;  </span><br><span class="line">   </span><br><span class="line">public void increaseCount() throws MaximumCountReachedException &#123;  </span><br><span class="line">    if (count &gt;= 5000) </span><br><span class="line">        throw new  MaximumCountReachedException();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上边的useExceptionsForFlowControl()用一个无限循环来增加count直到抛出异常，这种做法并没有说让代码不易读，而是使得程序执行效率降低。 </p>
+<h2 id="2、切忌使用空catch块"><a href="#2、切忌使用空catch块" class="headerlink" title="2、切忌使用空catch块"></a>2、切忌使用空catch块</h2><p>在捕获了异常之后什么都不做，相当于忽略了这个异常。千万不要使用空的catch块，空的catch块意味着你在程序中隐藏了错误和异常，并且很可能导致程序出现不可控的执行结果。如果你非常肯定捕获到的异常不会以任何方式对程序造成影响，最好用Log日志将该异常进行记录，以便日后方便更新和维护。 </p>
+<h2 id="3、检查异常和非检查异常的选择"><a href="#3、检查异常和非检查异常的选择" class="headerlink" title="3、检查异常和非检查异常的选择"></a>3、检查异常和非检查异常的选择</h2><p>一旦你决定抛出异常，你就要决定抛出什么异常。这里面的主要问题就是抛出检查异常还是非检查异常。 </p>
+<p>检查异常导致了太多的try…catch代码，可能有很多检查异常对开发人员来说是无法合理地进行处理的，比如SQLException，而开发人员却不得不去进行try…catch，这样就会导致经常出现这样一种情况：逻辑代码只有很少的几行，而进行异常捕获和处理的代码却有很多行。这样不仅导致逻辑代码阅读起来晦涩难懂，而且降低了程序的性能。</p>
+<p>建议尽量避免检查异常的使用，如果确实该异常情况的出现很普遍，需要提醒调用者注意处理的话，就使用检查异常；否则使用非检查异常。 因此，在一般情况下，我觉得<strong>尽量将检查异常转变为非检查异常交给上层处理</strong>。</p>
+<h2 id="4、注意catch块的顺序"><a href="#4、注意catch块的顺序" class="headerlink" title="4、注意catch块的顺序"></a>4、注意catch块的顺序</h2><p>不要把上层类的异常放在最前面的catch块。比如下面这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    FileInputStream inputStream = new FileInputStream( &quot;d:/a.txt&quot;);</span><br><span class="line">    int ch = inputStream.read();</span><br><span class="line">    System.out.println(&quot;aaa&quot;);</span><br><span class="line">    return &quot;step1&quot;;</span><br><span class="line">&#125; catch (IOException e ) &#123;</span><br><span class="line">    System.out.println(&quot;io exception&quot;);        </span><br><span class="line">    return &quot;step2&quot;;</span><br><span class="line">&#125;catch (FileNotFoundException e) &#123;</span><br><span class="line">    System.out.println(&quot;file not found&quot;);         </span><br><span class="line">    return &quot;step3&quot;;</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    System.out.println(&quot;finally block&quot;);</span><br><span class="line">    //return &quot;finally&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二个catch的FileNotFoundException将永远不会被捕获到，因为FileNotFoundException是IOException的子类。</p>
+<h2 id="5、不要将提供给用户看的信息放在异常信息里"><a href="#5、不要将提供给用户看的信息放在异常信息里" class="headerlink" title="5、不要将提供给用户看的信息放在异常信息里"></a>5、不要将提供给用户看的信息放在异常信息里</h2><p>比如下面这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    FileInputStream inputStream = new FileInputStream( &quot;d:/a.txt&quot;);</span><br><span class="line">    int ch = inputStream.read();</span><br><span class="line">    System.out.println(&quot;aaa&quot;);</span><br><span class="line">    return &quot;step1&quot;;</span><br><span class="line">&#125; catch (IOException e ) &#123;</span><br><span class="line">    System.out.println(&quot;io exception&quot;);        </span><br><span class="line">    return &quot;step2&quot;; </span><br><span class="line">&#125;catch (FileNotFoundException e) &#123;</span><br><span class="line">    System.out.println(&quot;file not found&quot;);         </span><br><span class="line">    return &quot;step3&quot;;</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    System.out.println(&quot;finally block&quot;);</span><br><span class="line">    //return &quot;finally&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>展示给用户错误提示信息最好不要跟程序混淆一起，比较好的方式是将所有错误提示信息放在一个配置文件中统一管理。 </p>
+<h2 id="6、避免多次在日志信息中记录同一个异常"><a href="#6、避免多次在日志信息中记录同一个异常" class="headerlink" title="6、避免多次在日志信息中记录同一个异常"></a>6、避免多次在日志信息中记录同一个异常</h2><p>只在异常最开始发生的地方进行日志信息记录。很多情况下异常都是层层向上跑出的，如果在每次向上抛出的时候，都Log到日志系统中，则会导致无从查找异常发生的根源。 </p>
+<h2 id="7、异常处理尽量放在高层进行"><a href="#7、异常处理尽量放在高层进行" class="headerlink" title="7、异常处理尽量放在高层进行"></a>7、异常处理尽量放在高层进行</h2><p>尽量将异常统一抛给上层调用者，由上层调用者统一之时如何进行处理。如果在每个出现异常的地方都直接进行处理，会导致程序异常处理流程混乱，不利于后期维护和异常错误排查。由上层统一进行处理会使得整个程序的流程清晰易懂。 </p>
+<h2 id="8、在finally中释放资源"><a href="#8、在finally中释放资源" class="headerlink" title="8、在finally中释放资源"></a>8、在finally中释放资源</h2><p>如果有使用文件读取、网络操作以及数据库操作等，记得在finally中释放资源。这样不仅会使得程序占用更少的资源，也会避免不必要的由于资源未释放而发生的异常情况。                                    </p>
 
       
     </div>
@@ -507,7 +530,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://cuijing.me/2015/02/06/1-Java-Base/1-Java keyword and identifier/" title="Java 关键字与标识符">http://cuijing.me/2015/02/06/1-Java-Base/1-Java keyword and identifier/</a>
+    <a href="http://cuijing.me/2015/02/06/3-Exception/2-异常注意事项/" title="Java 异常注意事项">http://cuijing.me/2015/02/06/3-Exception/2-异常注意事项/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -524,11 +547,11 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/基础/" rel="tag"># 基础</a>
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
           
-            <a href="/tags/关键字/" rel="tag"># 关键字</a>
+            <a href="/tags/异常/" rel="tag"># 异常</a>
           
-            <a href="/tags/标识符/" rel="tag"># 标识符</a>
+            <a href="/tags/Exception/" rel="tag"># Exception</a>
           
         </div>
       
@@ -541,18 +564,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/06/1-Java-Base/4-Java Flow control/" rel="next" title="Java 变量">
-                <i class="fa fa-chevron-left"></i> Java 变量
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/08/2-Object-Oriented/4-关键字/" rel="prev" title="Java 关键字">
-                Java 关键字 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/02/06/1-Java-Base/2-Java-variable/" rel="prev" title="Java 变量">
+                Java 变量 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -705,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关键字"><span class="nav-number">1.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保留字"><span class="nav-number">2.</span> <span class="nav-text">保留字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标识符"><span class="nav-number">3.</span> <span class="nav-text">标识符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中如何处理异常"><span class="nav-number">1.</span> <span class="nav-text">Java中如何处理异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深刻理解try-catch-finally"><span class="nav-number">2.</span> <span class="nav-text">深刻理解try,catch,finally</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理和设计的几个建议"><span class="nav-number">3.</span> <span class="nav-text">异常处理和设计的几个建议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、只在必要使用异常的地方才使用异常"><span class="nav-number">3.1.</span> <span class="nav-text">1、只在必要使用异常的地方才使用异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、切忌使用空catch块"><span class="nav-number">3.2.</span> <span class="nav-text">2、切忌使用空catch块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、检查异常和非检查异常的选择"><span class="nav-number">3.3.</span> <span class="nav-text">3、检查异常和非检查异常的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、注意catch块的顺序"><span class="nav-number">3.4.</span> <span class="nav-text">4、注意catch块的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、不要将提供给用户看的信息放在异常信息里"><span class="nav-number">3.5.</span> <span class="nav-text">5、不要将提供给用户看的信息放在异常信息里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、避免多次在日志信息中记录同一个异常"><span class="nav-number">3.6.</span> <span class="nav-text">6、避免多次在日志信息中记录同一个异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、异常处理尽量放在高层进行"><span class="nav-number">3.7.</span> <span class="nav-text">7、异常处理尽量放在高层进行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、在finally中释放资源"><span class="nav-number">3.8.</span> <span class="nav-text">8、在finally中释放资源</span></a></li></ol></li></ol></div>
             
 
           </div>
