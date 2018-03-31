@@ -126,13 +126,13 @@
 
 
 
-<meta name="description" content="1、类的加载过程JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如下图所示：   装载：查找并加载类的二进制数据；  链接：  验证：确保被加载类的正确性； 准备：为类的静态变量分配内存，并将其初始化为默认值； 解析：把类中的符号引用转换为直接引用；   初始化：为类的静态变量赋予正确的初始值；">
+<meta name="description" content="1、类的加载过程JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如">
 <meta name="keywords" content="Java,JVM,类加载器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 虚拟机 类加载器总结">
 <meta property="og:url" content="http://cuijing.me/2017/03/18/9-JVM/Java类加载总结/index.html">
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
-<meta property="og:description" content="1、类的加载过程JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如下图所示：   装载：查找并加载类的二进制数据；  链接：  验证：确保被加载类的正确性； 准备：为类的静态变量分配内存，并将其初始化为默认值； 解析：把类中的符号引用转换为直接引用；   初始化：为类的静态变量赋予正确的初始值；">
+<meta property="og:description" content="1、类的加载过程JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14952769646458.jpg">
 <meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14952769864695.jpg">
@@ -141,7 +141,7 @@
 <meta property="og:updated_time" content="2018-02-21T12:13:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 虚拟机 类加载器总结">
-<meta name="twitter:description" content="1、类的加载过程JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如下图所示：   装载：查找并加载类的二进制数据；  链接：  验证：确保被加载类的正确性； 准备：为类的静态变量分配内存，并将其初始化为默认值； 解析：把类中的符号引用转换为直接引用；   初始化：为类的静态变量赋予正确的初始值；">
+<meta name="twitter:description" content="1、类的加载过程JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如">
 <meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14952769646458.jpg">
 
 
@@ -472,8 +472,8 @@
       
 
       
-        <h1 id="1、类的加载过程"><a href="#1、类的加载过程" class="headerlink" title="1、类的加载过程"></a>1、类的加载过程</h1><p>JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如下图所示：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14952769646458.jpg" alt=""></p>
+        <h1 id="1、类的加载过程"><a href="#1、类的加载过程" class="headerlink" title="1、类的加载过程"></a>1、类的加载过程</h1><p>JVM将类加载过程分为三个步骤：装载（Load），链接（Link）和初始化(Initialize) 链接又分为三个步骤，如<br><a id="more"></a></p>
+<p>下图所示：<br><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14952769646458.jpg" alt=""></p>
 <ol>
 <li><p>装载：查找并加载类的二进制数据；</p>
 </li>
@@ -485,10 +485,9 @@
 </ol>
 </li>
 <li><p>初始化：为类的静态变量赋予正确的初始值；</p>
-<a id="more"></a>
-<p>那为什么我要有验证这一步骤呢？首先如果由编译器生成的class文件，它肯定是符合JVM字节码格式的，但是万一有高手自己写一个class文件，让JVM加载并运行，用于恶意用途，就不妙了，因此这个class文件要先过验证这一关，不符合的话不会让它继续执行的，也是为了安全考虑吧。</p>
 </li>
 </ol>
+<p>那为什么我要有验证这一步骤呢？首先如果由编译器生成的class文件，它肯定是符合JVM字节码格式的，但是万一有高手自己写一个class文件，让JVM加载并运行，用于恶意用途，就不妙了，因此这个class文件要先过验证这一关，不符合的话不会让它继续执行的，也是为了安全考虑吧。</p>
 <p>准备阶段和初始化阶段看似有点矛盾，其实是不矛盾的，如果类中有语句：private static int a = 10，它的执行过程是这样的，首先字节码文件被加载到内存后，先进行链接的验证这一步骤，验证通过后准备阶段，给a分配内存，因为变量a是static的，所以此时a等于int类型的默认初始值0，即a=0,然后到解析（后面在说），到初始化这一步骤时，才把a的真正的值10赋给a,此时a=10。</p>
 <h1 id="2-类的初始化"><a href="#2-类的初始化" class="headerlink" title="2. 类的初始化"></a>2. 类的初始化</h1><p>类什么时候才被初始化：</p>
 <ol>
