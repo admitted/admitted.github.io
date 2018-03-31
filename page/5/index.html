@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/04/5-Multithreaded/3-线程练习-生产与消费/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/06/6-Reflection/1-反射机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -362,7 +362,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/03/04/5-Multithreaded/3-线程练习-生产与消费/" itemprop="url">多线程之生产者与消费者</a></h1>
+                <a class="post-title-link" href="/2015/03/06/6-Reflection/1-反射机制/" itemprop="url">Java 反射机制</a></h1>
         
 
         <div class="post-meta">
@@ -374,8 +374,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-04T08:30:00+08:00">
-                2015-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-06T08:30:00+08:00">
+                2015-03-06
               </time>
             
 
@@ -390,8 +390,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-03T20:11:00+08:00">
-                2016-05-03
+              <time title="更新于" itemprop="dateModified" datetime="2016-05-02T22:13:00+08:00">
+                2016-05-02
               </time>
             
           </span>
@@ -404,7 +404,7 @@
 
           
           
-             <span id="/2015/03/04/5-Multithreaded/3-线程练习-生产与消费/" class="leancloud_visitors" data-flag-title="多线程之生产者与消费者">
+             <span id="/2015/03/06/6-Reflection/1-反射机制/" class="leancloud_visitors" data-flag-title="Java 反射机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  586
+                  1,230
                 </span>
               
 
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -469,10 +469,20 @@
 
       
         
-          
-            <h1 id="生产者与消费者"><a href="#生产者与消费者" class="headerlink" title="生产者与消费者"></a>生产者与消费者</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 生产者/消费者问题</span></span><br><span class="line"><span class="comment"> * 生产者(Productor)将产品交给店员(Clerk)，而消费者(Customer)从店员处取走产品，</span></span><br><span class="line"><span class="comment"> * 店员一次只能持有固定数量的产品(比如:20），如果生产者试图生产更多的产品，店员会叫生产者停一下，</span></span><br><span class="line"><span class="comment"> * 如果店中有空位放产品了再通知生产者继续生产；如果店中没有产品了，店员会告诉消费者等一下，</span></span><br><span class="line"><span class="comment"> * 如果店中有产品了再通知消费者来取走产品。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 分析：</span></span><br><span class="line"><span class="comment"> 1.是否涉及到多线程的问题？是！生产者、消费者</span></span><br><span class="line"><span class="comment"> 2.是否涉及到共享数据？有！考虑线程的安全</span></span><br><span class="line"><span class="comment"> 3.此共享数据是谁？即为产品的数量</span></span><br><span class="line"><span class="comment"> 4.是否涉及到线程的通信呢？存在生产者与消费者的通信</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="keyword">package</span> me.cuijing.test.thread;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> CuiJing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017/5/16</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPCC</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Clerk clerk = <span class="keyword">new</span> Clerk();</span><br><span class="line">        Productor p = <span class="keyword">new</span> Productor(clerk);</span><br><span class="line">        Consumer c = <span class="keyword">new</span> Consumer(clerk);</span><br><span class="line"></span><br><span class="line">        Thread p1 = <span class="keyword">new</span> Thread(p);</span><br><span class="line">        Thread p2 = <span class="keyword">new</span> Thread(p);</span><br><span class="line">        Thread c1 = <span class="keyword">new</span> Thread(c);</span><br><span class="line"></span><br><span class="line">        p1.setName( <span class="string">"生产者1"</span>);</span><br><span class="line">        p2.setName( <span class="string">"生产者2"</span>);</span><br><span class="line">        c1.setName( <span class="string">"消费者1"</span>);</span><br><span class="line"></span><br><span class="line">        p1.start();</span><br><span class="line">        p2.start();</span><br><span class="line">        c1.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clerk</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> productCount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buyProduct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (productCount &gt;= <span class="number">20</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    wait();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                notifyAll();</span><br><span class="line">                productCount++; <span class="comment">//一开始没有产品 所有 先++ 后打印</span></span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">":生产了第"</span> + productCount + <span class="string">"个产品"</span>);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sellProduct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(productCount &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    wait();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                notifyAll();</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">":卖出了第"</span> + productCount + <span class="string">"个产品"</span>);</span><br><span class="line">                productCount--; <span class="comment">// 先卖出去，再--</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Productor</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Clerk clerk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Productor</span><span class="params">(Clerk clerk)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.clerk = clerk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产者生产产品！"</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            clerk.buyProduct();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Clerk clerk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Consumer</span> <span class="params">(Clerk clerk)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.clerk = clerk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"消费者消费产品！"</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            clerk.sellProduct();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="1、如何创建Class的实例-重点"><a href="#1、如何创建Class的实例-重点" class="headerlink" title="1、如何创建Class的实例(重点)"></a>1、如何创建Class的实例(重点)</h1><ol>
+<li>过程： 源文件经过编译javac.exe以后，得到一个或多个<code>.class</code>文件。<code>.class</code>文件经过运行java.exe这步，就需要进行类的加载（通过JVM的类的加载器），记载到内存中的缓存。每一个放入缓存中的.class文件就是一个Class的实例！</li>
+<li>Class的一个对象，对应着一个运行时类。相当于一个运行时类本身充当了Class的一个实例。</li>
+<li>java.lang.Class是反射的源头。<br> 接下来涉及到反射的类都在java.lang.reflect子包下。<br> 如：Field 、 Method 、Constructor 、 Type 、Package..<br> 当通过Class的实例调用<code>getMethods() ---&gt;Method</code>, <code>getConstructors() ----&gt;Constructor</code>
 
-          
+        
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/06/6-Reflection/1-反射机制/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -703,7 +713,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/03/7-Http-Socket/2-TCP:IP/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/04/5-Multithreaded/3-线程练习-生产与消费/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -722,7 +732,183 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/03/03/7-Http-Socket/2-TCP:IP/" itemprop="url">TCP/IP 概念小结</a></h1>
+                <a class="post-title-link" href="/2015/03/04/5-Multithreaded/3-线程练习-生产与消费/" itemprop="url">多线程之生产者与消费者</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-04T08:30:00+08:00">
+                2015-03-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-05-03T20:11:00+08:00">
+                2016-05-03
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2015/03/04/5-Multithreaded/3-线程练习-生产与消费/" class="leancloud_visitors" data-flag-title="多线程之生产者与消费者">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  586
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="生产者与消费者"><a href="#生产者与消费者" class="headerlink" title="生产者与消费者"></a>生产者与消费者</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 生产者/消费者问题</span></span><br><span class="line"><span class="comment"> * 生产者(Productor)将产品交给店员(Clerk)，而消费者(Customer)从店员处取走产品，</span></span><br><span class="line"><span class="comment"> * 店员一次只能持有固定数量的产品(比如:20），如果生产者试图生产更多的产品，店员会叫生产者停一下，</span></span><br><span class="line"><span class="comment"> * 如果店中有空位放产品了再通知生产者继续生产；如果店中没有产品了，店员会告诉消费者等一下，</span></span><br><span class="line"><span class="comment"> * 如果店中有产品了再通知消费者来取走产品。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 分析：</span></span><br><span class="line"><span class="comment"> 1.是否涉及到多线程的问题？是！生产者、消费者</span></span><br><span class="line"><span class="comment"> 2.是否涉及到共享数据？有！考虑线程的安全</span></span><br><span class="line"><span class="comment"> 3.此共享数据是谁？即为产品的数量</span></span><br><span class="line"><span class="comment"> 4.是否涉及到线程的通信呢？存在生产者与消费者的通信</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="keyword">package</span> me.cuijing.test.thread;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> CuiJing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017/5/16</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPCC</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Clerk clerk = <span class="keyword">new</span> Clerk();</span><br><span class="line">        Productor p = <span class="keyword">new</span> Productor(clerk);</span><br><span class="line">        Consumer c = <span class="keyword">new</span> Consumer(clerk);</span><br><span class="line"></span><br><span class="line">        Thread p1 = <span class="keyword">new</span> Thread(p);</span><br><span class="line">        Thread p2 = <span class="keyword">new</span> Thread(p);</span><br><span class="line">        Thread c1 = <span class="keyword">new</span> Thread(c);</span><br><span class="line"></span><br><span class="line">        p1.setName( <span class="string">"生产者1"</span>);</span><br><span class="line">        p2.setName( <span class="string">"生产者2"</span>);</span><br><span class="line">        c1.setName( <span class="string">"消费者1"</span>);</span><br><span class="line"></span><br><span class="line">        p1.start();</span><br><span class="line">        p2.start();</span><br><span class="line">        c1.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clerk</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> productCount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buyProduct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (productCount &gt;= <span class="number">20</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    wait();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                notifyAll();</span><br><span class="line">                productCount++; <span class="comment">//一开始没有产品 所有 先++ 后打印</span></span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">":生产了第"</span> + productCount + <span class="string">"个产品"</span>);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sellProduct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(productCount &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    wait();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                notifyAll();</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">":卖出了第"</span> + productCount + <span class="string">"个产品"</span>);</span><br><span class="line">                productCount--; <span class="comment">// 先卖出去，再--</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Productor</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Clerk clerk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Productor</span><span class="params">(Clerk clerk)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.clerk = clerk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产者生产产品！"</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            clerk.buyProduct();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Clerk clerk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Consumer</span> <span class="params">(Clerk clerk)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.clerk = clerk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"消费者消费产品！"</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            clerk.sellProduct();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/03/5-Multithreaded/2-线程常用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CuiJing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CuiJing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/03/03/5-Multithreaded/2-线程常用方法/" itemprop="url">多线程常用方法</a></h1>
         
 
         <div class="post-meta">
@@ -750,8 +936,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-02T21:23:00+08:00">
-                2016-05-02
+              <time title="更新于" itemprop="dateModified" datetime="2016-05-03T20:01:00+08:00">
+                2016-05-03
               </time>
             
           </span>
@@ -764,7 +950,7 @@
 
           
           
-             <span id="/2015/03/03/7-Http-Socket/2-TCP:IP/" class="leancloud_visitors" data-flag-title="TCP/IP 概念小结">
+             <span id="/2015/03/03/5-Multithreaded/2-线程常用方法/" class="leancloud_visitors" data-flag-title="多线程常用方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -791,7 +977,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,827
+                  406
                 </span>
               
 
@@ -807,7 +993,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  2
                 </span>
               
             </div>
@@ -829,19 +1015,10 @@
 
       
         
-          <h1 id="为什么会有TCP-IP协议？"><a href="#为什么会有TCP-IP协议？" class="headerlink" title="为什么会有TCP/IP协议？"></a>为什么会有TCP/IP协议？</h1><p>在世界上各地，各种各样的电脑运行着各自不同的操作系统为大家服务，计算机使用者意识到，计算机只是单兵作战并不会发挥太大的作用。只有把它们联合起来，电脑才会发挥出它最大的潜力。于是人们就想方设法的用电线把电脑连接到了一起。</p>
-<p>但是简单的连到一起是远远不够的，就好像语言不同的两个人互相见了面，完全不能交流信息。因而他们需要定义一些共通的东西来进行交流，TCP/IP就是为此而生。</p>
-<p><strong>TCP/IP不是一个协议，而是一个协议族的统称</strong>。<br>
+          
+            <h1 id="多线程常用方法"><a href="#多线程常用方法" class="headerlink" title="多线程常用方法"></a>多线程常用方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Thread的常用方法：</span></span><br><span class="line"><span class="comment"> * 1.start()        :启动线程并执行相应的run()方法</span></span><br><span class="line"><span class="comment"> * 2.run()          :子线程要执行的代码放入run()方法中</span></span><br><span class="line"><span class="comment"> * 3.currentThread():静态方法: 调取当前的线程</span></span><br><span class="line"><span class="comment"> * 4.getName()      :获取此线程的名字</span></span><br><span class="line"><span class="comment"> * 5.setName()      :设置此线程的名字，主线程main也可以设置。</span></span><br><span class="line"><span class="comment"> * 6.yield()        :调用此方法的线程释放当前CPU的执行权</span></span><br><span class="line"><span class="comment"> * 7.join()         :在A线程中调用B线程的join()方法，表示：当执行到此方法，A线程停止执行，直至B线程执行完毕，</span></span><br><span class="line"><span class="comment"> *                   A线程再接着join()之后的代码执行</span></span><br><span class="line"><span class="comment"> * 8.isAlive()      :判断当前线程是否还存活</span></span><br><span class="line"><span class="comment"> * 9.sleep(long l)  :显式的让当前线程睡眠 l 毫秒</span></span><br><span class="line"><span class="comment"> * 10.线程通信      : wait()    等待 </span></span><br><span class="line"><span class="comment">               notify()  notifyAll()   通知,唤醒</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 设置线程的优先级</span></span><br><span class="line"><span class="comment"> * getPriority() ：返回线程优先值</span></span><br><span class="line"><span class="comment">   setPriority(int newPriority) ：改变线程的优先级</span></span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubThread1</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">                   <span class="comment">// try &#123;</span></span><br><span class="line">                   <span class="comment">// Thread.currentThread().sleep(1000);</span></span><br><span class="line">                   <span class="comment">// &#125; catch (InterruptedException e) &#123;</span></span><br><span class="line">                   <span class="comment">// // TODO Auto-generated catch block</span></span><br><span class="line">                   <span class="comment">// e.printStackTrace();</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">                  System. out.println(Thread.currentThread().getName() + <span class="string">":"</span></span><br><span class="line">                              + Thread.currentThread().getPriority() + <span class="string">":"</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread1</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            SubThread1 st1 = <span class="keyword">new</span> SubThread1();</span><br><span class="line">            st1.setName( <span class="string">"子线程1"</span>);</span><br><span class="line">            st1.setPriority(Thread. MAX_PRIORITY);</span><br><span class="line">            st1.start();</span><br><span class="line">            Thread. currentThread().setName(<span class="string">"========主线程"</span>);</span><br><span class="line">             <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">                  System. out.println(Thread.currentThread().getName() + <span class="string">":"</span></span><br><span class="line">                              + Thread.currentThread().getPriority() + <span class="string">":"</span> + i);</span><br><span class="line">                   <span class="comment">// if(i % 10 == 0)&#123;</span></span><br><span class="line">                   <span class="comment">// Thread.currentThread().yield();</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">                   <span class="comment">// if(i == 20)&#123;</span></span><br><span class="line">                   <span class="comment">// try &#123;</span></span><br><span class="line">                   <span class="comment">// st1.join();</span></span><br><span class="line">                   <span class="comment">// &#125; catch (InterruptedException e) &#123;</span></span><br><span class="line">                   <span class="comment">// // TODO Auto-generated catch block</span></span><br><span class="line">                   <span class="comment">// e.printStackTrace();</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            System. out.println(st1.isAlive());</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/03/03/7-Http-Socket/2-TCP:IP/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1442,7 +1619,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/03/5-Multithreaded/2-线程常用方法/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/03/03/7-Http-Socket/2-TCP:IP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -1461,7 +1638,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/03/03/5-Multithreaded/2-线程常用方法/" itemprop="url">多线程常用方法</a></h1>
+                <a class="post-title-link" href="/2015/03/03/7-Http-Socket/2-TCP:IP/" itemprop="url">TCP/IP 概念小结</a></h1>
         
 
         <div class="post-meta">
@@ -1489,8 +1666,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-03T20:01:00+08:00">
-                2016-05-03
+              <time title="更新于" itemprop="dateModified" datetime="2016-05-02T21:23:00+08:00">
+                2016-05-02
               </time>
             
           </span>
@@ -1503,7 +1680,7 @@
 
           
           
-             <span id="/2015/03/03/5-Multithreaded/2-线程常用方法/" class="leancloud_visitors" data-flag-title="多线程常用方法">
+             <span id="/2015/03/03/7-Http-Socket/2-TCP:IP/" class="leancloud_visitors" data-flag-title="TCP/IP 概念小结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1530,7 +1707,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  406
+                  2,827
                 </span>
               
 
@@ -1546,7 +1723,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  10
                 </span>
               
             </div>
@@ -1568,10 +1745,19 @@
 
       
         
-          
-            <h1 id="多线程常用方法"><a href="#多线程常用方法" class="headerlink" title="多线程常用方法"></a>多线程常用方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Thread的常用方法：</span></span><br><span class="line"><span class="comment"> * 1.start()        :启动线程并执行相应的run()方法</span></span><br><span class="line"><span class="comment"> * 2.run()          :子线程要执行的代码放入run()方法中</span></span><br><span class="line"><span class="comment"> * 3.currentThread():静态方法: 调取当前的线程</span></span><br><span class="line"><span class="comment"> * 4.getName()      :获取此线程的名字</span></span><br><span class="line"><span class="comment"> * 5.setName()      :设置此线程的名字，主线程main也可以设置。</span></span><br><span class="line"><span class="comment"> * 6.yield()        :调用此方法的线程释放当前CPU的执行权</span></span><br><span class="line"><span class="comment"> * 7.join()         :在A线程中调用B线程的join()方法，表示：当执行到此方法，A线程停止执行，直至B线程执行完毕，</span></span><br><span class="line"><span class="comment"> *                   A线程再接着join()之后的代码执行</span></span><br><span class="line"><span class="comment"> * 8.isAlive()      :判断当前线程是否还存活</span></span><br><span class="line"><span class="comment"> * 9.sleep(long l)  :显式的让当前线程睡眠 l 毫秒</span></span><br><span class="line"><span class="comment"> * 10.线程通信      : wait()    等待 </span></span><br><span class="line"><span class="comment">               notify()  notifyAll()   通知,唤醒</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 设置线程的优先级</span></span><br><span class="line"><span class="comment"> * getPriority() ：返回线程优先值</span></span><br><span class="line"><span class="comment">   setPriority(int newPriority) ：改变线程的优先级</span></span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubThread1</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">                   <span class="comment">// try &#123;</span></span><br><span class="line">                   <span class="comment">// Thread.currentThread().sleep(1000);</span></span><br><span class="line">                   <span class="comment">// &#125; catch (InterruptedException e) &#123;</span></span><br><span class="line">                   <span class="comment">// // TODO Auto-generated catch block</span></span><br><span class="line">                   <span class="comment">// e.printStackTrace();</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">                  System. out.println(Thread.currentThread().getName() + <span class="string">":"</span></span><br><span class="line">                              + Thread.currentThread().getPriority() + <span class="string">":"</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread1</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            SubThread1 st1 = <span class="keyword">new</span> SubThread1();</span><br><span class="line">            st1.setName( <span class="string">"子线程1"</span>);</span><br><span class="line">            st1.setPriority(Thread. MAX_PRIORITY);</span><br><span class="line">            st1.start();</span><br><span class="line">            Thread. currentThread().setName(<span class="string">"========主线程"</span>);</span><br><span class="line">             <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">                  System. out.println(Thread.currentThread().getName() + <span class="string">":"</span></span><br><span class="line">                              + Thread.currentThread().getPriority() + <span class="string">":"</span> + i);</span><br><span class="line">                   <span class="comment">// if(i % 10 == 0)&#123;</span></span><br><span class="line">                   <span class="comment">// Thread.currentThread().yield();</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">                   <span class="comment">// if(i == 20)&#123;</span></span><br><span class="line">                   <span class="comment">// try &#123;</span></span><br><span class="line">                   <span class="comment">// st1.join();</span></span><br><span class="line">                   <span class="comment">// &#125; catch (InterruptedException e) &#123;</span></span><br><span class="line">                   <span class="comment">// // TODO Auto-generated catch block</span></span><br><span class="line">                   <span class="comment">// e.printStackTrace();</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">                   <span class="comment">// &#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            System. out.println(st1.isAlive());</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="为什么会有TCP-IP协议？"><a href="#为什么会有TCP-IP协议？" class="headerlink" title="为什么会有TCP/IP协议？"></a>为什么会有TCP/IP协议？</h1><p>在世界上各地，各种各样的电脑运行着各自不同的操作系统为大家服务，计算机使用者意识到，计算机只是单兵作战并不会发挥太大的作用。只有把它们联合起来，电脑才会发挥出它最大的潜力。于是人们就想方设法的用电线把电脑连接到了一起。</p>
+<p>但是简单的连到一起是远远不够的，就好像语言不同的两个人互相见了面，完全不能交流信息。因而他们需要定义一些共通的东西来进行交流，TCP/IP就是为此而生。</p>
+<p><strong>TCP/IP不是一个协议，而是一个协议族的统称</strong>。<br>
 
-          
+        
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/03/7-Http-Socket/2-TCP:IP/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1975,190 +2161,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/02/09/2-Object-Oriented/8-枚举/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CuiJing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CuiJing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/02/09/2-Object-Oriented/8-枚举/" itemprop="url">Java 方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-09T08:30:00+08:00">
-                2015-02-09
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-05T20:43:00+08:00">
-                2016-05-05
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2015/02/09/2-Object-Oriented/8-枚举/" class="leancloud_visitors" data-flag-title="Java 方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,030
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  10
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="枚举类基础"><a href="#枚举类基础" class="headerlink" title="枚举类基础"></a>枚举类基础</h1><h2 id="1、如何自定义枚举类。"><a href="#1、如何自定义枚举类。" class="headerlink" title="1、如何自定义枚举类。"></a>1、如何自定义枚举类。</h2><p>是 JDK 1.5  中引入的新特性，存放在 java.lang 包中。</p>
-<p>枚举类：类的对象是有限个的，确定的。<br>
-
-        
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/02/09/2-Object-Oriented/8-枚举/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2215,7 +2217,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2228,7 +2230,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
