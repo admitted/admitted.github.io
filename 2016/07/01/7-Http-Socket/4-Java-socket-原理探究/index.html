@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="HTTP,网络编程,NIO," />
+  <meta name="keywords" content="HTTP,网络编程," />
 
 
 
@@ -127,27 +127,25 @@
 
 
 <meta name="description" content="初衷网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。">
-<meta name="keywords" content="HTTP,网络编程,NIO">
+<meta name="keywords" content="HTTP,网络编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络编程基础原理探究">
 <meta property="og:url" content="http://cuijing.me/2016/07/01/7-Http-Socket/4-Java-socket-原理探究/index.html">
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="初衷网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png">
 <meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg">
+<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png">
 <meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 通信数据流.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-建立连接的过程.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-释放链接的过程.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-NIO非阻塞式服务器示意图.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-NIO 模型-1.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-Netty 逻辑架构.png">
+<meta property="og:image" content="http://cuijing.me/2016/07/01/7-Http-Socket/4-Java-socket-原理探究/media/15230980806189.jpg">
+<meta property="og:image" content="http://cuijing.me/2016/07/01/7-Http-Socket/4-Java-socket-原理探究/media/TCP-client-%E7%8A%B6%E6%80%81%E6%9C%BA.png">
+<meta property="og:image" content="http://cuijing.me/2016/07/01/7-Http-Socket/4-Java-socket-原理探究/media/TCP-Service-%E7%8A%B6%E6%80%81%E6%9C%BA.png">
+<meta property="og:image" content="http://cuijing.me/2016/07/01/7-Http-Socket/4-Java-socket-原理探究/media/15230977340828.jpg">
 <meta property="og:updated_time" content="2018-04-03T11:41:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程基础原理探究">
 <meta name="twitter:description" content="初衷网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png">
+<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg">
 
 
 
@@ -472,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,922
+                  3,426
                 </span>
               
 
@@ -488,7 +486,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  13
                 </span>
               
             </div>
@@ -509,44 +507,8 @@
       
 
       
-        <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。</p>
-<a id="more"></a>
-<h2 id="tcp-ip-基础"><a href="#tcp-ip-基础" class="headerlink" title="tcp/ip 基础"></a>tcp/ip 基础</h2><h3 id="tcp-ip协议头部"><a href="#tcp-ip协议头部" class="headerlink" title="tcp/ip协议头部"></a>tcp/ip协议头部</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png" alt="tcp 协议"></p>
-<ul>
-<li><p>端口号 [16bit]：我们知道网络实现的是不同主机的进程间通信。在一个操作系统中有很多进程，当数据到来时要提交给哪个进程进行处理呢？这就需要用到端口号。在TCP头中，有源端口号（Source Port）和目标端口号（Destination Port）。源端口号标识了发送主机的进程，目标端口号标识接受方主机的进程。</p>
-</li>
-<li><p>序号 [32bit]：序号分为发送序号（Sequence Number）和确认序号（Acknowledgment Number）。</p>
-<ol>
-<li><p>发送序号：用来标识从 TCP 源端向 TCP 目的端发送的数据字节流，它表示在这个报文段中的第一个数据字节的顺序号。如果将字节流看作在两个应用程序间的单向流动，则 TCP用顺序号对每个字节进行计数。序号是 32bit 的无符号数，序号到达 2^32 －1 后又从 0 开始。当建立一个新的连接时， SYN 标志变 1，顺序号字段包含由这个主机选择的该连接的初始顺序号 ISN（Initial Sequence Number）。</p>
-</li>
-<li><p>确认序号：包含发送确认的一端所期望收到的下一个顺序号。因此，确认序号应当是上次已成功收到数据字节顺序号加 1。只有 ACK 标志为 1 时确认序号字段才有效。 TCP 为应用层提供全双工服务，这意味数据能在两个方向上独立地进行传输。因此，连接的每一端必须保持每个方向上的传输数据顺序号。</p>
-</li>
-</ol>
-</li>
-<li><p>偏移 [4bit]：这里的偏移实际指的是TCP首部的长度，它用来表明TCP首部中 32bit 字的数目，通过它可以知道一个 TCP 包它的用户数据是从哪里开始的。这个字段占 4bit，如 4bit 的值是 0101，则说明 TCP 首部长度是5 <em> 4 = 20字节。 所以TCP的首部长度最大为15 </em> 4 = 60字节。然而没有可选字段，正常长度为 20 字节。</p>
-</li>
-<li><p>Reserved [6bit]：目前没有使用，它的值都为0</p>
-</li>
-<li><p>标志 [6bit]：在TCP首部中有6个标志比特。他们中的多个可同时被置为1 。</p>
-<ol>
-<li>URG 紧急指针（urgent pointer）有效</li>
-<li>ACK 确认序号有效</li>
-<li>PSH 指示接收方应该尽快将这个报文段交给应用层而不用等待缓冲区装满</li>
-<li>RST 一般表示断开一个连接</li>
-<li>SYN 同步序号用来发起一个连接</li>
-<li>FIN 发送端完成发送任务（即断开连接）</li>
-</ol>
-</li>
-<li><p>窗口大小（window）[16bit]：窗口的大小，表示源方法最多能接受的字节数。。</p>
-</li>
-<li><p>校验和[16bit]：校验和覆盖了整个的TCP报文段:TCP首部和TCP数据。这是一个强制性的字段，一定是由发端计算和存储，并由收端进行验证。</p>
-</li>
-<li><p>紧急指针[16bit]：只有当URG标志置为1时紧急指针才有效。紧急指针是一个正的偏移量，和序号字段中的值相加表示紧急数据最后一个字节的序号。TCP的紧急方式是发送端向另一端发送紧急数据的一种方式。</p>
-</li>
-<li><p>TCP选项：是可选的，在后面抓包的时候，我们在看看它</p>
-</li>
-</ul>
-<h3 id="IP-协议头部"><a href="#IP-协议头部" class="headerlink" title="IP 协议头部"></a>IP 协议头部</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg" alt="IP 协议首部"></p>
+        <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。<br><a id="more"></a></p>
+<h2 id="tcp-ip-基础"><a href="#tcp-ip-基础" class="headerlink" title="tcp/ip 基础"></a>tcp/ip 基础</h2><h3 id="IP-协议头部"><a href="#IP-协议头部" class="headerlink" title="IP 协议头部"></a>IP 协议头部</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg" alt="IP 协议首部"></p>
 <ul>
 <li><p>版本 Version 字段：占 4 比特。用来表明IP协议实现的版本号，当前一般为 IPv4，即 0100。</p>
 </li>
@@ -573,26 +535,71 @@
 <li><p>可选项字段：占32比特。用来定义一些任选项：如记录路径、时间戳等。这些选项很少被使用，同时并不是所有主机和路由器都支持这些选项。可选项字段的长度必须是32比特的整数倍，如果不足，必须填充0以达到此长度要求。</p>
 </li>
 </ul>
-<h3 id="tcp-ip-协议栈"><a href="#tcp-ip-协议栈" class="headerlink" title="tcp/ip 协议栈"></a>tcp/ip 协议栈</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp.png" alt="tcp"></p>
-<p>tcp/ip 包的封装与解析</p>
-<h3 id="tcp-ip-状态变迁"><a href="#tcp-ip-状态变迁" class="headerlink" title="tcp/ip 状态变迁"></a>tcp/ip 状态变迁</h3><p>tcp/ip 的状态变迁图<br><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 通信数据流.png" alt="tcp 通信数据流"></p>
+<h3 id="TCP-协议头部"><a href="#TCP-协议头部" class="headerlink" title="TCP 协议头部"></a>TCP 协议头部</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png" alt="tcp 协议"></p>
 <ul>
-<li>CLOSED：表示初始状态。对服务端和 C 客户端双方都一样。</li>
-<li>LISTEN：表示监听状态。服务端调用了 listen 函数，可以开始 accept 连接了。</li>
-<li>SYN_SENT：表示客户端已经发送了 SYN 报文。当客户端调用 connect 函数发起连接时，首先发 SYN 给服务端，然后自己进入 SYN_SENT 状态，并等待服务端发送 ACK + SYN 。</li>
-<li>SYN_RCVD：表示服务端收到客户端发送 SYN 报文。服务端收到这个报文后，进入SYN_RCVD状态，然后发送 ACK + SYN 给客户端。</li>
-<li>ESTABLISHED：表示连接已经建立成功了。服务端发送完 ACK + SYN 后进入该状态，客户端收到 ACK 后也进入该状态。</li>
-<li>FIN_WAIT_1：表示主动关闭连接。无论哪方调用 close 函数发送 FIN 报文都会进入这个这个状态。</li>
-<li>FIN_WAIT_2：表示被动关闭方同意关闭连接。主动关闭连接方收到被动关闭方返回的 ACK 后，会进入该状态。<ul>
-<li>TIME_WAIT：表示收到对方的FIN报文并发送了 ACK 报文，就等 2MSL 后即可回到 CLOSED 状态了。如果 FIN_WAIT_1 状态下，收到对方同时带FIN标志和ACK标志的报文时，可以直接进入TIME_WAIT状态，而无须经过 FIN_WAIT_2 状态。</li>
-</ul>
+<li><p>端口号 [16bit]：网络实现的是不同主机的进程之间的通信。在一个操作系统中有很多进程，当数据到来时要提交给哪个进程进行处理呢？这就需要用到端口号。在TCP头中，有源端口号（Source Port）和目标端口号（Destination Port）。源端口号标识了发送主机的进程，目标端口号标识接受方主机的进程。</p>
 </li>
-<li>CLOSING：表示双方同时关闭连接。如果双方几乎同时调用 close 函数，那么会出现双方同时发送FIN报文的情况，就会出现 CLOSING 状态，表示双方都在关闭连接。</li>
-<li>CLOSE_WAIT：表示被动关闭方等待关闭。当收到对方调用 close 函数发送的FIN报文时，回应对方 ACK 报文，此时进入 CLOSE_WAIT 状态。</li>
-<li>LAST_ACK：表示被动关闭方发送 FIN 报文后，等待对方的 ACK 报文状态，当收到 ACK 后进入 CLOSED 状态。</li>
+<li><p>序号 [32bit]：序号分为发送序号（Sequence Number）和确认序号（Acknowledgment Number）。</p>
+<ol>
+<li><p>发送序号：用来标识从 TCP 源端向 TCP 目的端发送的数据字节流，它表示在这个报文段中的第一个数据字节的顺序号。如果将字节流看作在两个应用程序间的单向流动，则 TCP用顺序号对每个字节进行计数。序号是 32bit 的无符号数，序号到达 2^32 －1 后又从 0 开始。当建立一个新的连接时， SYN 标志变 1，顺序号字段包含由这个主机选择的该连接的初始顺序号 ISN（Initial Sequence Number）。</p>
+</li>
+<li><p>确认序号：包含发送确认的一端所期望收到的下一个顺序号。因此，确认序号应当是上次已成功收到数据字节顺序号加 1。只有 ACK 标志为 1 时确认序号字段才有效。 TCP 为应用层提供全双工服务，这意味数据能在两个方向上独立地进行传输。因此，连接的每一端必须保持每个方向上的传输数据顺序号。</p>
+</li>
+</ol>
+</li>
+<li><p>数据偏移 [4bit]：这里的偏移实际指的是 TCP 首部的长度，它用来表明 TCP 首部中 32bit 字的数目，通过它可以知道一个 TCP 包它的用户数据是从哪里开始的。这个字段占 4bit，如 4bit 的值是 0101，则说明 TCP 首部长度是5 <em> 4 = 20字节。 所以 TCP 的首部长度最大为15 </em> 4 = 60字节。然而没有可选字段，正常长度为 20 字节。</p>
+</li>
+<li><p>保留位 Reserved [6bit]：目前没有使用，它的值都为 0</p>
+</li>
+<li><p>标志位 [6bit]：在 TCP 首部中有 6 个标志比特。他们中的多个可同时被置为 1 。</p>
+<ol>
+<li>URG 紧急指针（urgent pointer）有效</li>
+<li>ACK 确认序号有效</li>
+<li>PSH 指示接收方应该尽快将这个报文段交给应用层而不用等待缓冲区装满</li>
+<li>RST 一般表示断开一个连接</li>
+<li>SYN 同步序号用来发起一个连接</li>
+<li>FIN 发送端完成发送任务（即断开连接）</li>
+</ol>
+</li>
+<li><p>窗口大小（window）[16bit]：窗口的大小，表示源方法最多能接受的字节数。</p>
+</li>
+<li><p>校验和[16bit]：校验和覆盖了整个的 TCP 报文段: TCP 首部和 TCP 数据。这是一个强制性的字段，一定是由发端计算和存储，并由收端进行验证。</p>
+</li>
+<li><p>紧急指针[16bit]：只有当 URG 标志置为1时紧急指针才有效。紧急指针是一个正的偏移量，和序号字段中的值相加表示紧急数据最后一个字节的序号。TCP 的紧急方式是发送端向另一端发送紧急数据的一种方式。</p>
+</li>
+<li><p>TCP选项：是可选的。</p>
+</li>
 </ul>
-<h3 id="建立连接的过程"><a href="#建立连接的过程" class="headerlink" title="建立连接的过程"></a>建立连接的过程</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-建立连接的过程.png" alt="建立连接的过程"></p>
-<p>设主机 B 运行一个服务器进程，它先发出一个被动打开命令，告诉它的 TCP 要准备接收客户进程的连续请求，然后服务进程就处于听的状态。不断检测是否有客户进程发起连接请求，如有，作出响应。</p>
+<h3 id="tcp-ip-协议栈"><a href="#tcp-ip-协议栈" class="headerlink" title="tcp/ip 协议栈"></a>tcp/ip 协议栈</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp.png" alt="tcp"></p>
+<h3 id="tcp-ip-包的封装与解析"><a href="#tcp-ip-包的封装与解析" class="headerlink" title="tcp/ip 包的封装与解析"></a>tcp/ip 包的封装与解析</h3><p><img src="media/15230980806189.jpg" alt=""></p>
+<h3 id="tcp-ip-状态变迁"><a href="#tcp-ip-状态变迁" class="headerlink" title="tcp/ip 状态变迁"></a>tcp/ip 状态变迁</h3><p>TCP 客户端状态变迁图<br><img src="media/TCP-client-%E7%8A%B6%E6%80%81%E6%9C%BA.png" alt="TCP-client-状态机"></p>
+<p>TCP 服务端状态变迁图<br><img src="media/TCP-Service-%E7%8A%B6%E6%80%81%E6%9C%BA.png" alt="TCP-Service-状态机"></p>
+<ul>
+<li><p>CLOSED：表示初始状态。对服务端和 C 客户端双方都一样。</p>
+</li>
+<li><p>LISTEN：表示监听状态。服务端调用了 listen 函数，可以开始 accept 连接了。</p>
+</li>
+<li><p>SYN_SENT：表示客户端已经发送了 SYN 报文。当客户端调用 connect 函数发起连接时，首先发 SYN 给服务端，然后自己进入 SYN_SENT 状态，并等待服务端发送 ACK + SYN 。</p>
+</li>
+<li><p>SYN_RCVD：表示服务端收到客户端发送 SYN 报文。服务端收到这个报文后，进入SYN_RCVD状态，然后发送 ACK + SYN 给客户端。</p>
+</li>
+<li><p>ESTABLISHED：表示连接已经建立成功了。服务端发送完 ACK + SYN 后进入该状态，客户端收到 ACK 后也进入该状态。</p>
+</li>
+<li><p>FIN_WAIT_1：表示主动关闭连接。无论哪方调用 close 函数发送 FIN 报文都会进入这个这个状态。</p>
+</li>
+<li><p>FIN_WAIT_2：表示被动关闭方同意关闭连接。主动关闭连接方收到被动关闭方返回的 ACK 后，会进入该状态。</p>
+</li>
+<li><p>TIME_WAIT：表示收到对方的FIN报文并发送了 ACK 报文，就等 2MSL 后即可回到 CLOSED 状态了。如果 FIN_WAIT_1 状态下，收到对方同时带FIN标志和ACK标志的报文时，可以直接进入TIME_WAIT状态，而无须经过 FIN_WAIT_2 状态。</p>
+</li>
+<li><p>CLOSING：表示双方同时关闭连接。如果双方几乎同时调用 close 函数，那么会出现双方同时发送FIN报文的情况，就会出现 CLOSING 状态，表示双方都在关闭连接。</p>
+</li>
+<li><p>CLOSE_WAIT：表示被动关闭方等待关闭。当收到对方调用 close 函数发送的FIN报文时，回应对方 ACK 报文，此时进入 CLOSE_WAIT 状态。</p>
+</li>
+<li><p>LAST_ACK：表示被动关闭方发送 FIN 报文后，等待对方的 ACK 报文状态，当收到 ACK 后进入 CLOSED 状态。</p>
+</li>
+</ul>
+<h3 id="TCP-建立连接和释放链接"><a href="#TCP-建立连接和释放链接" class="headerlink" title="TCP 建立连接和释放链接"></a>TCP 建立连接和释放链接</h3><p><img src="media/15230977340828.jpg" alt=""></p>
+<h4 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h4><p>设主机 B 运行一个服务器进程，它先发出一个被动打开命令，告诉它的 TCP 要准备接收客户进程的连续请求，然后服务进程就处于听的状态。不断检测是否有客户进程发起连接请求，如有，作出响应。</p>
 <p>设客户进程运行在主机 A 中，他先向自己的 TCP 发出主动打开的命令，表明要向某个 IP 地址的某个端口建立运输连接，过程如下：</p>
 <ol>
 <li>主机 A 的 TCP 向主机 B的 TCP 发出连接请求报文段，其首部中的同步比特 SYN 应置1，同时选择一个序号 x，表明在后面传送数据时的第一个数据字节的序号是 x。</li>
@@ -600,8 +607,7 @@
 <li>主机 A 的 TCP 收到此报文段后，还要向 B 给出确认，其确认号为 y+1</li>
 <li>主机 A 的 TCP 通知上层应用进程，连接已经建立，当主机 B的 TCP 收到主机 A 的确认后，也通知上层应用进程，连接建立。</li>
 </ol>
-<h3 id="释放连接的过程"><a href="#释放连接的过程" class="headerlink" title="释放连接的过程"></a>释放连接的过程</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-释放链接的过程.png" alt="释放链接的过程"></p>
-<p>在数据传输完毕之后，通信双方都可以发出释放连接的请求。释放连接的过程为如上图所示：</p>
+<h4 id="释放连接"><a href="#释放连接" class="headerlink" title="释放连接"></a>释放连接</h4><p>在数据传输完毕之后，通信双方都可以发出释放连接的请求。释放连接的过程为如上图所示：</p>
 <ol>
 <li>数据传输结束后，主机 A 的应用进程先向其 TCP 发出释放连接请求，不在发送数据。TCP 通知对方要释放从 A 到 B 的连接，将发往主机 B 的 TCP 报文段首部的终止比特 FIN 置为 1，序号 u 等于已传送数据的最后一个字节的序号加 1。</li>
 <li>主机 B 的 TCP 收到释放连接通知后发出确认，其序号为 u+1，同时通知应用进程，这样 A 到 B 的连接就释放了，连接处于半关闭状态。主机 B 不再接受主机 A 发来的数据；但主机 B 还向 A 发送数据，主机 A若正确接收数据仍需要发送确认。</li>
@@ -616,22 +622,6 @@
 <h3 id="4-tcpdump-wireshark-分析工具"><a href="#4-tcpdump-wireshark-分析工具" class="headerlink" title="4. tcpdump/wireshark 分析工具"></a>4. <code>tcpdump/wireshark</code> 分析工具</h3><p><strong>tcpdump 抓包</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 其中i指定网卡，另外可以增加抓包的过滤表达式</span></span><br><span class="line">sudo -u root /usr/sbin/tcpdump -i eth0 -nn <span class="string">'port 80'</span> -w data.pcap</span><br></pre></td></tr></table></figure>
 <p><strong>wireshark分析</strong><br>tcpdump 生成的pcap文件，可以通过wireshark来分析打开</p>
-<h2 id="nio编程"><a href="#nio编程" class="headerlink" title="nio编程"></a>nio编程</h2><h3 id="nio学习教程"><a href="#nio学习教程" class="headerlink" title="nio学习教程"></a>nio学习教程</h3><p>这部分的内容，推荐一下的学习系列。<br><a href="http://ifeve.com/java-nio-all/" target="_blank" rel="noopener">http://ifeve.com/java-nio-all/</a></p>
-<p>Java NIO系列教程（一）<br> Java NIO 概述 <a href="http://ifeve.com/overview/" target="_blank" rel="noopener">http://ifeve.com/overview/</a><br>其中Java Nio中三个非常重要的概念</p>
-<p>Channel <a href="http://ifeve.com/channels/" target="_blank" rel="noopener">http://ifeve.com/channels/</a><br>buffers <a href="http://ifeve.com/buffers/" target="_blank" rel="noopener">http://ifeve.com/buffers/</a><br>selectors <a href="http://ifeve.com/selectors/" target="_blank" rel="noopener">http://ifeve.com/selectors/</a></p>
-<h3 id="nio的原理"><a href="#nio的原理" class="headerlink" title="nio的原理"></a>nio的原理</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-NIO非阻塞式服务器示意图.png" alt="NIO非阻塞式服务器示意图"></p>
-<p>从图中可以看出，服务器上所有 Channel（包括 ServerSocketChannel 和 SocketChannel ）都需要向Selector 注册，而该 Selector 则负责监视这些 Socket 的 IO 状态，当其中任意一个或者多个 Channel 具有可用的 IO 操作时，该 Selector 的 <code>select()</code> 方法将会返回大于 0 的整数，该整数值就表示该 Selector 上有多少个 Channel 具有可用的IO操作，并提供了 <code>selectedKeys()</code> 方法来返回这些 Channel 对应的 SelectionKey 集合。正是通过 Selector，使得服务器端只需要不断地调用 Selector 实例的 <code>select()</code> 方法即可知道当前所有 Channel 是否有需要处理的 IO 操作。</p>
-<p>Java NIO与IO<br>同步阻塞式IO和非阻塞<br><a href="http://ifeve.com/java-nio-vs-io/" target="_blank" rel="noopener">http://ifeve.com/java-nio-vs-io/</a></p>
-<p>netty框架<br>netty原理<br>netty的通信模型<br><a href="http://www.importnew.com/15656.html" target="_blank" rel="noopener">http://www.importnew.com/15656.html</a><br><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-NIO 模型-1.png" alt="NIO 模型"></p>
-<p>netty的逻辑架构介绍<br><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-Netty 逻辑架构.png" alt="Netty 逻辑架构"></p>
-<ul>
-<li><p>Reactor通信调度层：主要职责监听网络的读写和连接操作，负责将网络层的数据读取到内存缓冲区中，然后触发各种网络事件，例如连接创建、连接激活、读事件、写事件等，将这些事件触发到Pipeline中，由Pipeline管理的职责链进行后续处理。由一系列的辅助类完成，包括Reactor线程NioeventLoop以及父类、NioSocketChannel、ButeBuffer等。</p>
-</li>
-<li><p>职责链ChannelPipeline：负责事件在职责链中有序传播，同时负责动态地编排职责链。职责链可以选择监听和处理自己关心的事件，可以拦截处理和向后/向前传播事件。</p>
-</li>
-<li><p>业务逻辑编排层（service ChannelHandler）：分为两类，一类是纯粹的业务逻辑编排，一类是其他的应用层协议插件</p>
-</li>
-</ul>
 
       
     </div>
@@ -670,8 +660,6 @@
             <a href="/tags/HTTP/" rel="tag"># HTTP</a>
           
             <a href="/tags/网络编程/" rel="tag"># 网络编程</a>
-          
-            <a href="/tags/NIO/" rel="tag"># NIO</a>
           
         </div>
       
@@ -784,7 +772,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -862,7 +850,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初衷"><span class="nav-number">1.</span> <span class="nav-text">初衷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp-ip-基础"><span class="nav-number">2.</span> <span class="nav-text">tcp/ip 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip协议头部"><span class="nav-number">2.1.</span> <span class="nav-text">tcp/ip协议头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-协议头部"><span class="nav-number">2.2.</span> <span class="nav-text">IP 协议头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip-协议栈"><span class="nav-number">2.3.</span> <span class="nav-text">tcp/ip 协议栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip-状态变迁"><span class="nav-number">2.4.</span> <span class="nav-text">tcp/ip 状态变迁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接的过程"><span class="nav-number">2.5.</span> <span class="nav-text">建立连接的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接的过程"><span class="nav-number">2.6.</span> <span class="nav-text">释放连接的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket"><span class="nav-number">2.7.</span> <span class="nav-text">socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络监控和问题定位"><span class="nav-number">2.8.</span> <span class="nav-text">网络监控和问题定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-netstat-ss-监控工具"><span class="nav-number">2.8.1.</span> <span class="nav-text">1. netstat/ss 监控工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-watch-netstat-s-查看网络的统计信息"><span class="nav-number">2.8.2.</span> <span class="nav-text">2. watch netstat -s 查看网络的统计信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-usr-sbin-ss-s-查看网络的统计信息"><span class="nav-number">2.8.3.</span> <span class="nav-text">3. /usr/sbin/ss -s 查看网络的统计信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-tcpdump-wireshark-分析工具"><span class="nav-number">2.9.</span> <span class="nav-text">4. tcpdump/wireshark 分析工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nio编程"><span class="nav-number">3.</span> <span class="nav-text">nio编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nio学习教程"><span class="nav-number">3.1.</span> <span class="nav-text">nio学习教程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nio的原理"><span class="nav-number">3.2.</span> <span class="nav-text">nio的原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初衷"><span class="nav-number">1.</span> <span class="nav-text">初衷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp-ip-基础"><span class="nav-number">2.</span> <span class="nav-text">tcp/ip 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-协议头部"><span class="nav-number">2.1.</span> <span class="nav-text">IP 协议头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-协议头部"><span class="nav-number">2.2.</span> <span class="nav-text">TCP 协议头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip-协议栈"><span class="nav-number">2.3.</span> <span class="nav-text">tcp/ip 协议栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip-包的封装与解析"><span class="nav-number">2.4.</span> <span class="nav-text">tcp/ip 包的封装与解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip-状态变迁"><span class="nav-number">2.5.</span> <span class="nav-text">tcp/ip 状态变迁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-建立连接和释放链接"><span class="nav-number">2.6.</span> <span class="nav-text">TCP 建立连接和释放链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#建立连接"><span class="nav-number">2.6.1.</span> <span class="nav-text">建立连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#释放连接"><span class="nav-number">2.6.2.</span> <span class="nav-text">释放连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket"><span class="nav-number">2.7.</span> <span class="nav-text">socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络监控和问题定位"><span class="nav-number">2.8.</span> <span class="nav-text">网络监控和问题定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-netstat-ss-监控工具"><span class="nav-number">2.8.1.</span> <span class="nav-text">1. netstat/ss 监控工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-watch-netstat-s-查看网络的统计信息"><span class="nav-number">2.8.2.</span> <span class="nav-text">2. watch netstat -s 查看网络的统计信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-usr-sbin-ss-s-查看网络的统计信息"><span class="nav-number">2.8.3.</span> <span class="nav-text">3. /usr/sbin/ss -s 查看网络的统计信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-tcpdump-wireshark-分析工具"><span class="nav-number">2.9.</span> <span class="nav-text">4. tcpdump/wireshark 分析工具</span></a></li></ol></li></ol></div>
             
 
           </div>

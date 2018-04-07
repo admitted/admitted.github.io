@@ -1377,6 +1377,219 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2017/06/02/7-Http-Socket/5-NIO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CuiJing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CuiJing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/02/7-Http-Socket/5-NIO/" itemprop="url">Java NIO 编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T20:30:00+08:00">
+                2017-06-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-03T19:41:00+08:00">
+                2018-04-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/02/7-Http-Socket/5-NIO/" class="leancloud_visitors" data-flag-title="Java NIO 编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  504
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="NIO-编程"><a href="#NIO-编程" class="headerlink" title="NIO 编程"></a>NIO 编程</h1><h2 id="NIO-学习教程"><a href="#NIO-学习教程" class="headerlink" title="NIO 学习教程"></a>NIO 学习教程</h2><p>这部分的内容，推荐一下的学习系列。<br><a href="http://ifeve.com/java-nio-all/" target="_blank" rel="noopener">http://ifeve.com/java-nio-all/</a></p>
+<p>Java NIO 系列教程（一）<br>Java NIO 概述 <a href="http://ifeve.com/overview/" target="_blank" rel="noopener">http://ifeve.com/overview/</a><br>其中 Java NIO 中三个非常重要的概念</p>
+<p>Channel <a href="http://ifeve.com/channels/" target="_blank" rel="noopener">http://ifeve.com/channels/</a><br>buffers <a href="http://ifeve.com/buffers/" target="_blank" rel="noopener">http://ifeve.com/buffers/</a><br>selectors <a href="http://ifeve.com/selectors/" target="_blank" rel="noopener">http://ifeve.com/selectors/</a></p>
+<h2 id="NIO-的原理"><a href="#NIO-的原理" class="headerlink" title="NIO 的原理"></a>NIO 的原理</h2><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-NIO非阻塞式服务器示意图.png" alt="NIO非阻塞式服务器示意图"></p>
+<p>从图中可以看出，服务器上所有 Channel（包括 ServerSocketChannel 和 SocketChannel ）都需要向Selector 注册，而该 Selector 则负责监视这些 Socket 的 IO 状态，当其中任意一个或者多个 Channel 具有可用的 IO 操作时，该 Selector 的 <code>select()</code> 方法将会返回大于 0 的整数，该整数值就表示该 Selector 上有多少个 Channel 具有可用的IO操作，并提供了 <code>selectedKeys()</code> 方法来返回这些 Channel 对应的 SelectionKey 集合。正是通过 Selector，使得服务器端只需要不断地调用 Selector 实例的 <code>select()</code> 方法即可知道当前所有 Channel 是否有需要处理的 IO 操作。</p>
+<p>Java NIO 与 IO<br>同步阻塞式IO和非阻塞<br><a href="http://ifeve.com/java-nio-vs-io/" target="_blank" rel="noopener">http://ifeve.com/java-nio-vs-io/</a></p>
+<h2 id="Netty-框架"><a href="#Netty-框架" class="headerlink" title="Netty 框架"></a>Netty 框架</h2><p>netty 原理<br>netty 的通信模型<br><a href="http://www.importnew.com/15656.html" target="_blank" rel="noopener">http://www.importnew.com/15656.html</a><br><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-NIO 模型-1.png" alt="NIO 模型"></p>
+<h3 id="netty的逻辑架构介绍"><a href="#netty的逻辑架构介绍" class="headerlink" title="netty的逻辑架构介绍"></a>netty的逻辑架构介绍</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-Netty 逻辑架构.png" alt="Netty 逻辑架构"></p>
+<ul>
+<li><p>Reactor通信调度层：主要职责监听网络的读写和连接操作，负责将网络层的数据读取到内存缓冲区中，然后触发各种网络事件，例如连接创建、连接激活、读事件、写事件等，将这些事件触发到Pipeline中，由Pipeline管理的职责链进行后续处理。由一系列的辅助类完成，包括Reactor线程NioeventLoop以及父类、NioSocketChannel、ButeBuffer等。</p>
+</li>
+<li><p>职责链ChannelPipeline：负责事件在职责链中有序传播，同时负责动态地编排职责链。职责链可以选择监听和处理自己关心的事件，可以拦截处理和向后/向前传播事件。</p>
+</li>
+<li><p>业务逻辑编排层（service ChannelHandler）：分为两类，一类是纯粹的业务逻辑编排，一类是其他的应用层协议插件</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cuijing.me/2017/03/18/9-JVM/Java类加载总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1674,7 +1887,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,922
+                  3,426
                 </span>
               
 
@@ -1690,7 +1903,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  13
                 </span>
               
             </div>
@@ -1712,7 +1925,7 @@
 
       
         
-          <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。</p>
+          <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。<br>
 
         
          <div class="out-img-topic">
@@ -2171,212 +2384,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2016/05/16/10-Design-Pattern/12-State/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CuiJing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CuiJing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/16/10-Design-Pattern/12-State/" itemprop="url">设计模式之 状态模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-16T08:30:00+08:00">
-                2016-05-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2016-06-03T20:24:00+08:00">
-                2016-06-03
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Pattern</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/05/16/10-Design-Pattern/12-State/" class="leancloud_visitors" data-flag-title="设计模式之 状态模式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  59
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="状态模式-State-Pattern"><a href="#状态模式-State-Pattern" class="headerlink" title="状态模式 State Pattern"></a>状态模式 State Pattern</h1><h2 id="定义状态模式"><a href="#定义状态模式" class="headerlink" title="定义状态模式"></a>定义状态模式</h2><p>允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类。</p>
-<p>可以将状态封装成一个独立的类<br>
-
-        
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/16/10-Design-Pattern/12-State/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2433,7 +2440,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
