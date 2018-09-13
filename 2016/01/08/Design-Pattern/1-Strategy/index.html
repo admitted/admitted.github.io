@@ -126,19 +126,19 @@
 
 
 
-<meta name="description" content="策略模式 Strategy Pattern设计原则 一：找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。">
+<meta name="description" content="策略模式 Strategy Pattern设计原则 一： 封装变化找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。">
 <meta name="keywords" content="Java,Design Pattern,Strategy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之 策略模式">
 <meta property="og:url" content="http://cuijing.me/2016/01/08/Design-Pattern/1-Strategy/index.html">
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
-<meta property="og:description" content="策略模式 Strategy Pattern设计原则 一：找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。">
+<meta property="og:description" content="策略模式 Strategy Pattern设计原则 一： 封装变化找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-09-2017-06-06-14965513657651-1.jpg">
 <meta property="og:updated_time" content="2016-06-01T11:21:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之 策略模式">
-<meta name="twitter:description" content="策略模式 Strategy Pattern设计原则 一：找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。">
+<meta name="twitter:description" content="策略模式 Strategy Pattern设计原则 一： 封装变化找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。">
 <meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-09-2017-06-06-14965513657651-1.jpg">
 
 
@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  289
+                  357
                 </span>
               
 
@@ -501,13 +501,14 @@
       
 
       
-        <h1 id="策略模式-Strategy-Pattern"><a href="#策略模式-Strategy-Pattern" class="headerlink" title="策略模式 Strategy Pattern"></a>策略模式 Strategy Pattern</h1><h2 id="设计原则-一："><a href="#设计原则-一：" class="headerlink" title="设计原则 一："></a>设计原则 一：</h2><p>找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。<br><a id="more"></a></p>
-<h2 id="设计原则-二："><a href="#设计原则-二：" class="headerlink" title="设计原则 二："></a>设计原则 二：</h2><p>针对接口编程，而不是针对实现编程。</p>
+        <h1 id="策略模式-Strategy-Pattern"><a href="#策略模式-Strategy-Pattern" class="headerlink" title="策略模式 Strategy Pattern"></a>策略模式 Strategy Pattern</h1><h2 id="设计原则-一：-封装变化"><a href="#设计原则-一：-封装变化" class="headerlink" title="设计原则 一： 封装变化"></a>设计原则 一： 封装变化</h2><p>找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。<br><a id="more"></a></p>
+<h2 id="设计原则-二：接口编程"><a href="#设计原则-二：接口编程" class="headerlink" title="设计原则 二：接口编程"></a>设计原则 二：接口编程</h2><p>针对接口编程，而不是针对实现编程。</p>
 <p>针对接口编程真正的意思是针对超类型（supertype） 编程。利用多态， 程序可以针对超类型编程， 执行时会根据实际状况执行到真正的行为， 不会被绑死在超类型的行为上。 </p>
 <p>超类型： 通常是一个抽象类或者是一个接口</p>
-<h2 id="设计原则-三："><a href="#设计原则-三：" class="headerlink" title="设计原则 三："></a>设计原则 三：</h2><p>（当我们需要扩展类的行为时）多用组合，少用继承。</p>
+<h2 id="设计原则-三：多组合，少继承"><a href="#设计原则-三：多组合，少继承" class="headerlink" title="设计原则 三：多组合，少继承"></a>设计原则 三：多组合，少继承</h2><p>（当我们需要扩展类的行为时）多用组合，少用继承。</p>
 <p>使用组合建立系统具有很大的弹性， 不仅可将算法族封装成类，更可以在运行时动态地改变行为， 只要组合的行为对象， 符合正确的接口标准即可。</p>
 <h2 id="策略模式定义："><a href="#策略模式定义：" class="headerlink" title="策略模式定义："></a>策略模式定义：</h2><p>策略模式定义了算法族， 分别封装起来， 让它们之间可以互相替换， 此模式让算法的变化独立于使用算法的客户。</p>
+<p>通俗的讲：策略就是将不同的算法分别封装起来（运用接口的多态），让它们可以相互替换，不同的算法需求可以对应不同的算法接口。</p>
 <p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-09-2017-06-06-14965513657651-1.jpg" alt="2017-06-06-14965513657651"></p>
 
       
@@ -661,7 +662,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -672,7 +673,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -683,7 +684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -739,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式-Strategy-Pattern"><span class="nav-number">1.</span> <span class="nav-text">策略模式 Strategy Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则-一："><span class="nav-number">1.1.</span> <span class="nav-text">设计原则 一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则-二："><span class="nav-number">1.2.</span> <span class="nav-text">设计原则 二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则-三："><span class="nav-number">1.3.</span> <span class="nav-text">设计原则 三：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式定义："><span class="nav-number">1.4.</span> <span class="nav-text">策略模式定义：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式-Strategy-Pattern"><span class="nav-number">1.</span> <span class="nav-text">策略模式 Strategy Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则-一：-封装变化"><span class="nav-number">1.1.</span> <span class="nav-text">设计原则 一： 封装变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则-二：接口编程"><span class="nav-number">1.2.</span> <span class="nav-text">设计原则 二：接口编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则-三：多组合，少继承"><span class="nav-number">1.3.</span> <span class="nav-text">设计原则 三：多组合，少继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式定义："><span class="nav-number">1.4.</span> <span class="nav-text">策略模式定义：</span></a></li></ol></li></ol></div>
             
 
           </div>

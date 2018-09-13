@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2016/01/15/Design-Pattern/4-Factory/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2016/02/12/Design-Pattern/5-Singleton/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -372,7 +372,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/01/15/Design-Pattern/4-Factory/" itemprop="url">设计模式之 工厂方法模式</a></h1>
+                <a class="post-title-link" href="/2016/02/12/Design-Pattern/5-Singleton/" itemprop="url">设计模式之 单例模式</a></h1>
         
 
         <div class="post-meta">
@@ -384,8 +384,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-15T08:30:00+08:00">
-                2016-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-12T08:30:00+08:00">
+                2016-02-12
               </time>
             
 
@@ -400,7 +400,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-06-01T21:31:00+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2016-06-01T21:51:00+08:00">
                 2016-06-01
               </time>
             
@@ -436,7 +436,7 @@
 
           
           
-             <span id="/2016/01/15/Design-Pattern/4-Factory/" class="leancloud_visitors" data-flag-title="设计模式之 工厂方法模式">
+             <span id="/2016/02/12/Design-Pattern/5-Singleton/" class="leancloud_visitors" data-flag-title="设计模式之 单例模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -463,7 +463,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  391
+                  542
                 </span>
               
 
@@ -479,7 +479,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -501,14 +501,16 @@
 
       
         
-          <h1 id="工厂模式-Factory-Pattern"><a href="#工厂模式-Factory-Pattern" class="headerlink" title="工厂模式 Factory Pattern"></a>工厂模式 Factory Pattern</h1><h2 id="设计原则-六："><a href="#设计原则-六：" class="headerlink" title="设计原则 六："></a>设计原则 六：</h2><p>依赖倒置原则 (Dependency Inversion Principe)</p>
-<p>要依赖抽象，不要依赖具体类。<br>
+          <h1 id="单例模式-Singleton-Pattern"><a href="#单例模式-Singleton-Pattern" class="headerlink" title="单例模式 Singleton Pattern"></a>单例模式 Singleton Pattern</h1><ol>
+<li>私有化 构造器</li>
+<li>私有化 静态变量 </li>
+<li>公有化 对象获取函数返回一个实例
 
         
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/01/15/Design-Pattern/4-Factory/" rel="contents">
+            <a class="btn" href="/2016/02/12/Design-Pattern/5-Singleton/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -764,6 +766,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2016/01/15/Design-Pattern/4-Factory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CuiJing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CuiJing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/15/Design-Pattern/4-Factory/" itemprop="url">设计模式之 工厂方法模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-15T08:30:00+08:00">
+                2016-01-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-06-01T21:31:00+08:00">
+                2016-06-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Pattern</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/01/15/Design-Pattern/4-Factory/" class="leancloud_visitors" data-flag-title="设计模式之 工厂方法模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  391
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="工厂模式-Factory-Pattern"><a href="#工厂模式-Factory-Pattern" class="headerlink" title="工厂模式 Factory Pattern"></a>工厂模式 Factory Pattern</h1><h2 id="设计原则-六："><a href="#设计原则-六：" class="headerlink" title="设计原则 六："></a>设计原则 六：</h2><p>依赖倒置原则 (Dependency Inversion Principe)</p>
+<p>要依赖抽象，不要依赖具体类。<br>
+
+        
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/15/Design-Pattern/4-Factory/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cuijing.me/2016/01/10/Design-Pattern/2-Observer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -874,7 +1082,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  636
+                  639
                 </span>
               
 
@@ -1084,7 +1292,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  289
+                  357
                 </span>
               
 
@@ -1122,7 +1330,7 @@
 
       
         
-          <h1 id="策略模式-Strategy-Pattern"><a href="#策略模式-Strategy-Pattern" class="headerlink" title="策略模式 Strategy Pattern"></a>策略模式 Strategy Pattern</h1><h2 id="设计原则-一："><a href="#设计原则-一：" class="headerlink" title="设计原则 一："></a>设计原则 一：</h2><p>找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。<br>
+          <h1 id="策略模式-Strategy-Pattern"><a href="#策略模式-Strategy-Pattern" class="headerlink" title="策略模式 Strategy Pattern"></a>策略模式 Strategy Pattern</h1><h2 id="设计原则-一：-封装变化"><a href="#设计原则-一：-封装变化" class="headerlink" title="设计原则 一： 封装变化"></a>设计原则 一： 封装变化</h2><p>找出应用中可能需要变化之处， 把它们独立出来， 不要和那些不需要变化的代码混在一起。<br>
 
         
 
@@ -1796,212 +2004,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/Java/8-Collection-Map/16-HashSet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CuiJing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CuiJing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/15/Java/8-Collection-Map/16-HashSet/" itemprop="url">集合框架之 HashSet</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-15T08:30:00+08:00">
-                2015-09-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-01T19:34:00+08:00">
-                2016-05-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java-集合/" itemprop="url" rel="index">
-                    <span itemprop="name">Java 集合</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2015/09/15/Java/8-Collection-Map/16-HashSet/" class="leancloud_visitors" data-flag-title="集合框架之 HashSet">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,343
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  12
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="HashSet-简介"><a href="#HashSet-简介" class="headerlink" title="HashSet 简介"></a>HashSet 简介</h1><p>HashSet 是一个没有重复元素的集合。</p>
-<p>它是由HashMap实现的，不保证元素的顺序，而且HashSet允许使用 null 元素。<br>HashSet是非同步的。如果多个线程同时访问一个哈希 set，而其中至少一个线程修改了该 set，那么它必须 保持外部同步。这通常是通过对自然封装该 set 的对象执行同步操作来完成的。如果不存在这样的对象，则应该使用 Collections.synchronizedSet 方法来“包装” set。最好在创建时完成这一操作，以防止对该 set 进行意外的不同步访问：<br>
-
-        
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/09/15/Java/8-Collection-Map/16-HashSet/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/Java/8-Collection-Map/15-Set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2208,7 +2210,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/06/Java/8-Collection-Map/13-WeakHashMap/">
+    <link itemprop="mainEntityOfPage" href="http://cuijing.me/2015/09/15/Java/8-Collection-Map/16-HashSet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiJing">
@@ -2227,7 +2229,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/09/06/Java/8-Collection-Map/13-WeakHashMap/" itemprop="url">集合框架之 WeakHashMap</a></h1>
+                <a class="post-title-link" href="/2015/09/15/Java/8-Collection-Map/16-HashSet/" itemprop="url">集合框架之 HashSet</a></h1>
         
 
         <div class="post-meta">
@@ -2239,8 +2241,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-06T08:30:00+08:00">
-                2015-09-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-15T08:30:00+08:00">
+                2015-09-15
               </time>
             
 
@@ -2255,7 +2257,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-01T19:40:00+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2016-05-01T19:34:00+08:00">
                 2016-05-01
               </time>
             
@@ -2291,7 +2293,7 @@
 
           
           
-             <span id="/2015/09/06/Java/8-Collection-Map/13-WeakHashMap/" class="leancloud_visitors" data-flag-title="集合框架之 WeakHashMap">
+             <span id="/2015/09/15/Java/8-Collection-Map/16-HashSet/" class="leancloud_visitors" data-flag-title="集合框架之 HashSet">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2318,7 +2320,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,823
+                  2,343
                 </span>
               
 
@@ -2334,7 +2336,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  29
+                  12
                 </span>
               
             </div>
@@ -2356,13 +2358,14 @@
 
       
         
-          <h1 id="WeakHashMap简介"><a href="#WeakHashMap简介" class="headerlink" title="WeakHashMap简介"></a>WeakHashMap简介</h1><p>WeakHashMap 继承于AbstractMap，实现了Map接口。和HashMap一样，WeakHashMap 也是一个散列表，它存储的内容也是键值对(key-value)映射，而且键和值都可以是null。<br>
+          <h1 id="HashSet-简介"><a href="#HashSet-简介" class="headerlink" title="HashSet 简介"></a>HashSet 简介</h1><p>HashSet 是一个没有重复元素的集合。</p>
+<p>它是由HashMap实现的，不保证元素的顺序，而且HashSet允许使用 null 元素。<br>HashSet是非同步的。如果多个线程同时访问一个哈希 set，而其中至少一个线程修改了该 set，那么它必须 保持外部同步。这通常是通过对自然封装该 set 的对象执行同步操作来完成的。如果不存在这样的对象，则应该使用 Collections.synchronizedSet 方法来“包装” set。最好在创建时完成这一操作，以防止对该 set 进行意外的不同步访问：<br>
 
         
 
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/09/06/Java/8-Collection-Map/13-WeakHashMap/" rel="contents">
+            <a class="btn" href="/2015/09/15/Java/8-Collection-Map/16-HashSet/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2404,7 +2407,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2456,7 +2459,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2467,7 +2470,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2478,7 +2481,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
