@@ -134,12 +134,12 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="HashSet 简介HashSet 是一个没有重复元素的集合。 它是由HashMap实现的，不保证元素的顺序，而且HashSet允许使用 null 元素。HashSet是非同步的。如果多个线程同时访问一个哈希 set，而其中至少一个线程修改了该 set，那么它必须 保持外部同步。这通常是通过对自然封装该 set 的对象执行同步操作来完成的。如果不存在这样的对象，则应该使用 Collections.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969314205402.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-08-14969314205402.jpg">
 <meta property="og:updated_time" content="2016-05-01T11:34:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合框架之 HashSet">
 <meta name="twitter:description" content="HashSet 简介HashSet 是一个没有重复元素的集合。 它是由HashMap实现的，不保证元素的顺序，而且HashSet允许使用 null 元素。HashSet是非同步的。如果多个线程同时访问一个哈希 set，而其中至少一个线程修改了该 set，那么它必须 保持外部同步。这通常是通过对自然封装该 set 的对象执行同步操作来完成的。如果不存在这样的对象，则应该使用 Collections.">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969314205402.jpg">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2017-06-08-14969314205402.jpg">
 
 
 
@@ -508,7 +508,7 @@
 <h1 id="HashSet的主要API"><a href="#HashSet的主要API" class="headerlink" title="HashSet的主要API"></a>HashSet的主要API</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span>         <span class="title">add</span><span class="params">(E object)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span>            <span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="function">Object          <span class="title">clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span>         <span class="title">contains</span><span class="params">(Object object)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span>         <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">Iterator&lt;E&gt;     <span class="title">iterator</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span>         <span class="title">remove</span><span class="params">(Object object)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span>             <span class="title">size</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <h1 id="HashSet数据结构"><a href="#HashSet数据结构" class="headerlink" title="HashSet数据结构"></a>HashSet数据结构</h1><p>HashSet的继承关系如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Object</span><br><span class="line">   ↳     java.util.AbstractCollection&lt;E&gt;</span><br><span class="line">         ↳     java.util.AbstractSet&lt;E&gt;</span><br><span class="line">               ↳     java.util.HashSet&lt;E&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure></p>
 <p>HashSet与Map关系图：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969314205402.jpg" alt=""></p>
+<p><img src="http://cdn.gplayo.com/2017-06-08-14969314205402.jpg" alt=""></p>
 <p>从图中可以看出：</p>
 <ol>
 <li>HashSet继承于AbstractSet，并且实现了Set接口。</li>
@@ -587,8 +587,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/15/Java/8-Collection-Map/15-Set/" rel="prev" title="集合框架之 Set">
-                集合框架之 Set <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/15/Java/8-Collection-Map/14-Map总结/" rel="prev" title="集合框架之 Map总结">
+                集合框架之 Map总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -799,7 +799,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">

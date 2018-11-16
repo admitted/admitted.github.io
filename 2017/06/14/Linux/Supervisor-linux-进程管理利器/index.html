@@ -134,14 +134,14 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="为何使用 Supervisor由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974479232748.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974493022433.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-21-14980199749706.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-14-14974479232748.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-14-14974493022433.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-21-14980199749706.jpg">
 <meta property="og:updated_time" content="2017-08-22T12:30:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Supervisor linux 进程管理利器">
 <meta name="twitter:description" content="为何使用 Supervisor由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974479232748.jpg">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2017-06-14-14974479232748.jpg">
 
 
 
@@ -506,8 +506,8 @@
         <h1 id="为何使用-Supervisor"><a href="#为何使用-Supervisor" class="headerlink" title="为何使用 Supervisor"></a>为何使用 Supervisor</h1><p>由于公司项目需求，需要将服务器内核升级为高版本。而定制版阿里云服务器不允许用户自行更改内核，于是只好格式化原服务器，选择 Ubuntu 系统 重新安装各种软件。</p>
 <a id="more"></a>
 <p> 2017年年初，公司阿里云服务器版本是阿里云定制版本：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974479232748.jpg" alt=""></p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-14-14974493022433.jpg" alt=""></p>
+<p><img src="http://cdn.gplayo.com/2017-06-14-14974479232748.jpg" alt=""></p>
+<p><img src="http://cdn.gplayo.com/2017-06-14-14974493022433.jpg" alt=""></p>
 <p>安装完毕，查看内核（方法有三）如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">oot@iZ23u31elifZ:~# uname -a</span><br><span class="line">Linux iZ23u31elifZ 4.4.0-79-generic #100-Ubuntu SMP Wed May 17 19:58:14 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">root@iZ23u31elifZ:~# cat /proc/version</span><br><span class="line">Linux version 4.4.0-79-generic (buildd@lcy01-30) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #100-Ubuntu SMP Wed May 17 19:58:14 UTC 2017</span><br><span class="line"></span><br><span class="line">root@iZ23u31elifZ:~# uname -r</span><br><span class="line">4.4.0-79-generic</span><br><span class="line">root@iZ23u31elifZ:~#</span><br></pre></td></tr></table></figure>
 <p>满足内核要求。</p>
@@ -530,7 +530,7 @@
 <p>注意看最后有中文注释的地方，配置端口，用户名和密码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">port=0.0.0.0:9008           ; 指定可以连接supervisord server的ip地址及其所使用的端口号，*:port针对任何ip开放连接权限</span><br><span class="line">username=best               ; 指定supervisorctl连接时需要使用的用户名，默认不需用户名</span><br><span class="line">password=best8***</span><br></pre></td></tr></table></figure>
 <p>然后浏览器打开相应地址就能看到监控界面啦！跟 ActiveMQ 监控界面类似，不过 Supervisor 要简单许多！<br>如下图</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-21-14980199749706.jpg" alt=""></p>
+<p><img src="http://cdn.gplayo.com/2017-06-21-14980199749706.jpg" alt=""></p>
 <h2 id="其他选项"><a href="#其他选项" class="headerlink" title="其他选项"></a>其他选项</h2><p>具体请参考 <a href="http://supervisord.org/" target="_blank" rel="noopener">supervisor文档</a></p>
 <p>Enjoy！！！</p>
 
@@ -807,7 +807,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">

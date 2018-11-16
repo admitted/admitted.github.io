@@ -134,13 +134,13 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="一、封装性1、面向对象的特征一：封装与隐藏 问题：当创建了类的对象以后，如果直接通过”对象.属性”的方式对相应的对象属性赋值的话，可能会出现不满足实际情况的意外，我们考虑不让对象来直接作用属性，而是通过”对象.方法”的形式，来控制对象对属性的访问。实际情况中，对属性的要求就可以通过方法来体现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-05-07-14941662098225.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14942304203686.png">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-05-07-14941662098225.png">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-06-14942304203686.png">
 <meta property="og:updated_time" content="2016-05-05T12:22:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 面向对象的特性">
 <meta name="twitter:description" content="一、封装性1、面向对象的特征一：封装与隐藏 问题：当创建了类的对象以后，如果直接通过”对象.属性”的方式对相应的对象属性赋值的话，可能会出现不满足实际情况的意外，我们考虑不让对象来直接作用属性，而是通过”对象.方法”的形式，来控制对象对属性的访问。实际情况中，对属性的要求就可以通过方法来体现。">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-05-07-14941662098225.png">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2017-05-07-14941662098225.png">
 
 
 
@@ -509,7 +509,7 @@
 <li>四种权限都可以用来修饰   属性、方法、构造器</li>
 <li>修饰类的话：<code>public  &amp;  缺省</code></li>
 </ol>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-05-07-14941662098225.png" alt=""></p>
+<p><img src="http://cdn.gplayo.com/2017-05-07-14941662098225.png" alt=""></p>
 <h1 id="二、继承性"><a href="#二、继承性" class="headerlink" title="二、继承性"></a>二、继承性</h1><h2 id="1、为什么要有继承性："><a href="#1、为什么要有继承性：" class="headerlink" title="1、为什么要有继承性："></a>1、为什么要有继承性：</h2><p>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继承那个类即可。此处的多个类称为子类，单独的这个类称为父类（基类或超类）。可以理解为:“子类<br>is a 父类”</p>
 <ol>
 <li>继承的出现提高了<strong>代码的复用性</strong></li>
@@ -518,7 +518,7 @@
 </ol>
 <h2 id="2、声明格式"><a href="#2、声明格式" class="headerlink" title="2、声明格式"></a>2、声明格式</h2><p>通过 <code>class A extends B</code> 类实现类的继承。<br>子类：A<br>父类或基类SuperClass：B</p>
 <h2 id="3、继承"><a href="#3、继承" class="headerlink" title="3、继承"></a>3、继承</h2><p>父类中声明的属性、方法，子类就可以获取到。子类除了通过继承，获取父类的结构之外，还可以定义自己的特有的成分。</p>
-<p>extends：子类是对父类功能的“扩展”，明确子类不是父类的子集。<br>关于继承的规则：子类不能直接访问父类中私有的(private)的成员变量和方法。<br><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14942304203686.png" alt=""><br>Java中类的单继承：一个类只能继承一个父类。反之，一个父类可以有多个子类。<br>子类和父类：是相对的概念。</p>
+<p>extends：子类是对父类功能的“扩展”，明确子类不是父类的子集。<br>关于继承的规则：子类不能直接访问父类中私有的(private)的成员变量和方法。<br><img src="http://cdn.gplayo.com/2017-06-06-14942304203686.png" alt=""><br>Java中类的单继承：一个类只能继承一个父类。反之，一个父类可以有多个子类。<br>子类和父类：是相对的概念。</p>
 <p><strong>问题：</strong><br>修改了父类后，父类会重新编译，子类也会重新编译吗？<br>答案：是。</p>
 <h1 id="三、多态性"><a href="#三、多态性" class="headerlink" title="三、多态性"></a>三、多态性</h1><h2 id="什么是多态-？："><a href="#什么是多态-？：" class="headerlink" title="什么是多态 ？："></a>什么是多态 ？：</h2><ol>
 <li>面向对象的三大特性：封装、继承、多态。从一定角度来看，封装和继承几乎都是为多态而准备的。这是我们最后一个概念，也是最重要的知识点。</li>
@@ -618,8 +618,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/06/Java/1-Java-Base/3-Java-operator/" rel="next" title="Java 运算符">
-                <i class="fa fa-chevron-left"></i> Java 运算符
+              <a href="/2015/02/08/Java/2-Object-Oriented/5-包装类/" rel="next" title="Java 基本数据类型包装类">
+                <i class="fa fa-chevron-left"></i> Java 基本数据类型包装类
               </a>
             
           </div>
@@ -628,8 +628,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/08/Java/2-Object-Oriented/1-类及对象/" rel="prev" title="Java 类及对象">
-                Java 类及对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/02/08/Java/2-Object-Oriented/2-方法/" rel="prev" title="Java 方法">
+                Java 方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -840,7 +840,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">

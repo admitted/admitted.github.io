@@ -134,12 +134,12 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="LinkedList 简介 LinkedList 是一个继承于 AbstractSequentialList 的双向链表。它也可以被当作堆栈、队列或双端队列进行操作。 LinkedList 实现 List 接口，能对它进行队列操作。 LinkedList 实现 Deque 接口，即能将 LinkedList 当作双端队列使用。 LinkedList 实现了 Cloneable 接口，即覆盖了函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14954627364690.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-06-14954627364690.jpg">
 <meta property="og:updated_time" content="2016-05-01T13:10:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合框架之 LinkedList">
 <meta name="twitter:description" content="LinkedList 简介 LinkedList 是一个继承于 AbstractSequentialList 的双向链表。它也可以被当作堆栈、队列或双端队列进行操作。 LinkedList 实现 List 接口，能对它进行队列操作。 LinkedList 实现 Deque 接口，即能将 LinkedList 当作双端队列使用。 LinkedList 实现了 Cloneable 接口，即覆盖了函数">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14954627364690.jpg">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2017-06-06-14954627364690.jpg">
 
 
 
@@ -517,7 +517,7 @@
 <p>此外，我们若需要通过 AbstractSequentialList 自己实现一个列表，只需要扩展此类，并提供 listIterator() 和 size() 方法的实现即可。若要实现不可修改的列表，则需要实现列表迭代器的 hasNext、next、hasPrevious、previous 和 index 方法即可。</p>
 <h1 id="LinkedList-数据结构"><a href="#LinkedList-数据结构" class="headerlink" title="LinkedList 数据结构"></a>LinkedList 数据结构</h1><h2 id="LinkedList-的继承关系"><a href="#LinkedList-的继承关系" class="headerlink" title="LinkedList 的继承关系"></a>LinkedList 的继承关系</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Object</span><br><span class="line">   ↳     java.util.AbstractCollection&lt;E&gt;</span><br><span class="line">         ↳     java.util.AbstractList&lt;E&gt;</span><br><span class="line">               ↳     java.util.AbstractSequentialList&lt;E&gt;</span><br><span class="line">                     ↳     java.util.LinkedList&lt;E&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedList&lt;E&gt;</span><br><span class="line">    extends AbstractSequentialList&lt;E&gt;</span><br><span class="line">    implements List&lt;E&gt;, Deque&lt;E&gt;, Cloneable, java.io.Serializable &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="LinkedList-与-Collection-关系图："><a href="#LinkedList-与-Collection-关系图：" class="headerlink" title="LinkedList 与 Collection 关系图："></a>LinkedList 与 Collection 关系图：</h2><p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14954627364690.jpg" alt=""></p>
+<h2 id="LinkedList-与-Collection-关系图："><a href="#LinkedList-与-Collection-关系图：" class="headerlink" title="LinkedList 与 Collection 关系图："></a>LinkedList 与 Collection 关系图：</h2><p><img src="http://cdn.gplayo.com/2017-06-06-14954627364690.jpg" alt=""></p>
 <p>LinkedList的本质是双向链表。</p>
 <ol>
 <li>LinkedList 继承于 AbstractSequentialList，并且实现了 Dequeue 接口。 </li>
@@ -708,8 +708,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/20/Java/8-Collection-Map/6-Vector/" rel="next" title="集合框架之 Ventor">
-                <i class="fa fa-chevron-left"></i> 集合框架之 Ventor
+              <a href="/2015/05/08/Java/8-Collection-Map/4-fail-fast/" rel="next" title="集合框架之 Fail-Fast">
+                <i class="fa fa-chevron-left"></i> 集合框架之 Fail-Fast
               </a>
             
           </div>
@@ -718,8 +718,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/21/Java/8-Collection-Map/7-Stack/" rel="prev" title="集合框架之 Stack">
-                集合框架之 Stack <i class="fa fa-chevron-right"></i>
+              <a href="/2015/05/20/Java/8-Collection-Map/6-Vector/" rel="prev" title="集合框架之 Ventor">
+                集合框架之 Ventor <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -930,7 +930,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">

@@ -134,12 +134,12 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="ArrayList 简介123public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java.io.Serializable&amp;#123;&amp;#125; ArrayList 是一个数组队列，相当于动态数组。与 Java">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14954399703939.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-06-14954399703939.jpg">
 <meta property="og:updated_time" content="2016-05-02T11:30:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合框架之 ArrayList">
 <meta name="twitter:description" content="ArrayList 简介123public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java.io.Serializable&amp;#123;&amp;#125; ArrayList 是一个数组队列，相当于动态数组。与 Java">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14954399703939.jpg">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2017-06-06-14954399703939.jpg">
 
 
 
@@ -512,7 +512,7 @@
 <h2 id="ArrayList数据结构"><a href="#ArrayList数据结构" class="headerlink" title="ArrayList数据结构"></a>ArrayList数据结构</h2><p>ArrayList的继承关系</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Object</span><br><span class="line">   |___    java.util.AbstractCollection&lt;E&gt;</span><br><span class="line">         |___    java.util.AbstractList&lt;E&gt;</span><br><span class="line">               |___     java.util.ArrayList&lt;E&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>ArrayList 与 Collection 关系如下图：</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-06-14954399703939.jpg" alt=""></p>
+<p><img src="http://cdn.gplayo.com/2017-06-06-14954399703939.jpg" alt=""></p>
 <p>ArrayList 包含了两个重要的对象：elementData 和 size。</p>
 <ol>
 <li><p>elementData 是” Object[] 类型的数组”，它保存了添加到ArrayList中的元素。实际上，elementData 是个动态数组，我们能通过构造函数 <code>ArrayList(int initialCapacity)</code> 来执行它的初始容量为 initialCapacity；如果通过不含参数的构造函数 ArrayList() 来创建 ArrayList，则 elementData 的容量默认是10。elementData 数组的大小会根据 ArrayList 容量的增长而动态的增长，具体的增长方式，请参考源码分析中的 ensureCapacity() 函数。</p>
@@ -821,7 +821,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">

@@ -134,14 +134,14 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="Map 总结学完了Map的全部内容，我们再回头看看Map的框架图。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969090857546.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969123240836.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969321029224.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-08-14969090857546.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-08-14969123240836.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2017-06-08-14969321029224.jpg">
 <meta property="og:updated_time" content="2016-05-01T11:38:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合框架之 Map总结">
 <meta name="twitter:description" content="Map 总结学完了Map的全部内容，我们再回头看看Map的框架图。">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969090857546.jpg">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2017-06-08-14969090857546.jpg">
 
 
 
@@ -504,7 +504,7 @@
 
       
         <h1 id="Map-总结"><a href="#Map-总结" class="headerlink" title="Map 总结"></a>Map 总结</h1><p>学完了Map的全部内容，我们再回头看看Map的框架图。</p>
-<p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969090857546.jpg" alt=""><br><a id="more"></a></p>
+<p><img src="http://cdn.gplayo.com/2017-06-08-14969090857546.jpg" alt=""><br><a id="more"></a></p>
 <h1 id="Map概括"><a href="#Map概括" class="headerlink" title="Map概括"></a>Map概括</h1><ol>
 <li>Map 是“键值对”映射的抽象接口。</li>
 <li>AbstractMap 实现了Map中的绝大部分函数接口。它减少了“Map的实现类”的重复编码。</li>
@@ -518,13 +518,13 @@
 </ol>
 </li>
 </ol>
-<h1 id="HashMap和Hashtable异同"><a href="#HashMap和Hashtable异同" class="headerlink" title="HashMap和Hashtable异同"></a>HashMap和Hashtable异同</h1><h2 id="HashMap和Hashtable的相同点"><a href="#HashMap和Hashtable的相同点" class="headerlink" title="HashMap和Hashtable的相同点"></a>HashMap和Hashtable的相同点</h2><p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969123240836.jpg" alt=""></p>
+<h1 id="HashMap和Hashtable异同"><a href="#HashMap和Hashtable异同" class="headerlink" title="HashMap和Hashtable异同"></a>HashMap和Hashtable异同</h1><h2 id="HashMap和Hashtable的相同点"><a href="#HashMap和Hashtable的相同点" class="headerlink" title="HashMap和Hashtable的相同点"></a>HashMap和Hashtable的相同点</h2><p><img src="http://cdn.gplayo.com/2017-06-08-14969123240836.jpg" alt=""></p>
 <p>HashMap和Hashtable都是存储“键值对(key-value)”的散列表，而且都是采用拉链法实现的。</p>
 <h3 id="存储的思想都是："><a href="#存储的思想都是：" class="headerlink" title="存储的思想都是："></a>存储的思想都是：</h3><p>通过table数组存储，数组的每一个元素都是一个Entry；而一个Entry就是一个单向链表，Entry链表中的每一个节点就保存了key-value键值对数据。</p>
 <h3 id="添加key-value键值对："><a href="#添加key-value键值对：" class="headerlink" title="添加key-value键值对："></a>添加key-value键值对：</h3><p>首先，根据key值计算出哈希值，再计算出数组索引(即，该key-value在table中的索引)。然后，根据数组索引找到Entry(即，单向链表)，再遍历单向链表，将key和链表中的每一个节点的key进行对比。若key已经存在Entry链表中，则用该value值取代旧的value值；若key不存在Entry链表中，则新建一个key-value节点，并将该节点插入Entry链表的表头位置。</p>
 <h3 id="删除key-value键值对："><a href="#删除key-value键值对：" class="headerlink" title="删除key-value键值对："></a>删除key-value键值对：</h3><p>删除键值对，相比于“添加键值对”来说，简单很多。首先，还是根据key计算出哈希值，再计算出数组索引(即，该key-value在table中的索引)。然后，根据索引找出Entry(即，单向链表)。若节点key-value存在与链表Entry中，则删除链表中的节点即可。</p>
 <p>上面介绍了HashMap和Hashtable的相同点。正是由于它们都是散列表，我们关注更多的是“它们的区别，以及它们分别适合在什么情况下使用”。那接下来，我们先看看它们的区别。</p>
-<h2 id="HashMap和Hashtable的不同点"><a href="#HashMap和Hashtable的不同点" class="headerlink" title="HashMap和Hashtable的不同点"></a>HashMap和Hashtable的不同点</h2><h3 id="继承和实现方式不同"><a href="#继承和实现方式不同" class="headerlink" title="继承和实现方式不同"></a>继承和实现方式不同</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2017-06-08-14969321029224.jpg" alt=""></p>
+<h2 id="HashMap和Hashtable的不同点"><a href="#HashMap和Hashtable的不同点" class="headerlink" title="HashMap和Hashtable的不同点"></a>HashMap和Hashtable的不同点</h2><h3 id="继承和实现方式不同"><a href="#继承和实现方式不同" class="headerlink" title="继承和实现方式不同"></a>继承和实现方式不同</h3><p><img src="http://cdn.gplayo.com/2017-06-08-14969321029224.jpg" alt=""></p>
 <p>HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。<br>Hashtable 继承于Dictionary，实现了Map、Cloneable、java.io.Serializable接口。</p>
 <p>HashMap的定义:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">Serializable</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
@@ -636,8 +636,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/15/Java/8-Collection-Map/15-Set/" rel="next" title="集合框架之 Set">
-                <i class="fa fa-chevron-left"></i> 集合框架之 Set
+              <a href="/2015/09/15/Java/8-Collection-Map/16-HashSet/" rel="next" title="集合框架之 HashSet">
+                <i class="fa fa-chevron-left"></i> 集合框架之 HashSet
               </a>
             
           </div>
@@ -646,8 +646,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/18/Java/8-Collection-Map/18-Iterator-and-Enumeration/" rel="prev" title="集合框架之 Iterator 和 Enumeration 比较">
-                集合框架之 Iterator 和 Enumeration 比较 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/15/Java/8-Collection-Map/15-Set/" rel="prev" title="集合框架之 Set">
+                集合框架之 Set <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -858,7 +858,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">

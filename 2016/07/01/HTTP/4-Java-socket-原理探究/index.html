@@ -134,18 +134,18 @@
 <meta property="og:site_name" content="CuiJing&#39;s Blog">
 <meta property="og:description" content="初衷网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-15230980806189.jpg">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-TCP-client-状态机.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-TCP-Service-状态机.png">
-<meta property="og:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-15230977340828.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-03-IP 协议首部-1.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-03-tcp 协议.png">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-03-tcp.png">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-07-15230980806189.jpg">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-07-TCP-client-状态机.png">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-07-TCP-Service-状态机.png">
+<meta property="og:image" content="http://cdn.gplayo.com/2018-04-07-15230977340828.jpg">
 <meta property="og:updated_time" content="2018-04-03T11:41:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程基础原理探究">
 <meta name="twitter:description" content="初衷网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。">
-<meta name="twitter:image" content="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg">
+<meta name="twitter:image" content="http://cdn.gplayo.com/2018-04-03-IP 协议首部-1.jpg">
 
 
 
@@ -508,7 +508,7 @@
 
       
         <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>网络 socket 编程大概内容知道，但是具体原理不清楚，这次具体探究一下。<br><a id="more"></a></p>
-<h2 id="tcp-ip-基础"><a href="#tcp-ip-基础" class="headerlink" title="tcp/ip 基础"></a>tcp/ip 基础</h2><h3 id="IP-协议头部"><a href="#IP-协议头部" class="headerlink" title="IP 协议头部"></a>IP 协议头部</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-IP 协议首部-1.jpg" alt="IP 协议首部"></p>
+<h2 id="tcp-ip-基础"><a href="#tcp-ip-基础" class="headerlink" title="tcp/ip 基础"></a>tcp/ip 基础</h2><h3 id="IP-协议头部"><a href="#IP-协议头部" class="headerlink" title="IP 协议头部"></a>IP 协议头部</h3><p><img src="http://cdn.gplayo.com/2018-04-03-IP 协议首部-1.jpg" alt="IP 协议首部"></p>
 <ul>
 <li><p>版本 Version 字段：占 4 比特。用来表明IP协议实现的版本号，当前一般为 IPv4，即 0100。</p>
 </li>
@@ -535,7 +535,7 @@
 <li><p>可选项字段：占32比特。用来定义一些任选项：如记录路径、时间戳等。这些选项很少被使用，同时并不是所有主机和路由器都支持这些选项。可选项字段的长度必须是32比特的整数倍，如果不足，必须填充0以达到此长度要求。</p>
 </li>
 </ul>
-<h3 id="TCP-协议头部"><a href="#TCP-协议头部" class="headerlink" title="TCP 协议头部"></a>TCP 协议头部</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp 协议.png" alt="tcp 协议"></p>
+<h3 id="TCP-协议头部"><a href="#TCP-协议头部" class="headerlink" title="TCP 协议头部"></a>TCP 协议头部</h3><p><img src="http://cdn.gplayo.com/2018-04-03-tcp 协议.png" alt="tcp 协议"></p>
 <ul>
 <li><p>端口号 [16bit]：网络实现的是不同主机的进程之间的通信。在一个操作系统中有很多进程，当数据到来时要提交给哪个进程进行处理呢？这就需要用到端口号。在TCP头中，有源端口号（Source Port）和目标端口号（Destination Port）。源端口号标识了发送主机的进程，目标端口号标识接受方主机的进程。</p>
 </li>
@@ -570,10 +570,10 @@
 <li><p>TCP选项：是可选的。</p>
 </li>
 </ul>
-<h3 id="tcp-ip-协议栈"><a href="#tcp-ip-协议栈" class="headerlink" title="tcp/ip 协议栈"></a>tcp/ip 协议栈</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-03-tcp.png" alt="tcp"></p>
-<h3 id="tcp-ip-包的封装与解析"><a href="#tcp-ip-包的封装与解析" class="headerlink" title="tcp/ip 包的封装与解析"></a>tcp/ip 包的封装与解析</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-15230980806189.jpg" alt=""></p>
-<h3 id="tcp-ip-状态变迁"><a href="#tcp-ip-状态变迁" class="headerlink" title="tcp/ip 状态变迁"></a>tcp/ip 状态变迁</h3><p>TCP 客户端状态变迁图<br><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-TCP-client-状态机.png" alt="TCP-client-状态机"></p>
-<p>TCP 服务端状态变迁图<br><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-TCP-Service-状态机.png" alt="TCP-Service-状态机"></p>
+<h3 id="tcp-ip-协议栈"><a href="#tcp-ip-协议栈" class="headerlink" title="tcp/ip 协议栈"></a>tcp/ip 协议栈</h3><p><img src="http://cdn.gplayo.com/2018-04-03-tcp.png" alt="tcp"></p>
+<h3 id="tcp-ip-包的封装与解析"><a href="#tcp-ip-包的封装与解析" class="headerlink" title="tcp/ip 包的封装与解析"></a>tcp/ip 包的封装与解析</h3><p><img src="http://cdn.gplayo.com/2018-04-07-15230980806189.jpg" alt=""></p>
+<h3 id="tcp-ip-状态变迁"><a href="#tcp-ip-状态变迁" class="headerlink" title="tcp/ip 状态变迁"></a>tcp/ip 状态变迁</h3><p>TCP 客户端状态变迁图<br><img src="http://cdn.gplayo.com/2018-04-07-TCP-client-状态机.png" alt="TCP-client-状态机"></p>
+<p>TCP 服务端状态变迁图<br><img src="http://cdn.gplayo.com/2018-04-07-TCP-Service-状态机.png" alt="TCP-Service-状态机"></p>
 <ul>
 <li><p>CLOSED：表示初始状态。对服务端和 C 客户端双方都一样。</p>
 </li>
@@ -598,7 +598,7 @@
 <li><p>LAST_ACK：表示被动关闭方发送 FIN 报文后，等待对方的 ACK 报文状态，当收到 ACK 后进入 CLOSED 状态。</p>
 </li>
 </ul>
-<h3 id="TCP-建立连接和释放链接"><a href="#TCP-建立连接和释放链接" class="headerlink" title="TCP 建立连接和释放链接"></a>TCP 建立连接和释放链接</h3><p><img src="http://oov0wb0gl.bkt.clouddn.com/2018-04-07-15230977340828.jpg" alt=""></p>
+<h3 id="TCP-建立连接和释放链接"><a href="#TCP-建立连接和释放链接" class="headerlink" title="TCP 建立连接和释放链接"></a>TCP 建立连接和释放链接</h3><p><img src="http://cdn.gplayo.com/2018-04-07-15230977340828.jpg" alt=""></p>
 <h4 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h4><p>设主机 B 运行一个服务器进程，它先发出一个被动打开命令，告诉它的 TCP 要准备接收客户进程的连续请求，然后服务进程就处于听的状态。不断检测是否有客户进程发起连接请求，如有，作出响应。</p>
 <p>设客户进程运行在主机 A 中，他先向自己的 TCP 发出主动打开的命令，表明要向某个 IP 地址的某个端口建立运输连接，过程如下：</p>
 <ol>
@@ -894,7 +894,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
